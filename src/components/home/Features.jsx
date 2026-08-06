@@ -41,12 +41,12 @@ export default function Features() {
   ];
 
   return (
-    <section className="py-16 md:py-20 lg:py-24 bg-[var(--blue-50)] relative overflow-hidden">
+    <section className="py-16 md:py-20 lg:py-18 bg-[var(--blue-50)] relative overflow-hidden">
       {/* Decorative blobs */}
       <div className="absolute top-0 right-0 w-[500px] h-[500px] bg-[var(--blue-200)] rounded-full opacity-20 blur-[100px] pointer-events-none -translate-y-1/2 translate-x-1/2"></div>
       <div className="absolute bottom-0 left-0 w-[400px] h-[400px] bg-[var(--blue-300)] rounded-full opacity-15 blur-[80px] pointer-events-none translate-y-1/2 -translate-x-1/2"></div>
 
-      <div className="max-w-7xl mx-auto px-6 lg:px-10 relative z-10">
+      <div className="max-w-7xl mx-auto px-6 lg:px-2 relative z-10">
         <ScrollReveal delay={0}>
           <div className="text-center max-w-2xl mx-auto mb-14 md:mb-20">
             <p className="eyebrow mb-3">The Catalyst Standard</p>

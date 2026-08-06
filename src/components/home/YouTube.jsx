@@ -106,7 +106,7 @@ export default function YouTube() {
     return index;
   };
 
-  const targetOffset = slideOffsets[currentIndex] ?? (currentIndex * 464);
+  const targetOffset = slideOffsets[currentIndex] ?? (currentIndex * 444);
 
   return (
     <section className="py-16 md:py-20 lg:py-24 bg-[var(--blue-50)] overflow-hidden select-none">
@@ -154,7 +154,7 @@ export default function YouTube() {
                     href={`https://www.youtube.com/watch?v=${video.videoId}`} 
                     target="_blank" 
                     rel="noopener noreferrer" 
-                    className="w-[85vw] sm:w-[440px] block rounded-lg overflow-hidden relative aspect-video group border border-[var(--line)] shadow-sm hover:shadow-lg transition-shadow"
+                    className="w-[85vw] sm:w-[420px] block rounded-lg overflow-hidden relative aspect-video group border border-[var(--line)] shadow-sm hover:shadow-lg transition-shadow"
                     onClick={(e) => { if (hasDragged) e.preventDefault(); }}
                     style={{ pointerEvents: 'auto' }}
                   >

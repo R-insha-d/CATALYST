@@ -1,5 +1,7 @@
 import { useRef, useState, useEffect, useCallback } from 'react';
+
 import ScrollReveal from '../ui/ScrollReveal';
+import { CtaStripBackground } from './CtaStrip';
 
 import diyaImg from '../../assets/placement-img/placement-DIYA.jpg';
 import althafImg from '../../assets/placement-img/placement ALTHAF ALI-01.jpg';
@@ -13,7 +15,7 @@ export default function Placements() {
   const [isHovered, setIsHovered] = useState(false);
   const [isTransitioning, setIsTransitioning] = useState(false);
   const [slideOffsets, setSlideOffsets] = useState([]);
-  
+
   const trackRef = useRef(null);
 
   const placementData = [
@@ -82,17 +84,17 @@ export default function Placements() {
         setSlideOffsets(offsets);
       }
     };
-    
+
     updateOffsets();
-    
+
     // Robust resize handling
     window.addEventListener('resize', updateOffsets);
     const observer = new ResizeObserver(updateOffsets);
     if (trackRef.current) observer.observe(trackRef.current);
-    
+
     // Timeout to catch post-hydration layout shifts
     const timeout = setTimeout(updateOffsets, 150);
-    
+
     return () => {
       window.removeEventListener('resize', updateOffsets);
       observer.disconnect();
@@ -130,7 +132,7 @@ export default function Placements() {
       } else if (currentIndex <= 0) {
         setCurrentIndex(currentIndex + totalOriginal);
       }
-    }, 600); 
+    }, 600);
     return () => clearTimeout(timer);
   }, [currentIndex, isTransitioning, totalOriginal]);
 
@@ -144,7 +146,7 @@ export default function Placements() {
     const clientX = e.clientX || (e.touches && e.touches[0].clientX);
     setDragStartX(clientX);
     setIsDragging(true);
-    setIsTransitioning(false); 
+    setIsTransitioning(false);
   };
 
   const handlePointerMove = (e) => {
@@ -171,88 +173,89 @@ export default function Placements() {
   const targetOffset = slideOffsets[currentIndex] ?? (currentIndex * 382);
 
   return (
-    <section id="stories" className="py-16 md:py-20 lg:py-24 bg-[var(--blue-50)] overflow-hidden select-none">
-      <div className="max-w-7xl mx-auto px-6 lg:px-10">
+    <section id="stories" className="relative py-16 md:py-20 lg:py-18 overflow-hidden select-none">
+      <CtaStripBackground />
+      <div className="max-w-7xl mx-auto px-6 lg:px-10 relative z-10">
         <ScrollReveal delay={0}>
           <div className="text-center max-w-xl mx-auto mb-12 md:mb-16">
-            <h2 className="font-display font-bold text-3xl sm:text-4xl" style={{ color: 'var(--blue-900)' }}>Our successful <span className="blue-text">placements</span></h2>
-            <p className="mt-4" style={{ color: 'var(--slate-600)' }}>As a commerce institute with 100% placement support, our students have secured roles in reputed MNCs and top companies.</p>
+            <h2 className="font-display font-bold text-3xl sm:text-4xl text-white">Our successful <span className="text-[#00e5ff]">placements</span></h2>
+            <p className="mt-4 text-blue-100 opacity-90">As a commerce institute with 100% placement support, our students have secured roles in reputed MNCs and top companies.</p>
           </div>
         </ScrollReveal>
       </div>
 
       {/* Interactive Infinite Carousel */}
       <ScrollReveal delay={300}>
-        <div 
-          className="relative w-full max-w-[1194px] mx-auto pb-14 px-6 lg:px-10"
+        <div
+          className="relative w-full max-w-[1194px] mx-auto pb-14 px-6 lg:px-10  z-10"
           onMouseEnter={() => setIsHovered(true)}
           onMouseLeave={() => setIsHovered(false)}
           onTouchStart={() => setIsHovered(true)}
           onTouchEnd={() => setIsHovered(false)}
         >
-        <div 
-          className="overflow-hidden pb-8 cursor-grab active:cursor-grabbing"
-          style={{ touchAction: 'pan-y' }}
-          onPointerDown={handlePointerDown}
-          onPointerMove={handlePointerMove}
-          onPointerUp={handlePointerUp}
-          onPointerLeave={handlePointerUp}
-        >
-          <div 
-            ref={trackRef}
-            className="flex gap-6 md:gap-8 w-max relative"
-            style={{ 
-              transform: `translateX(calc(-${targetOffset}px + ${dragOffset}px))`,
-              transition: isDragging || !isTransitioning ? 'none' : 'transform 600ms ease-in-out'
-            }}
+          <div
+            className="overflow-hidden pb-8 lg:pt-4 cursor-grab active:cursor-grabbing"
+            style={{ touchAction: 'pan-y' }}
+            onPointerDown={handlePointerDown}
+            onPointerMove={handlePointerMove}
+            onPointerUp={handlePointerUp}
+            onPointerLeave={handlePointerUp}
           >
-            {extendedPlacements.map((placement, idx) => (
-              <ScrollReveal
-                key={idx}
-                delay={(idx % placementData.length) * 150}
-                className="shrink-0"
-              >
-                <div 
-                  className="w-[85vw] sm:w-[350px] rounded-lg bg-white border border-[var(--line)] overflow-hidden shadow-sm hover:shadow-xl transition-all duration-300 transform hover:-translate-y-1"
-                  style={{ pointerEvents: isDragging ? 'none' : 'auto' }} 
+            <div
+              ref={trackRef}
+              className="flex gap-6 md:gap-8 w-max relative"
+              style={{
+                transform: `translateX(calc(-${targetOffset}px + ${dragOffset}px))`,
+                transition: isDragging || !isTransitioning ? 'none' : 'transform 600ms ease-in-out'
+              }}
+            >
+              {extendedPlacements.map((placement, idx) => (
+                <ScrollReveal
+                  key={idx}
+                  delay={(idx % placementData.length) * 150}
+                  className="shrink-0"
                 >
-                  <div className="aspect-[4/5] relative bg-[var(--blue-50)]">
-                    <img 
-                      src={placement.img} 
-                      alt={placement.name} 
-                      className="w-full h-full object-cover object-top"
-                      draggable="false"
-                    />
+                  <div
+                    className="w-[85vw] sm:w-[350px] rounded-lg bg-white border border-[var(--line)] overflow-hidden shadow-sm hover:shadow-xl transition-all duration-300 transform hover:-translate-y-1"
+                    style={{ pointerEvents: isDragging ? 'none' : 'auto' }}
+                  >
+                    <div className="aspect-[4/5] relative bg-[var(--blue-50)]">
+                      <img
+                        src={placement.img}
+                        alt={placement.name}
+                        className="w-full h-full object-cover object-top"
+                        draggable="false"
+                      />
+                    </div>
                   </div>
-                </div>
-              </ScrollReveal>
+                </ScrollReveal>
+              ))}
+            </div>
+          </div>
+
+          {/* Custom Progress Dots */}
+          <div className="absolute bottom-0 left-1/2 -translate-x-1/2 flex items-center justify-center gap-2.5">
+            {placementData.map((_, i) => (
+              <button
+                key={i}
+                onClick={() => {
+                  const diff = i - getRealIndex();
+                  if (diff !== 0) {
+                    setIsTransitioning(true);
+                    setCurrentIndex(prev => prev + diff);
+                  }
+                }}
+                aria-label={`Go to placement ${i + 1}`}
+                className={`h-2 rounded-full bg-white transition-all duration-300 cursor-pointer ${getRealIndex() === i ? 'w-8 opacity-100' : 'w-2 opacity-30'}`}
+              ></button>
             ))}
           </div>
-        </div>
-
-        {/* Custom Progress Dots */}
-        <div className="absolute bottom-0 left-1/2 -translate-x-1/2 flex items-center justify-center gap-2.5">
-          {placementData.map((_, i) => (
-             <button 
-               key={i} 
-               onClick={() => {
-                 const diff = i - getRealIndex();
-                 if (diff !== 0) {
-                   setIsTransitioning(true);
-                   setCurrentIndex(prev => prev + diff);
-                 }
-               }}
-               aria-label={`Go to placement ${i + 1}`}
-               className={`h-2 rounded-full bg-[var(--blue-700)] transition-all duration-300 cursor-pointer ${getRealIndex() === i ? 'w-8 opacity-100' : 'w-2 opacity-30'}`}
-             ></button>
-          ))}
-        </div>
         </div>
       </ScrollReveal>
 
       <ScrollReveal delay={600}>
-        <div className="text-center mt-16">
-          <a href="#contact" className="focus-ring inline-flex rounded-lg px-8 py-4 text-sm font-semibold text-white shadow-lg hover:shadow-xl transition-shadow bg-[var(--blue-700)] hover:bg-[var(--blue-900)]">Enquire Now</a>
+        <div className="text-center mt-16 relative z-10">
+          <a href="#contact" className="focus-ring inline-flex rounded-lg px-8 py-4 text-sm font-semibold text-[var(--blue-900)] bg-white shadow-lg hover:shadow-xl hover:-translate-y-0.5 transition-all duration-300 hover:bg-gray-50">Enquire Now</a>
         </div>
       </ScrollReveal>
     </section>

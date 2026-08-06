@@ -114,12 +114,12 @@ export default function Faculty() {
     return index;
   };
 
-  // Safe fallback if offsets are not yet computed (320px card + 32px gap)
-  const targetOffset = slideOffsets[currentIndex] ?? (currentIndex * 352);
+  // Safe fallback if offsets are not yet computed (380px card + 32px gap)
+  const targetOffset = slideOffsets[currentIndex] ?? (currentIndex * 412);
 
   return (
     <section
-      className="py-16 md:py-20 lg:py-24 bg-[var(--blue-50)] overflow-hidden select-none"
+      className="py-16 md:py-20 lg:py-10 bg-[var(--blue-50)] overflow-hidden select-none"
     >
       <div className="max-w-7xl mx-auto px-6 lg:px-10">
         <ScrollReveal delay={0}>
@@ -133,7 +133,7 @@ export default function Faculty() {
 
       <ScrollReveal delay={300}>
         <div
-          className="relative w-full max-w-[1105px]  mx-auto pb-14 px-6 lg:px-10"
+          className="relative w-full max-w-[1330px] overflow-hidden mx-auto pb-14 px-6 lg:px-15 lg:pt-3"
           onMouseEnter={() => setIsHovered(true)}
           onMouseLeave={() => setIsHovered(false)}
           onTouchStart={() => setIsHovered(true)}
@@ -149,7 +149,7 @@ export default function Faculty() {
           >
             <div
               ref={trackRef}
-              className="flex gap-6 lg:gap-8 w-max relative "
+              className="flex gap-6 lg:gap-8 w-max relative lg:pt-3"
               style={{
                 transform: `translateX(calc(-${targetOffset}px + ${dragOffset}px))`,
                 transition: isDragging || !isTransitioning ? 'none' : 'transform 600ms ease-in-out'
@@ -162,7 +162,7 @@ export default function Faculty() {
                   className="shrink-0 self-stretch flex"
                 >
                   <div
-                    className="w-[85vw] sm:w-[320px] flex-1 relative bg-white/90 backdrop-blur-sm rounded-lg p-6 pb-6 flex flex-col items-center overflow-hidden border border-[#1428A0]/15 shadow-[0_12px_40px_rgba(20,40,160,0.06)] hover:shadow-[0_20px_50px_rgba(20,40,160,0.12)] transition-all duration-500 hover:-translate-y-2 group"
+                    className="w-[85vw] sm:w-[380px] flex-1 relative bg-white/90 backdrop-blur-sm rounded-lg p-6 pb-6 flex flex-col items-center overflow-hidden border border-[#1428A0]/15  hover:shadow-[0_20px_50px_rgba(20,40,160,0.12)] transition-all duration-500 hover:-translate-y-2 group"
                     style={{ pointerEvents: isDragging ? 'none' : 'auto' }}
                   >
                     {/* Background Decor */}
@@ -186,8 +186,8 @@ export default function Faculty() {
                       <div className="relative flex items-center justify-center">
                         <div className="absolute inset-0 bg-[#345DFF] blur-md opacity-40 rounded-full group-hover:opacity-60 transition-opacity duration-300"></div>
                         <svg className="relative z-10" width="20" height="20" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-                          <path d="M10.52 1.34c.83-.9 2.13-.9 2.96 0l1.75 1.9c.3.32.73.49 1.16.45l2.61-.26c1.23-.12 2.21.86 2.09 2.09l-.26 2.61c-.04.43.13.86.45 1.16l1.9 1.75c.9.83.9 2.13 0 2.96l-1.9 1.75c-.32.3-.49.73-.45 1.16l.26 2.61c.12 1.23-.86 2.21-2.09 2.09l-2.61-.26c-.43-.04-.86.13-1.16.45l-1.75 1.9c-.83.9-2.13.9-2.96 0l-1.75-1.9c-.3-.32-.73-.49-1.16-.45l-2.61.26c-1.23.12-2.21-.86-2.09-2.09l.26-2.61c.04-.43-.13-.86-.45-1.16l-1.9-1.75c-.9-.83-.9-2.13 0-2.96l1.9-1.75c.32-.3.49-.73.45-1.16l-.26-2.61c-.12-1.23.86-2.21 2.09-2.09l2.61.26c.43.04.86-.13 1.16-.45l1.75-1.9z" fill="#345DFF"/>
-                          <path d="M10.22 15.65l-3.32-3.31 1.41-1.42 1.91 1.91 5.37-5.37 1.41 1.42-6.78 6.77z" fill="white"/>
+                          <path d="M10.52 1.34c.83-.9 2.13-.9 2.96 0l1.75 1.9c.3.32.73.49 1.16.45l2.61-.26c1.23-.12 2.21.86 2.09 2.09l-.26 2.61c-.04.43.13.86.45 1.16l1.9 1.75c.9.83.9 2.13 0 2.96l-1.9 1.75c-.32.3-.49.73-.45 1.16l.26 2.61c.12 1.23-.86 2.21-2.09 2.09l-2.61-.26c-.43-.04-.86.13-1.16.45l-1.75 1.9c-.83.9-2.13.9-2.96 0l-1.75-1.9c-.3-.32-.73-.49-1.16-.45l-2.61.26c-1.23.12-2.21-.86-2.09-2.09l.26-2.61c.04-.43-.13-.86-.45-1.16l-1.9-1.75c-.9-.83-.9-2.13 0-2.96l1.9-1.75c.32-.3.49-.73.45-1.16l-.26-2.61c-.12-1.23.86-2.21 2.09-2.09l2.61.26c.43.04.86-.13 1.16-.45l1.75-1.9z" fill="#345DFF" />
+                          <path d="M10.22 15.65l-3.32-3.31 1.41-1.42 1.91 1.91 5.37-5.37 1.41 1.42-6.78 6.77z" fill="white" />
                         </svg>
                       </div>
                     </div>

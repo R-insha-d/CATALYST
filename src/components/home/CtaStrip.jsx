@@ -1,14 +1,156 @@
+import { useRef, useState, useEffect, useMemo } from 'react';
 import bannerImg from '../../assets/event/event.jpg';
 import ScrollReveal from '../ui/ScrollReveal';
 
+export const CtaStripBackground = () => {
+  const [isHovering, setIsHovering] = useState(false);
+  const containerRef = useRef(null);
+
+  const mouse = useRef({ x: 0, y: 0, nX: 0, nY: 0 });
+  const animated = useRef({ x: 0, y: 0, nX: 0, nY: 0, outerX: 0, outerY: 0 });
+
+  const outerGlowRef = useRef(null);
+  const innerGlowRef = useRef(null);
+  const parallaxBgRef = useRef(null);
+  const parallaxParticlesRef = useRef(null);
+
+  useEffect(() => {
+    let animationFrameId;
+
+    if (containerRef.current) {
+      const rect = containerRef.current.getBoundingClientRect();
+      const cx = rect.width / 2;
+      const cy = rect.height / 2;
+      mouse.current = { x: cx, y: cy, nX: 0, nY: 0 };
+      animated.current = { x: cx, y: cy, nX: 0, nY: 0, outerX: cx, outerY: cy };
+    }
+
+    const render = () => {
+      animated.current.outerX += (mouse.current.x - animated.current.outerX) * 0.04;
+      animated.current.outerY += (mouse.current.y - animated.current.outerY) * 0.04;
+      
+      animated.current.x += (mouse.current.x - animated.current.x) * 0.12;
+      animated.current.y += (mouse.current.y - animated.current.y) * 0.12;
+      
+      animated.current.nX += (mouse.current.nX - animated.current.nX) * 0.05;
+      animated.current.nY += (mouse.current.nY - animated.current.nY) * 0.05;
+
+      if (outerGlowRef.current) {
+        outerGlowRef.current.style.transform = `translate3d(${animated.current.outerX - 400}px, ${animated.current.outerY - 400}px, 0)`;
+      }
+      if (innerGlowRef.current) {
+        innerGlowRef.current.style.transform = `translate3d(${animated.current.x - 150}px, ${animated.current.y - 150}px, 0)`;
+      }
+      if (parallaxBgRef.current) {
+        parallaxBgRef.current.style.transform = `translate3d(${animated.current.nX * -30}px, ${animated.current.nY * -30}px, 0)`;
+      }
+      if (parallaxParticlesRef.current) {
+        parallaxParticlesRef.current.style.transform = `translate3d(${animated.current.nX * -15}px, ${animated.current.nY * -15}px, 0)`;
+      }
+
+      animationFrameId = requestAnimationFrame(render);
+    };
+    render();
+
+    const handleMouseMove = (e) => {
+      if (!containerRef.current) return;
+      const rect = containerRef.current.getBoundingClientRect();
+      const x = e.clientX - rect.left;
+      const y = e.clientY - rect.top;
+      mouse.current.x = x;
+      mouse.current.y = y;
+      mouse.current.nX = (x / rect.width) * 2 - 1;
+      mouse.current.nY = (y / rect.height) * 2 - 1;
+    };
+
+    const handleMouseEnter = () => setIsHovering(true);
+    const handleMouseLeave = () => {
+      setIsHovering(false);
+      mouse.current.nX = 0;
+      mouse.current.nY = 0;
+    };
+
+    const el = containerRef.current;
+    if (el) {
+      el.addEventListener('mousemove', handleMouseMove, { passive: true });
+      el.addEventListener('mouseenter', handleMouseEnter);
+      el.addEventListener('mouseleave', handleMouseLeave);
+    }
+    return () => {
+      if (el) {
+        el.removeEventListener('mousemove', handleMouseMove);
+        el.removeEventListener('mouseenter', handleMouseEnter);
+        el.removeEventListener('mouseleave', handleMouseLeave);
+      }
+      cancelAnimationFrame(animationFrameId);
+    };
+  }, []);
+
+  const particles = useMemo(() => {
+    return Array.from({ length: 25 }).map((_, i) => ({
+      id: i,
+      size: Math.random() * 2 + 1,
+      left: Math.random() * 100,
+      top: Math.random() * 100,
+      animDuration: Math.random() * 10 + 12,
+      animDelay: Math.random() * 15,
+    }));
+  }, []);
+
+  return (
+    <div ref={containerRef} className="absolute inset-0 overflow-hidden bg-[#0A1A70] z-0 pointer-events-auto rounded-[inherit]">
+      <div className="absolute inset-[-50%] bg-[radial-gradient(circle_at_50%_50%,#0E1D6B_0%,#0A1A70_50%,#050814_100%)] placements-bg-layer" style={{ animation: 'bgPulse 45s ease-in-out infinite alternate' }} />
+      
+      <div ref={parallaxBgRef} className="absolute inset-0 will-change-transform">
+        <div className="absolute w-[70vw] h-[70vw] rounded-full bg-[#1428A0] opacity-35 blur-[120px] top-[-20%] left-[-10%] mix-blend-screen placements-bg-layer" style={{ animation: 'floatBlob1 32s cubic-bezier(0.4,0,0.2,1) infinite' }} />
+        <div className="absolute w-[60vw] h-[60vw] rounded-full bg-[#00e5ff] opacity-15 blur-[120px] bottom-[-30%] right-[-10%] mix-blend-screen placements-bg-layer" style={{ animation: 'floatBlob2 35s cubic-bezier(0.4,0,0.2,1) infinite reverse' }} />
+        <div className="absolute w-[80vw] h-[80vw] rounded-full bg-[#1B3FC4] opacity-20 blur-[150px] top-[30%] left-[20%] mix-blend-screen placements-bg-layer" style={{ animation: 'floatBlob3 38s cubic-bezier(0.4,0,0.2,1) infinite' }} />
+
+        <div className="absolute inset-0 opacity-60 placements-bg-layer" style={{ backgroundImage: 'radial-gradient(at 80% 0%, rgba(20,40,160,0.2) 0px, transparent 50%), radial-gradient(at 0% 50%, rgba(0,229,255,0.15) 0px, transparent 50%)', animation: 'meshFlow 24s ease-in-out infinite alternate' }} />
+
+        <div className="absolute w-[150vw] h-[150vh] top-[-25vh] left-[-25vw] bg-[radial-gradient(circle_at_50%_50%,rgba(255,255,255,0.035)_0%,transparent_60%)] placements-bg-layer" style={{ animation: 'rotateGlow 18s linear infinite' }} />
+      </div>
+
+      <div ref={parallaxParticlesRef} className="absolute inset-0 will-change-transform">
+        {particles.map(p => (
+          <div
+            key={p.id}
+            className="absolute bg-white rounded-full opacity-30 shadow-[0_0_10px_rgba(255,255,255,0.8)] placements-bg-layer"
+            style={{
+              width: `${p.size}px`,
+              height: `${p.size}px`,
+              left: `${p.left}%`,
+              top: `${p.top}%`,
+              animation: `floatParticle ${p.animDuration}s linear infinite`,
+              animationDelay: `-${p.animDelay}s`,
+            }}
+          />
+        ))}
+      </div>
+
+      <div className="absolute inset-0 opacity-[0.035] mix-blend-overlay pointer-events-none" style={{ backgroundImage: `url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noiseFilter'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.65' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noiseFilter)'/%3E%3C/svg%3E")` }} />
+
+      <div className="absolute inset-[-100%] bg-[linear-gradient(90deg,transparent,rgba(255,255,255,0.025),transparent)] placements-bg-layer" style={{ animation: 'sweepMotion 18s linear infinite' }} />
+
+      <div 
+        ref={outerGlowRef}
+        className="absolute w-[800px] h-[800px] rounded-full bg-[radial-gradient(circle,rgba(77,163,255,0.12)_0%,transparent_60%)] pointer-events-none transition-opacity duration-700 will-change-transform z-10 placements-bg-layer mix-blend-screen"
+        style={{ opacity: isHovering ? 1 : 0 }}
+      />
+
+      <div 
+        ref={innerGlowRef}
+        className="absolute w-[300px] h-[300px] rounded-full bg-[radial-gradient(circle,rgba(0,229,255,0.15)_0%,transparent_60%)] pointer-events-none transition-opacity duration-500 will-change-transform z-10 placements-bg-layer mix-blend-screen"
+        style={{ opacity: isHovering ? 1 : 0 }}
+      />
+    </div>
+  );
+};
+
 export default function CtaStrip() {
   return (
-    <section className="relative py-20 lg:py-28 bg-[var(--blue-900)] overflow-hidden">
-      {/* Background Deep Glows for premium feel */}
-      <div className="absolute top-0 left-0 w-full h-full overflow-hidden pointer-events-none">
-        <div className="absolute -top-[20%] -right-[10%] w-[70%] h-[70%] rounded-full bg-[var(--blue-500)] opacity-30 blur-[120px]"></div>
-        <div className="absolute -bottom-[20%] -left-[10%] w-[60%] h-[60%] rounded-full bg-blue-400 opacity-20 blur-[100px]"></div>
-      </div>
+    <section className="relative flex flex-col justify-center min-h-[60vh] py-24 lg:py-32 bg-gradient-to-br from-[#0E1D6B] to-[#050814] overflow-hidden border-y border-[rgba(20,40,160,0.2)]">
+      <CtaStripBackground />
       
       <div className="max-w-7xl mx-auto px-6 lg:px-10 grid lg:grid-cols-2 gap-12 lg:gap-16 items-center relative z-10">
         <ScrollReveal delay={0}>

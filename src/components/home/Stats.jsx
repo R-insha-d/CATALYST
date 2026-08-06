@@ -1,5 +1,6 @@
 import { useState, useEffect, useRef } from 'react';
 import ScrollReveal from '../ui/ScrollReveal';
+import { CtaStripBackground } from './CtaStrip';
 
 function CountUp({ end, duration = 2000 }) {
   const [count, setCount] = useState(0);
@@ -47,10 +48,8 @@ function CountUp({ end, duration = 2000 }) {
 
 export default function Stats() {
   return (
-    <section className="relative overflow-hidden bg-gradient-to-br from-[var(--blue-900)] to-[#0A1A70] border-none text-white">
-      {/* Decorative background glows */}
-      <div className="absolute top-1/2 left-1/4 w-96 h-96 bg-blue-500 rounded-full mix-blend-screen filter blur-[120px] opacity-30 pointer-events-none -translate-y-1/2"></div>
-      <div className="absolute top-1/2 right-1/4 w-96 h-96 bg-[var(--blue-600)] rounded-full mix-blend-screen filter blur-[100px] opacity-20 pointer-events-none -translate-y-1/2"></div>
+    <section className="relative overflow-hidden bg-[#0a1128] border-none text-white">
+      <CtaStripBackground />
 
       <div className="max-w-7xl mx-auto px-6 lg:px-10 py-16 grid grid-cols-2 md:grid-cols-4 gap-8 md:gap-4 relative z-10">
         <ScrollReveal delay={0}>

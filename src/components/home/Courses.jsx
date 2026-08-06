@@ -1,5 +1,6 @@
 import { useRef, useState, useEffect, useCallback } from 'react';
 import ScrollReveal from '../ui/ScrollReveal';
+import { CtaStripBackground } from './CtaStrip';
 
 export default function Courses() {
   const [isHovered, setIsHovered] = useState(false);
@@ -137,16 +138,17 @@ export default function Courses() {
   };
 
   // Ensure safe fallback if offsets are not yet computed
-  const targetOffset = slideOffsets[currentIndex] ?? (currentIndex * 382);
+  const targetOffset = slideOffsets[currentIndex] ?? (currentIndex * 402);
 
   return (
-    <section id="courses" className="py-16 md:py-20 lg:py-24 bg-[var(--blue-50)] overflow-hidden select-none">
-      <div className="max-w-7xl mx-auto px-6 lg:px-10">
+    <section id="courses" className="relative py-16 md:py-24 lg:py-28 overflow-hidden select-none">
+      <CtaStripBackground />
+      <div className="relative z-10 max-w-7xl mx-auto px-6 lg:px-10">
         <ScrollReveal delay={0}>
           <div className="text-center max-w-2xl mx-auto mb-12 md:mb-16">
-            <p className="eyebrow mb-3">Our Programmes</p>
-            <h2 className="font-display font-bold text-3xl sm:text-4xl" style={{ color: 'var(--blue-900)' }}>Explore our signature courses</h2>
-            <p className="mt-4" style={{ color: 'var(--slate-600)' }}>Globally recognised programmes, designed to build real skills and accelerate your commerce career.</p>
+            <p className="eyebrow mb-3 !text-blue-200 !bg-white/10 !border-white/20">Our Programmes</p>
+            <h2 className="font-display font-bold text-3xl sm:text-4xl text-white">Explore our signature courses</h2>
+            <p className="mt-4 text-blue-100 opacity-90">Globally recognised programmes, designed to build real skills and accelerate your commerce career.</p>
           </div>
         </ScrollReveal>
       </div>
@@ -154,7 +156,7 @@ export default function Courses() {
       {/* Interactive Infinite Carousel */}
       <ScrollReveal delay={300}>
         <div
-          className="relative w-full max-w-[1194px] mx-auto pb-14 px-6 lg:px-10 course-carousel-container"
+          className="relative z-10 w-full max-w-[90%] mx-auto pb-14 px-6 lg:px-10 course-carousel-container"
           onMouseEnter={() => setIsHovered(true)}
           onMouseLeave={() => setIsHovered(false)}
           onTouchStart={() => setIsHovered(true)}
@@ -183,7 +185,7 @@ export default function Courses() {
                   className="shrink-0 self-stretch flex h-[450px]"
                 >
                   <div
-                    className="w-[85vw] sm:w-[350px] flex-1 flex flex-col relative rounded-[20px] p-8 bg-white border border-gray-100  transition-all duration-500 hover:-translate-y-2 group overflow-hidden"
+                    className="w-[110vw] sm:w-[400px] flex-1 flex flex-col relative rounded-[8px] p-8 bg-white border border-gray-100  transition-all duration-500 hover:-translate-y-2 group overflow-hidden"
                     style={{ pointerEvents: isDragging ? 'none' : 'auto' }}
                   >
                     {/* Subtle top gradient accent */}
@@ -227,7 +229,7 @@ export default function Courses() {
                   }
                 }}
                 aria-label={`Go to course ${i + 1}`}
-                className={`h-2 rounded-[6px] bg-[var(--blue-700)] transition-all duration-300 cursor-pointer ${getRealIndex() === i ? 'w-8 opacity-100' : 'w-2 opacity-30'}`}
+                className={`h-2 rounded-full bg-white transition-all duration-300 cursor-pointer ${getRealIndex() === i ? 'w-8 opacity-100' : 'w-2 opacity-30'}`}
               ></button>
             ))}
           </div>

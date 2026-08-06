@@ -3,7 +3,7 @@ import ScrollReveal from '../ui/ScrollReveal';
 
 export default function About() {
   return (
-    <section id="about" className="py-16 md:py-20 lg:py-24 bg-[var(--blue-50)]">
+    <section id="about" className="py-16 md:py-8 lg:py-20 bg-[var(--blue-50)]">
       <div className="max-w-7xl mx-auto px-6 lg:px-10 grid lg:grid-cols-2 gap-12 lg:gap-16 items-center">
         <ScrollReveal delay={0}>
           <div className="relative">
@@ -40,7 +40,7 @@ export default function About() {
             </p>
           </ScrollReveal>
           <ScrollReveal delay={750}>
-            <a href="#courses" className="group mt-8 inline-flex items-center gap-2 focus-ring rounded-md px-7 py-3.5 text-sm font-semibold text-white bg-[var(--blue-700)] hover:bg-[var(--blue-900)] shadow-[0_8px_20px_rgba(20,40,160,0.2)] hover:shadow-[0_12px_28px_rgba(20,40,160,0.35)] hover:-translate-y-0.5 transition-all duration-300">Apply Now <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round" className="transition-transform duration-300 group-hover:translate-x-1.5"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg></a>
+            <a href="#courses" className="group mt-8 inline-flex items-center gap-2 focus-ring rounded-md px-7 py-3.5 text-sm font-semibold text-white bg-[var(--blue-700)] hover:bg-[var(--blue-900)] shadow-[0_8px_20px_rgba(20,40,160,0.2)] hover:shadow-[0_12px_28px_rgba(20,40,160,0.35)] hover:-translate-y-0.5 transition-all duration-300">Apply Now <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round" className="transition-transform duration-300 group-hover:translate-x-1.5"><path d="M5 12h14" /><path d="m12 5 7 7-7 7" /></svg></a>
           </ScrollReveal>
         </div>
       </div>
