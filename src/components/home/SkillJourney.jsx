@@ -110,7 +110,7 @@ export default function SkillJourney() {
           className="grid grid-cols-1 md:grid-cols-12 gap-6 lg:gap-8"
         >
           {/* Card 1: Large (Left) */}
-          <motion.div variants={cardVariants} className="md:col-span-7 group">
+          <motion.div variants={cardVariants} className="md:col-span-7 group ">
             <div className="h-full bg-white hover:bg-slate-50/50 rounded-[24px] lg:rounded-[8px] p-8 lg:p-12 shadow-[0_4px_24px_rgba(0,0,0,0.03)] transition-all duration-300 ease-out hover:-translate-y-1 hover:shadow-[0_12px_40px_rgba(0,0,0,0.06)] relative overflow-hidden flex flex-col justify-start">
 
               {/* Concentric Circles Decor */}

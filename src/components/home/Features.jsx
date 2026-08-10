@@ -160,7 +160,7 @@ export default function Features() {
           </ScrollReveal>
         </div>
 
-        <div className="relative mt-8 px-0 md:px-12 lg:px-20 ">
+        <div className="relative mt-8 px-0 md:px-12 lg:px-20">
           <Swiper
             modules={[Autoplay, Pagination, Navigation]}
             spaceBetween={32}
@@ -184,7 +184,7 @@ export default function Features() {
             className="features-swiper "
           >
             {features.map((feat, idx) => (
-              <SwiperSlide key={idx} className="h-full py-4 ">
+              <SwiperSlide key={idx} className="h-full py-4">
                 <PremiumCourseCard feat={feat} idx={idx} />
               </SwiperSlide>
             ))}

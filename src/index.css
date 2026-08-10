@@ -642,7 +642,7 @@ details[open] .chev {
 /* Premium Hover Animation (8px lift, 1.03 scale, brighter borders) */
 .swiper-slide .samsung-glass-card:hover {
   transform: scale(1.03) translateY(-8px) !important;
-  box-shadow: 0 50px 100px -20px rgba(0, 26, 114, 0.9), inset 0 1px 0 rgba(255, 255, 255, 0.5), 0 0 60px rgba(31, 91, 255, 0.4) !important;
+  box-shadow: 0 0 0 -20px rgba(0, 26, 114, 0.9), inset 0 0 0 rgba(255, 255, 255, 0.5), 0 0 20px rgba(31, 91, 255, 0.4) !important;
   border-color: rgba(255, 255, 255, 0.5) !important;
   background: rgba(255, 255, 255, 0.18) !important;
   z-index: 20;
