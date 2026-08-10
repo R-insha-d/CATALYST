@@ -1,6 +1,7 @@
 import { useState, useEffect } from 'react';
 import heroMan1 from '../../assets/banner/1.png';
 import heroMan2 from '../../assets/banner/2.png';
+import ScrollReveal from '../ui/ScrollReveal';
 
 export default function Hero() {
   const [currentImage, setCurrentImage] = useState(0);
@@ -17,64 +18,80 @@ export default function Hero() {
     <section id="home" className="relative overflow-hidden bg-white dot-grid">
       <div className="max-w-7xl mx-auto px-6 lg:px-10 pt-16 pb-20 lg:pt-24 lg:pb-28 relative flex flex-col lg:flex-row gap-16 lg:items-start">
         <div className="min-w-0 flex-1">
-          <p className="eyebrow !bg-transparent !border-none !p-0 mb-5 fade-in-up">India's No.1 Commerce &amp; Accounting Institute</p>
-          <h1 className="font-display font-bold text-4xl sm:text-5xl leading-[1.08] tracking-tight fade-in-up-delay-1" style={{ color: 'var(--blue-900)' }}>
-            Build a high-performing commerce career —
-            <span className="blue-text">CMA&nbsp;USA, CMA&nbsp;India &amp; ACCA</span>
-          </h1>
-          <p className="mt-6 text-base sm:text-lg max-w-xl leading-relaxed fade-in-up-delay-2" style={{ color: 'var(--slate-600)' }}>
-            Catalyst guides students across Kerala and India into future-defining professional
-            commerce careers, with expert faculty, industry-aligned training and a placement
-            record built over a decade.
-          </p>
-          <div className="mt-9 flex flex-wrap items-center gap-4 fade-in-up-delay-3">
-            <a href="#courses" className="hero-btn-fill focus-ring rounded-lg px-7 py-3.5 text-sm font-semibold text-white shadow-lg shadow-blue-700/20 hover:shadow-blue-700/40 hover:-translate-y-0.5 transition-all duration-300 bg-[var(--blue-700)] hover:bg-[var(--blue-900)]">Get Started</a>
-            <a href="#centers" className="hero-btn-outline focus-ring rounded-lg px-7 py-3.5 text-sm font-semibold border text-[var(--blue-700)] hover:text-[#1428A0] border-[var(--blue-100)] hover:border-[#1428A0]/30 hover:bg-[#1428A0]/5 transition-all duration-300">Find a Coaching Centre&nbsp;→</a>
-          </div>
-          <div className="mt-14 fade-in-up-delay-4">
-            <p className="eyebrow !bg-transparent !border-none !p-0 !text-[var(--slate-400)] mb-4">Our Students Placed At</p>
-            <div className="logo-slider">
-              <div className="logo-track">
-                <span>AON</span><span>KPMG</span><span>Deloitte</span><span>Caterpillar</span><span>EY</span>
-                <span>AON</span><span>KPMG</span><span>Deloitte</span><span>Caterpillar</span><span>EY</span>
+          <ScrollReveal type="badge" delay={0}>
+            <p className="eyebrow !bg-transparent !border-none !p-0 mb-5">India's No.1 Commerce &amp; Accounting Institute</p>
+          </ScrollReveal>
+
+          <ScrollReveal type="heading" delay={150}>
+            <h1 className="font-display font-bold text-4xl sm:text-5xl leading-[1.08] tracking-tight" style={{ color: 'var(--blue-900)' }}>
+              Build a high-performing commerce career —
+              <span className="blue-text">CMA&nbsp;USA, CMA&nbsp;India &amp; ACCA</span>
+            </h1>
+          </ScrollReveal>
+
+          <ScrollReveal type="subtitle" delay={300}>
+            <p className="mt-6 text-base sm:text-lg max-w-xl leading-relaxed" style={{ color: 'var(--slate-600)' }}>
+              Catalyst guides students across Kerala and India into future-defining professional
+              commerce careers, with expert faculty, industry-aligned training and a placement
+              record built over a decade.
+            </p>
+          </ScrollReveal>
+
+          <ScrollReveal type="button" delay={450}>
+            <div className="mt-9 flex flex-wrap items-center gap-4">
+              <a href="#courses" className="hero-btn-fill focus-ring rounded-lg px-7 py-3.5 text-sm font-semibold text-white shadow-lg shadow-blue-700/20 hover:shadow-blue-700/40 hover:-translate-y-0.5 transition-all duration-300 bg-[var(--blue-700)] hover:bg-[var(--blue-900)]">Get Started</a>
+              <a href="#contact" className="hero-btn-outline focus-ring rounded-lg px-7 py-3.5 text-sm font-semibold border text-[var(--blue-700)] hover:text-[#1428A0] border-[var(--blue-100)] hover:border-[#1428A0]/30 hover:bg-[#1428A0]/5 transition-all duration-300">Find a Coaching Centre&nbsp;→</a>
+            </div>
+          </ScrollReveal>
+
+          <ScrollReveal delay={550}>
+            <div className="mt-14">
+              <p className="eyebrow !bg-transparent !border-none !p-0 !text-[var(--slate-400)] mb-4">Our Students Placed At</p>
+              <div className="logo-slider">
+                <div className="logo-track">
+                  <span>AON</span><span>KPMG</span><span>Deloitte</span><span>Caterpillar</span><span>EY</span>
+                  <span>AON</span><span>KPMG</span><span>Deloitte</span><span>Caterpillar</span><span>EY</span>
+                </div>
               </div>
             </div>
-          </div>
-          <div className="mt-8 fade-in-up-delay-4">
-            <div className="award-badge inline-flex items-center gap-4 rounded-lg pl-3 pr-6 py-3">
-              <div className="award-badge-icon flex items-center justify-center rounded-lg w-11 h-11 shrink-0">
-                <svg width={22} height={22} viewBox="0 0 24 24" fill="none">
-                  <circle cx={12} cy={8} r="5.5" fill="#FFC93C" stroke="#0E1D6B" strokeWidth={1} />
-                  <path d="M9 12.5L7 21l5-2.5L17 21l-2-8.5" fill="#FFC93C" stroke="#0E1D6B" strokeWidth={1} strokeLinejoin="round" />
-                  <path d="M9.5 8.2l1.6 1.6 3.2-3.2" stroke="#0E1D6B" strokeWidth="1.4" strokeLinecap="round" strokeLinejoin="round" />
-                </svg>
+          </ScrollReveal>
+          <ScrollReveal delay={650}>
+            <div className="mt-8">
+              <div className="award-badge inline-flex items-center gap-4 rounded-lg pl-3 pr-6 py-3">
+                <div className="award-badge-icon flex items-center justify-center rounded-lg w-11 h-11 shrink-0">
+                  <svg width={22} height={22} viewBox="0 0 24 24" fill="none">
+                    <circle cx={12} cy={8} r="5.5" fill="#FFC93C" stroke="#0E1D6B" strokeWidth={1} />
+                    <path d="M9 12.5L7 21l5-2.5L17 21l-2-8.5" fill="#FFC93C" stroke="#0E1D6B" strokeWidth={1} strokeLinejoin="round" />
+                    <path d="M9.5 8.2l1.6 1.6 3.2-3.2" stroke="#0E1D6B" strokeWidth="1.4" strokeLinecap="round" strokeLinejoin="round" />
+                  </svg>
+                </div>
+                <p className="font-display font-bold text-white text-base sm:text-lg leading-snug">Best ROCC Centre&nbsp;2x&nbsp;times</p>
               </div>
-              <p className="font-display font-bold text-white text-base sm:text-lg leading-snug">Best ROCC Centre&nbsp;2x&nbsp;times</p>
             </div>
-          </div>
+          </ScrollReveal>
         </div>
-        
-        <div className="relative mx-auto w-full max-w-md lg:mx-0 lg:w-[480px] lg:shrink-0 fade-in-up-delay-2 mt-16 lg:mt-0">
-          
+
+        <ScrollReveal type="image" direction="left" delay={300} className="relative mx-auto w-full max-w-md lg:mx-0 lg:w-[480px] lg:shrink-0 mt-16 lg:mt-0">
+
           <div className="relative w-full aspect-square flex items-center justify-center">
             {/* Light Blue Circle Background */}
             <div className="absolute inset-4 bg-gradient-to-tr from-[#ebf3ff] to-[#d6e8ff] rounded-full z-0"></div>
 
             {/* Back half of the 3D Ring */}
             <svg viewBox="0 0 400 400" className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[115%] h-[115%] z-0" style={{ transform: 'rotate(-15deg)' }}>
-              <path d="M 40,200 A 160,80 0 0,1 360,200" fill="none" stroke="#d4e4fc" strokeWidth="28" strokeLinecap="round" opacity="0.8"/>
+              <path d="M 40,200 A 160,80 0 0,1 360,200" fill="none" stroke="#d4e4fc" strokeWidth="28" strokeLinecap="round" opacity="0.8" />
             </svg>
 
             {/* Person Image */}
             <div className="relative z-10 w-full h-full grid items-end justify-center overflow-hidden rounded-full px-6">
-              <img 
-                src={images[0]} 
-                alt="Expert Faculty" 
+              <img
+                src={images[0]}
+                alt="Expert Faculty"
                 className={`col-start-1 row-start-1 w-full object-contain object-bottom h-[130%] drop-shadow-xl transition-all duration-[1200ms] ease-[cubic-bezier(0.25,0.8,0.25,1)] origin-bottom ${currentImage === 0 ? 'opacity-100 scale-100 translate-y-0' : 'opacity-0 scale-[0.96] translate-y-2'}`}
               />
-              <img 
-                src={images[1]} 
-                alt="Expert Faculty" 
+              <img
+                src={images[1]}
+                alt="Expert Faculty"
                 className={`col-start-1 row-start-1 w-full object-contain object-bottom h-[130%] drop-shadow-xl transition-all duration-[1200ms] ease-[cubic-bezier(0.25,0.8,0.25,1)] origin-bottom ${currentImage === 1 ? 'opacity-100 scale-100 translate-y-0' : 'opacity-0 scale-[0.96] translate-y-2'}`}
               />
             </div>
@@ -89,17 +106,17 @@ export default function Hero() {
             <div className="absolute top-16 -left-10 bg-white rounded-full px-5 py-3 shadow-[0_8px_20px_rgba(0,0,0,0.08)] border border-gray-50 flex items-center gap-3 animate-float-slow z-30">
               <div className="w-7 h-7 flex items-center justify-center shrink-0">
                 <svg width="24" height="24" viewBox="0 0 24 24">
-                  <path fill="#4285F4" d="M22.56 12.25c0-.78-.07-1.53-.2-2.25H12v4.26h5.92c-.26 1.37-1.04 2.53-2.21 3.31v2.77h3.57c2.08-1.92 3.28-4.74 3.28-8.09z"/>
-                  <path fill="#34A853" d="M12 23c2.97 0 5.46-.98 7.28-2.66l-3.57-2.77c-.98.66-2.23 1.06-3.71 1.06-2.86 0-5.29-1.93-6.16-4.53H2.18v2.84C3.99 20.53 7.7 23 12 23z"/>
-                  <path fill="#FBBC05" d="M5.84 14.09c-.22-.66-.35-1.36-.35-2.09s.13-1.43.35-2.09V7.07H2.18C1.43 8.55 1 10.22 1 12s.43 3.45 1.18 4.93l2.85-2.22.81-.62z"/>
-                  <path fill="#EA4335" d="M12 5.38c1.62 0 3.06.56 4.21 1.64l3.15-3.15C17.45 2.09 14.97 1 12 1 7.7 1 3.99 3.47 2.18 7.07l3.66 2.84c.87-2.6 3.3-4.53 6.16-4.53z"/>
+                  <path fill="#4285F4" d="M22.56 12.25c0-.78-.07-1.53-.2-2.25H12v4.26h5.92c-.26 1.37-1.04 2.53-2.21 3.31v2.77h3.57c2.08-1.92 3.28-4.74 3.28-8.09z" />
+                  <path fill="#34A853" d="M12 23c2.97 0 5.46-.98 7.28-2.66l-3.57-2.77c-.98.66-2.23 1.06-3.71 1.06-2.86 0-5.29-1.93-6.16-4.53H2.18v2.84C3.99 20.53 7.7 23 12 23z" />
+                  <path fill="#FBBC05" d="M5.84 14.09c-.22-.66-.35-1.36-.35-2.09s.13-1.43.35-2.09V7.07H2.18C1.43 8.55 1 10.22 1 12s.43 3.45 1.18 4.93l2.85-2.22.81-.62z" />
+                  <path fill="#EA4335" d="M12 5.38c1.62 0 3.06.56 4.21 1.64l3.15-3.15C17.45 2.09 14.97 1 12 1 7.7 1 3.99 3.47 2.18 7.07l3.66 2.84c.87-2.6 3.3-4.53 6.16-4.53z" />
                 </svg>
               </div>
               <div>
                 <p className="font-bold text-[15px] text-gray-900 leading-none">Google</p>
                 <div className="flex items-center gap-1 mt-1">
                   <span className="text-[13px] font-semibold text-gray-500">4.9</span>
-                  <svg width="12" height="12" viewBox="0 0 24 24" fill="#FFC107"><path d="M12 17.27l5.18 3.73-1.64-7.03L21 9.24l-7.19-.61L12 2 10.19 8.63 3 9.24l5.46 4.73-1.64 7.03L12 17.27z"/></svg>
+                  <svg width="12" height="12" viewBox="0 0 24 24" fill="#FFC107"><path d="M12 17.27l5.18 3.73-1.64-7.03L21 9.24l-7.19-.61L12 2 10.19 8.63 3 9.24l5.46 4.73-1.64 7.03L12 17.27z" /></svg>
                 </div>
               </div>
             </div>
@@ -107,13 +124,13 @@ export default function Hero() {
             {/* Pill 2: Trustpilot */}
             <div className="absolute top-1/4 -right-12 bg-white rounded-full px-5 py-3 shadow-[0_8px_20px_rgba(0,0,0,0.08)] border border-gray-50 flex items-center gap-3 animate-float-delayed z-30">
               <div className="w-7 h-7 flex items-center justify-center shrink-0">
-                <svg width="24" height="24" viewBox="0 0 24 24" fill="#00b67a"><path d="M12 17.27l5.18 3.73-1.64-7.03L21 9.24l-7.19-.61L12 2 10.19 8.63 3 9.24l5.46 4.73-1.64 7.03z"/></svg>
+                <svg width="24" height="24" viewBox="0 0 24 24" fill="#00b67a"><path d="M12 17.27l5.18 3.73-1.64-7.03L21 9.24l-7.19-.61L12 2 10.19 8.63 3 9.24l5.46 4.73-1.64 7.03z" /></svg>
               </div>
               <div>
                 <p className="font-bold text-[15px] text-gray-900 leading-none">Trustpilot</p>
                 <div className="flex items-center gap-1 mt-1">
                   <span className="text-[13px] font-semibold text-gray-500">4.8</span>
-                  <svg width="12" height="12" viewBox="0 0 24 24" fill="#FFC107"><path d="M12 17.27l5.18 3.73-1.64-7.03L21 9.24l-7.19-.61L12 2 10.19 8.63 3 9.24l5.46 4.73-1.64 7.03L12 17.27z"/></svg>
+                  <svg width="12" height="12" viewBox="0 0 24 24" fill="#FFC107"><path d="M12 17.27l5.18 3.73-1.64-7.03L21 9.24l-7.19-.61L12 2 10.19 8.63 3 9.24l5.46 4.73-1.64 7.03L12 17.27z" /></svg>
                 </div>
               </div>
             </div>
@@ -121,20 +138,19 @@ export default function Hero() {
             {/* Pill 3: AmbitionBox */}
             <div className="absolute bottom-16 -right-6 bg-white rounded-full px-5 py-3 shadow-[0_8px_20px_rgba(0,0,0,0.08)] border border-gray-50 flex items-center gap-3 animate-float-slow z-30" style={{ animationDelay: '2s' }}>
               <div className="w-7 h-7 flex items-center justify-center shrink-0">
-                <svg width="22" height="22" viewBox="0 0 24 24" fill="#155eac"><path d="M21 7v10l-9 5-9-5V7l9-5 9 5z" fill="#155eac"/><path d="M12 12l4-2.5v5L12 17v-5z" fill="#3377cc"/><path d="M8 9.5l4-2.5 4 2.5v-5L12 2 8 4.5v5z" fill="#3377cc"/></svg>
+                <svg width="22" height="22" viewBox="0 0 24 24" fill="#155eac"><path d="M21 7v10l-9 5-9-5V7l9-5 9 5z" fill="#155eac" /><path d="M12 12l4-2.5v5L12 17v-5z" fill="#3377cc" /><path d="M8 9.5l4-2.5 4 2.5v-5L12 2 8 4.5v5z" fill="#3377cc" /></svg>
               </div>
               <div>
                 <p className="font-bold text-[15px] text-gray-900 leading-none">AmbitionBox</p>
                 <div className="flex items-center gap-1 mt-1">
                   <span className="text-[13px] font-semibold text-gray-500">5.0</span>
-                  <svg width="12" height="12" viewBox="0 0 24 24" fill="#FFC107"><path d="M12 17.27l5.18 3.73-1.64-7.03L21 9.24l-7.19-.61L12 2 10.19 8.63 3 9.24l5.46 4.73-1.64 7.03L12 17.27z"/></svg>
+                  <svg width="12" height="12" viewBox="0 0 24 24" fill="#FFC107"><path d="M12 17.27l5.18 3.73-1.64-7.03L21 9.24l-7.19-.61L12 2 10.19 8.63 3 9.24l5.46 4.73-1.64 7.03L12 17.27z" /></svg>
                 </div>
               </div>
             </div>
 
           </div>
-          
-        </div>
+        </ScrollReveal>
       </div>
     </section>
   );

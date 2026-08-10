@@ -111,13 +111,17 @@ export default function YouTube() {
   return (
     <section className="py-16 md:py-20 lg:py-24 bg-[var(--blue-50)] overflow-hidden select-none">
       <div className="max-w-7xl mx-auto px-6 lg:px-10">
-        <ScrollReveal delay={0}>
-          <div className="text-center max-w-xl mx-auto mb-10 md:mb-14">
-            <p className="eyebrow mb-3">Free Learning</p>
-            <h2 className="font-display font-bold text-3xl sm:text-4xl" style={{ color: 'var(--blue-900)' }}>Learn with us on <span className="blue-text">YouTube</span></h2>
-            <p className="mt-4" style={{ color: 'var(--slate-600)' }}>Discover engaging, free content that makes commerce concepts easier to understand.</p>
-          </div>
-        </ScrollReveal>
+        <div className="text-center max-w-xl mx-auto mb-10 md:mb-14">
+          <ScrollReveal type="badge" delay={0}>
+            <p className="eyebrow mb-3">Success Stories</p>
+          </ScrollReveal>
+          <ScrollReveal type="heading" delay={150}>
+            <h2 className="font-display font-bold text-3xl sm:text-4xl" style={{ color: 'var(--blue-900)' }}>From Learning to <span className="blue-text">Success</span></h2>
+          </ScrollReveal>
+          <ScrollReveal type="subtitle" delay={300}>
+            <p className="mt-4" style={{ color: 'var(--slate-600)' }}>Discover how our students are building incredible careers with the skills and confidence they gain from our program.</p>
+          </ScrollReveal>
+        </div>
       </div>
 
       <ScrollReveal delay={150}>
@@ -147,13 +151,14 @@ export default function YouTube() {
               {extendedVideos.map((video, idx) => (
                 <ScrollReveal
                   key={idx}
+                  type="card"
                   delay={(idx % fullYoutubeData.length) * 150}
                   className="shrink-0"
                 >
-                  <a 
-                    href={`https://www.youtube.com/watch?v=${video.videoId}`} 
-                    target="_blank" 
-                    rel="noopener noreferrer" 
+                  <a
+                    href={`https://www.youtube.com/watch?v=${video.videoId}`}
+                    target="_blank"
+                    rel="noopener noreferrer"
                     className="w-[85vw] sm:w-[420px] block rounded-lg overflow-hidden relative aspect-video group border border-[var(--line)] shadow-sm hover:shadow-lg transition-shadow"
                     onClick={(e) => { if (hasDragged) e.preventDefault(); }}
                     style={{ pointerEvents: 'auto' }}
@@ -173,18 +178,18 @@ export default function YouTube() {
 
           <div className="absolute bottom-4 left-1/2 -translate-x-1/2 flex items-center justify-center gap-2.5">
             {fullYoutubeData.map((_, i) => (
-               <button 
-                 key={i} 
-                 onClick={() => {
-                   const diff = i - getRealIndex();
-                   if (diff !== 0) {
-                     setIsTransitioning(true);
-                     setCurrentIndex(prev => prev + diff);
-                   }
-                 }}
-                 aria-label={`Go to video ${i + 1}`}
-                 className={`h-2 rounded-[6px] bg-[var(--blue-700)] transition-all duration-300 cursor-pointer ${getRealIndex() === i ? 'w-8 opacity-100' : 'w-2 opacity-30'}`}
-               ></button>
+              <button
+                key={i}
+                onClick={() => {
+                  const diff = i - getRealIndex();
+                  if (diff !== 0) {
+                    setIsTransitioning(true);
+                    setCurrentIndex(prev => prev + diff);
+                  }
+                }}
+                aria-label={`Go to video ${i + 1}`}
+                className={`h-2 rounded-[6px] bg-[var(--blue-700)] transition-all duration-300 cursor-pointer ${getRealIndex() === i ? 'w-8 opacity-100' : 'w-2 opacity-30'}`}
+              ></button>
             ))}
           </div>
         </div>

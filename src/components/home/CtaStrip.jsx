@@ -1,6 +1,7 @@
 import { useRef, useState, useEffect, useMemo } from 'react';
 import bannerImg from '../../assets/event/event.jpg';
 import ScrollReveal from '../ui/ScrollReveal';
+import { AnimatedCourseBackground } from './Courses';
 
 export const CtaStripBackground = () => {
   const [isHovering, setIsHovering] = useState(false);
@@ -70,7 +71,7 @@ export const CtaStripBackground = () => {
       mouse.current.nY = 0;
     };
 
-    const el = containerRef.current;
+    const el = containerRef.current?.parentElement || containerRef.current;
     if (el) {
       el.addEventListener('mousemove', handleMouseMove, { passive: true });
       el.addEventListener('mouseenter', handleMouseEnter);
@@ -148,9 +149,24 @@ export const CtaStripBackground = () => {
 };
 
 export default function CtaStrip() {
+  const sectionRef = useRef(null);
+  const [mouseX, setMouseX] = useState(0);
+  const [mouseY, setMouseY] = useState(0);
+
+  const handleMouseMove = (e) => {
+    if (!sectionRef.current) return;
+    const rect = sectionRef.current.getBoundingClientRect();
+    setMouseX(e.clientX - rect.left);
+    setMouseY(e.clientY - rect.top);
+  };
+
   return (
-    <section className="relative flex flex-col justify-center min-h-[60vh] py-24 lg:py-32 bg-gradient-to-br from-[#0E1D6B] to-[#050814] overflow-hidden border-y border-[rgba(20,40,160,0.2)]">
-      <CtaStripBackground />
+    <section 
+      ref={sectionRef}
+      onMouseMove={handleMouseMove}
+      className="relative flex flex-col justify-center min-h-[60vh] py-24 lg:py-32 overflow-hidden border-y border-[rgba(20,40,160,0.2)]"
+    >
+      <AnimatedCourseBackground mouseX={mouseX} mouseY={mouseY} />
       
       <div className="max-w-7xl mx-auto px-6 lg:px-10 grid lg:grid-cols-2 gap-12 lg:gap-16 items-center relative z-10">
         <ScrollReveal delay={0}>

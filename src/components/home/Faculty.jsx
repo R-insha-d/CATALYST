@@ -122,13 +122,17 @@ export default function Faculty() {
       className="py-16 md:py-20 lg:py-10 bg-[var(--blue-50)] overflow-hidden select-none"
     >
       <div className="max-w-7xl mx-auto px-6 lg:px-10">
-        <ScrollReveal delay={0}>
-          <div className="text-center max-w-xl mx-auto mb-12 md:mb-16">
+        <div className="text-center max-w-xl mx-auto mb-12 md:mb-16">
+          <ScrollReveal type="badge" delay={0}>
             <p className="eyebrow mb-3">Mentors</p>
+          </ScrollReveal>
+          <ScrollReveal type="heading" delay={150}>
             <h2 className="font-display font-bold text-3xl sm:text-4xl" style={{ color: 'var(--blue-900)' }}>Meet our <span className="blue-text">expert faculty</span></h2>
+          </ScrollReveal>
+          <ScrollReveal type="subtitle" delay={300}>
             <p className="mt-4" style={{ color: 'var(--slate-600)' }}>Our faculty is the strength behind the leading professional commerce institute in India.</p>
-          </div>
-        </ScrollReveal>
+          </ScrollReveal>
+        </div>
       </div>
 
       <ScrollReveal delay={300}>
@@ -158,6 +162,7 @@ export default function Faculty() {
               {extendedMentors.map((mentor, idx) => (
                 <ScrollReveal
                   key={idx}
+                  type="card"
                   delay={(idx % mentorsData.length) * 150}
                   className="shrink-0 self-stretch flex"
                 >

@@ -56,14 +56,16 @@ export default function Contact() {
   return (
     <section id="contact" className="py-16 md:py-20 lg:py-24 bg-[var(--blue-50)]">
       <div className="max-w-7xl mx-auto px-6 lg:px-10">
-        <ScrollReveal delay={0}>
-          <div className="text-center max-w-xl mx-auto mb-12 md:mb-16">
-            <h2 className="font-display font-bold text-3xl sm:text-4xl" style={{ color: 'var(--blue-900)' }}>Get in touch — take the first step today</h2>
+        <div className="text-center max-w-xl mx-auto mb-12 md:mb-16">
+          <ScrollReveal type="heading" delay={0}>
+            <h2 className="font-display font-bold text-3xl sm:text-4xl" style={{ color: 'var(--blue-900)' }}>Get in touch — <span className="blue-text">take the first step today</span></h2>
+          </ScrollReveal>
+          <ScrollReveal type="subtitle" delay={150}>
             <p className="mt-4" style={{ color: 'var(--slate-600)' }}>Connect with our team for clear guidance on commerce and accounting programmes.</p>
-          </div>
-        </ScrollReveal>
+          </ScrollReveal>
+        </div>
         <div className="grid lg:grid-cols-[0.9fr_1.1fr] gap-8">
-          <ScrollReveal delay={150}>
+          <ScrollReveal type="card" direction="right" delay={150}>
             <div 
               className="relative rounded-lg p-10 lg:p-12 text-white h-full overflow-hidden shadow-2xl shadow-blue-900/10 bg-[#0A1A70] group/contactcard"
               onMouseMove={(e) => {
@@ -111,7 +113,7 @@ export default function Contact() {
             </div>
           </ScrollReveal>
 
-          <ScrollReveal delay={300}>
+          <ScrollReveal type="card" direction="left" delay={300}>
             <form className="rounded-lg bg-white border border-[var(--line)] p-8 lg:p-12 grid sm:grid-cols-2 gap-x-6 gap-y-7 shadow-[0_15px_40px_-15px_rgba(20,40,160,0.1)] h-full">
               <div className="sm:col-span-1">
                 <label className="text-xs font-bold text-[var(--slate-600)] uppercase tracking-wider mb-2.5 block">Your Name</label>

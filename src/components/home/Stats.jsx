@@ -52,25 +52,25 @@ export default function Stats() {
       <CtaStripBackground />
 
       <div className="max-w-7xl mx-auto px-6 lg:px-10 py-16 grid grid-cols-2 md:grid-cols-4 gap-8 md:gap-4 relative z-10">
-        <ScrollReveal delay={0}>
+        <ScrollReveal type="badge" delay={0}>
           <div className="text-center md:text-left md:border-l md:border-white/10 md:pl-8 md:first:border-l-0 md:first:pl-0">
             <p className="font-display text-4xl sm:text-5xl font-bold tracking-tight text-white drop-shadow-md"><CountUp end={500} /><span className="text-[var(--blue-400)] ml-1">+</span></p>
             <p className="text-[13px] sm:text-sm mt-2 font-semibold text-blue-200/80 uppercase tracking-widest">Expert Faculties</p>
           </div>
         </ScrollReveal>
-        <ScrollReveal delay={150}>
+        <ScrollReveal type="badge" delay={150}>
           <div className="text-center md:text-left md:border-l md:border-white/10 md:pl-8">
             <p className="font-display text-4xl sm:text-5xl font-bold tracking-tight text-white drop-shadow-md"><CountUp end={25000} /><span className="text-[var(--blue-400)] ml-1">+</span></p>
             <p className="text-[13px] sm:text-sm mt-2 font-semibold text-blue-200/80 uppercase tracking-widest">Students Yearly</p>
           </div>
         </ScrollReveal>
-        <ScrollReveal delay={300}>
+        <ScrollReveal type="badge" delay={300}>
           <div className="text-center md:text-left md:border-l md:border-white/10 md:pl-8">
             <p className="font-display text-4xl sm:text-5xl font-bold tracking-tight text-white drop-shadow-md"><CountUp end={30} /><span className="text-[var(--blue-400)] ml-1">+</span></p>
             <p className="text-[13px] sm:text-sm mt-2 font-semibold text-blue-200/80 uppercase tracking-widest">Specialised Courses</p>
           </div>
         </ScrollReveal>
-        <ScrollReveal delay={450}>
+        <ScrollReveal type="badge" delay={450}>
           <div className="text-center md:text-left md:border-l md:border-white/10 md:pl-8">
             <p className="font-display text-4xl sm:text-5xl font-bold tracking-tight text-white drop-shadow-md"><CountUp end={100} /><span className="text-[var(--blue-400)] ml-1">%</span></p>
             <p className="text-[13px] sm:text-sm mt-2 font-semibold text-blue-200/80 uppercase tracking-widest">Placement Support</p>

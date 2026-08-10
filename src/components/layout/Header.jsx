@@ -13,7 +13,7 @@ export default function Header() {
           <nav className="hidden lg:flex items-center gap-9 text-sm font-medium" style={{ color: 'var(--slate-600)' }}>
             <a href="#home" className="hover:text-[var(--blue-700)] focus-ring rounded">Home</a>
             <a href="#about" className="hover:text-[var(--blue-700)] focus-ring rounded">About</a>
-            <a href="#centers" className="hover:text-[var(--blue-700)] focus-ring rounded">Centers</a>
+            <a href="#contact" className="hover:text-[var(--blue-700)] focus-ring rounded">Centers</a>
             <a href="#courses" className="hover:text-[var(--blue-700)] focus-ring rounded">Courses</a>
             <a href="#stories" className="hover:text-[var(--blue-700)] focus-ring rounded">Success Stories</a>
             <a href="#contact" className="hover:text-[var(--blue-700)] focus-ring rounded">Contact</a>
