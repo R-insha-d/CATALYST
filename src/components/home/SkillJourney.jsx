@@ -111,7 +111,7 @@ export default function SkillJourney() {
         >
           {/* Card 1: Large (Left) */}
           <motion.div variants={cardVariants} className="md:col-span-7 group ">
-            <div className="h-full bg-white hover:bg-slate-50/50 rounded-[24px] lg:rounded-[8px] p-8 lg:p-12 shadow-[0_4px_24px_rgba(0,0,0,0.03)] transition-all duration-300 ease-out hover:-translate-y-1 hover:shadow-[0_12px_40px_rgba(0,0,0,0.06)] relative overflow-hidden flex flex-col justify-start">
+            <div className="h-full bg-white hover:bg-slate-50/50 rounded-[24px] lg:rounded-[8px] p-8 lg:p-12 shadow-[0_4px_24px_rgba(0,0,0,0.03)] transition-all duration-500 ease-out hover:-translate-y-2 hover:shadow-[0_12px_40px_rgba(0,0,0,0.06)] relative overflow-hidden flex flex-col justify-start">
 
               {/* Concentric Circles Decor */}
               <div className="absolute top-0 right-0 h-full w-[60%] overflow-hidden pointer-events-none transition-transform duration-700 ease-out group-hover:scale-[1.03]">
@@ -134,7 +134,7 @@ export default function SkillJourney() {
 
           {/* Card 2: Small (Right) */}
           <motion.div variants={cardVariants} className="md:col-span-5 group">
-            <div className="h-full bg-white hover:bg-slate-50/50 rounded-[24px] lg:rounded-[8px] p-8 lg:p-12 shadow-[0_4px_24px_rgba(0,0,0,0.03)] transition-all duration-300 ease-out hover:-translate-y-1 hover:shadow-[0_12px_40px_rgba(0,0,0,0.06)] relative overflow-hidden flex flex-col justify-start">
+            <div className="h-full bg-white hover:bg-slate-50/50 rounded-[24px] lg:rounded-[8px] p-8 lg:p-12 shadow-[0_4px_24px_rgba(0,0,0,0.03)] transition-all duration-500 ease-out hover:-translate-y-2 hover:shadow-[0_12px_40px_rgba(0,0,0,0.06)] relative overflow-hidden flex flex-col justify-start">
 
               {/* Dot Grid Decor */}
               <div className="absolute right-8 top-8 w-24 h-24 bg-[radial-gradient(circle,#cbd5e1_1.5px,transparent_1.5px)] [background-size:16px_16px] opacity-40 pointer-events-none transition-all duration-700 ease-out group-hover:scale-[1.15] group-hover:opacity-60"></div>
@@ -150,7 +150,7 @@ export default function SkillJourney() {
 
           {/* Card 3: Small (Left) */}
           <motion.div variants={cardVariants} className="md:col-span-4 group">
-            <div className="h-full bg-white hover:bg-slate-50/50 rounded-[24px] lg:rounded-[8px] p-8 lg:p-12 shadow-[0_4px_24px_rgba(0,0,0,0.03)] transition-all duration-300 ease-out hover:-translate-y-1 hover:shadow-[0_12px_40px_rgba(0,0,0,0.06)] relative overflow-hidden flex flex-col justify-start">
+            <div className="h-full bg-white hover:bg-slate-50/50 rounded-[24px] lg:rounded-[8px] p-8 lg:p-12 shadow-[0_4px_24px_rgba(0,0,0,0.03)] transition-all duration-500 ease-out hover:-translate-y-2 hover:shadow-[0_12px_40px_rgba(0,0,0,0.06)] relative overflow-hidden flex flex-col justify-start">
 
               {/* Dot Grid Decor */}
               <div className="absolute left-8 bottom-8 w-24 h-24 bg-[radial-gradient(circle,#cbd5e1_1.5px,transparent_1.5px)] [background-size:16px_16px] opacity-40 pointer-events-none transition-all duration-700 ease-out group-hover:scale-[1.15] group-hover:opacity-60"></div>
@@ -166,7 +166,7 @@ export default function SkillJourney() {
 
           {/* Card 4: Large (Right) */}
           <motion.div variants={cardVariants} className="md:col-span-8 group">
-            <div className="h-full bg-white hover:bg-slate-50/50 rounded-[24px] lg:rounded-[8px] p-8 lg:p-12 shadow-[0_4px_24px_rgba(0,0,0,0.03)] transition-all duration-300 ease-out hover:-translate-y-1 hover:shadow-[0_12px_40px_rgba(0,0,0,0.06)] relative overflow-hidden flex flex-col justify-start">
+            <div className="h-full bg-white hover:bg-slate-50/50 rounded-[24px] lg:rounded-[8px] p-8 lg:p-12 shadow-[0_4px_24px_rgba(0,0,0,0.03)] transition-all duration-500 ease-out hover:-translate-y-2 hover:shadow-[0_12px_40px_rgba(0,0,0,0.06)] relative overflow-hidden flex flex-col justify-start">
 
               {/* Path and Flag Decor */}
               <div className="absolute right-0 bottom-0 w-full h-full pointer-events-none overflow-hidden rounded-br-[32px] transition-transform duration-700 ease-out group-hover:scale-[1.02] group-hover:-translate-x-1 group-hover:-translate-y-1">

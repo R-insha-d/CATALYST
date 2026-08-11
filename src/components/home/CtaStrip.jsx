@@ -29,10 +29,10 @@ export const CtaStripBackground = () => {
     const render = () => {
       animated.current.outerX += (mouse.current.x - animated.current.outerX) * 0.04;
       animated.current.outerY += (mouse.current.y - animated.current.outerY) * 0.04;
-      
+
       animated.current.x += (mouse.current.x - animated.current.x) * 0.12;
       animated.current.y += (mouse.current.y - animated.current.y) * 0.12;
-      
+
       animated.current.nX += (mouse.current.nX - animated.current.nX) * 0.05;
       animated.current.nY += (mouse.current.nY - animated.current.nY) * 0.05;
 
@@ -101,7 +101,7 @@ export const CtaStripBackground = () => {
   return (
     <div ref={containerRef} className="absolute inset-0 overflow-hidden bg-[#0A1A70] z-0 pointer-events-auto rounded-[inherit]">
       <div className="absolute inset-[-50%] bg-[radial-gradient(circle_at_50%_50%,#0E1D6B_0%,#0A1A70_50%,#050814_100%)] placements-bg-layer" style={{ animation: 'bgPulse 45s ease-in-out infinite alternate' }} />
-      
+
       <div ref={parallaxBgRef} className="absolute inset-0 will-change-transform">
         <div className="absolute w-[70vw] h-[70vw] rounded-full bg-[#1428A0] opacity-35 blur-[120px] top-[-20%] left-[-10%] mix-blend-screen placements-bg-layer" style={{ animation: 'floatBlob1 32s cubic-bezier(0.4,0,0.2,1) infinite' }} />
         <div className="absolute w-[60vw] h-[60vw] rounded-full bg-[#00e5ff] opacity-15 blur-[120px] bottom-[-30%] right-[-10%] mix-blend-screen placements-bg-layer" style={{ animation: 'floatBlob2 35s cubic-bezier(0.4,0,0.2,1) infinite reverse' }} />
@@ -133,13 +133,13 @@ export const CtaStripBackground = () => {
 
       <div className="absolute inset-[-100%] bg-[linear-gradient(90deg,transparent,rgba(255,255,255,0.025),transparent)] placements-bg-layer" style={{ animation: 'sweepMotion 18s linear infinite' }} />
 
-      <div 
+      <div
         ref={outerGlowRef}
         className="absolute w-[800px] h-[800px] rounded-full bg-[radial-gradient(circle,rgba(77,163,255,0.12)_0%,transparent_60%)] pointer-events-none transition-opacity duration-700 will-change-transform z-10 placements-bg-layer mix-blend-screen"
         style={{ opacity: isHovering ? 1 : 0 }}
       />
 
-      <div 
+      <div
         ref={innerGlowRef}
         className="absolute w-[300px] h-[300px] rounded-full bg-[radial-gradient(circle,rgba(0,229,255,0.15)_0%,transparent_60%)] pointer-events-none transition-opacity duration-500 will-change-transform z-10 placements-bg-layer mix-blend-screen"
         style={{ opacity: isHovering ? 1 : 0 }}
@@ -161,13 +161,13 @@ export default function CtaStrip() {
   };
 
   return (
-    <section 
+    <section
       ref={sectionRef}
       onMouseMove={handleMouseMove}
       className="relative flex flex-col justify-center min-h-[60vh] py-24 lg:py-32 overflow-hidden border-y border-[rgba(20,40,160,0.2)]"
     >
       <AnimatedCourseBackground mouseX={mouseX} mouseY={mouseY} />
-      
+
       <div className="max-w-7xl mx-auto px-6 lg:px-10 grid lg:grid-cols-2 gap-12 lg:gap-16 items-center relative z-10">
         <ScrollReveal delay={0}>
           <div className="max-w-xl">
@@ -178,22 +178,22 @@ export default function CtaStrip() {
               We're happy to present our range of professional and academic courses designed to help you move forward with confidence, whatever you're aiming for.
             </p>
             <div className="mt-10 flex flex-wrap gap-5">
-              <a href="#courses" className="focus-ring rounded-lg px-8 py-4 text-[15px] font-bold shadow-[0_8px_20px_rgba(0,0,0,0.2)] hover:shadow-[0_15px_30px_rgba(255,255,255,0.25)] transition-all duration-300 hover:-translate-y-1 bg-white text-[var(--blue-900)] hover:bg-gray-50 flex items-center gap-2">
+              <a href="#courses" className="focus-ring rounded-lg px-8 py-4 text-[15px] font-bold shadow-[0_8px_20px_rgba(0,0,0,0.2)] hover:shadow-[0_15px_30px_rgba(255,255,255,0.25)] hover:-translate-y-2 transition-all duration-500 ease-out bg-white text-[var(--blue-900)] hover:bg-gray-50 flex items-center gap-2">
                 View Courses
-                <svg width={18} height={18} viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth={2.5} strokeLinecap="round" strokeLinejoin="round"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg>
+                <svg width={18} height={18} viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth={2.5} strokeLinecap="round" strokeLinejoin="round"><path d="M5 12h14" /><path d="m12 5 7 7-7 7" /></svg>
               </a>
-              <a href="#contact" className="focus-ring rounded-lg px-8 py-4 text-[15px] font-bold text-white border border-white/30 backdrop-blur-sm hover:bg-white/10 hover:border-white/60 transition-all duration-300 hover:-translate-y-1">
+              <a href="#contact" className="focus-ring rounded-lg px-8 py-4 text-[15px] font-bold text-white border border-white/30 backdrop-blur-sm hover:bg-white/10 hover:border-white/60 hover:-translate-y-2 transition-all duration-500 ease-out">
                 Call for Guidance
               </a>
             </div>
           </div>
         </ScrollReveal>
-        
+
         <ScrollReveal delay={300}>
           <div className="relative group">
             {/* Soft glow behind image */}
             <div className="absolute -inset-4 bg-gradient-to-r from-blue-400 to-blue-600 rounded-[24px] opacity-20 blur-2xl group-hover:opacity-40 transition duration-700"></div>
-            
+
             <div className="relative rounded-2xl aspect-[4/3] lg:aspect-[16/11] overflow-hidden border border-white/15 shadow-[0_20px_50px_rgba(0,0,0,0.5)] transform group-hover:-translate-y-2 transition-all duration-700 ease-out">
               <div className="absolute inset-0 bg-[var(--blue-900)]/20 mix-blend-overlay z-10 pointer-events-none group-hover:opacity-0 transition-opacity duration-700"></div>
               <img src={bannerImg} alt="Catalyst Students" className="w-full h-full object-cover transform group-hover:scale-105 transition-transform duration-1000 ease-out" />

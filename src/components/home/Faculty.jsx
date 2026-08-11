@@ -167,7 +167,7 @@ export default function Faculty() {
                   className="shrink-0 self-stretch flex"
                 >
                   <div
-                    className="w-[85vw] sm:w-[380px] flex-1 relative bg-white/90 backdrop-blur-sm rounded-lg p-6 pb-6 flex flex-col items-center overflow-hidden border border-[#1428A0]/15  hover:shadow-[0_20px_50px_rgba(20,40,160,0.12)] transition-all duration-500 hover:-translate-y-2 group"
+                    className="w-[85vw] sm:w-[380px] flex-1 relative bg-white/90 backdrop-blur-sm rounded-lg p-6 pb-6 flex flex-col items-center overflow-hidden border border-[#1428A0]/15 hover:shadow-[0_20px_50px_rgba(20,40,160,0.12)] hover:-translate-y-2 transition-all duration-500 ease-out group"
                     style={{ pointerEvents: isDragging ? 'none' : 'auto' }}
                   >
                     {/* Background Decor */}

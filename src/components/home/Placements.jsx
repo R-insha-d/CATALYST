@@ -262,7 +262,7 @@ export default function Placements() {
                 style={{ perspective: 1000 }}
               >
                 <div
-                  className="w-[85vw] sm:w-[350px] rounded-lg bg-white border border-[var(--line)] overflow-hidden transition-all duration-700 ease-[cubic-bezier(0.16,1,0.3,1)] transform hover:-translate-y-2 hover:scale-[1.015] hover:shadow-[0_20px_40px_-15px_rgba(0,0,0,0.1)]"
+                  className="w-[85vw] sm:w-[350px] rounded-lg bg-white border border-[var(--line)] overflow-hidden hover:-translate-y-2 transition-all duration-500 ease-out hover:shadow-[0_20px_40px_-15px_rgba(0,0,0,0.1)]"
                   style={{ pointerEvents: isDragging ? 'none' : 'auto' }}
                 >
                   <div className="aspect-[4/5] relative bg-[var(--blue-50)]">

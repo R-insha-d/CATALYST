@@ -39,8 +39,8 @@ export default function Hero() {
 
           <ScrollReveal type="button" delay={450}>
             <div className="mt-9 flex flex-wrap items-center gap-4">
-              <a href="#courses" className="hero-btn-fill focus-ring rounded-lg px-7 py-3.5 text-sm font-semibold text-white shadow-lg shadow-blue-700/20 hover:shadow-blue-700/40 hover:-translate-y-0.5 transition-all duration-300 bg-[var(--blue-700)] hover:bg-[var(--blue-900)]">Get Started</a>
-              <a href="#contact" className="hero-btn-outline focus-ring rounded-lg px-7 py-3.5 text-sm font-semibold border text-[var(--blue-700)] hover:text-[#1428A0] border-[var(--blue-100)] hover:border-[#1428A0]/30 hover:bg-[#1428A0]/5 transition-all duration-300">Find a Coaching Centre&nbsp;→</a>
+              <a href="#courses" className="inline-block focus-ring rounded-lg px-7 py-3.5 text-sm font-semibold text-white shadow-lg shadow-blue-700/20 hover:shadow-blue-700/40 hover:-translate-y-2 transition-all duration-500 ease-out bg-[var(--blue-700)] hover:bg-[var(--blue-900)]">Get Started</a>
+              <a href="#contact" className="inline-block focus-ring rounded-lg px-7 py-3.5 text-sm font-semibold border text-[var(--blue-700)] hover:text-[#1428A0] border-[var(--blue-100)] hover:border-[#1428A0]/30 hover:bg-[#1428A0]/5 hover:-translate-y-2 transition-all duration-500 ease-out">Find a Coaching Centre&nbsp;→</a>
             </div>
           </ScrollReveal>
 

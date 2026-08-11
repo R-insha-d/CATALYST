@@ -45,7 +45,7 @@ export default function Platform() {
         </ScrollReveal>
 
         <ScrollReveal type="button" direction="scale" delay={450}>
-          <a href="#contact" className="group inline-flex items-center justify-center gap-2.5 focus-ring rounded-xl px-8 py-4 text-base font-bold text-[#0A1A70] bg-[#f8fafc] shadow-[0_8px_20px_rgba(0,0,0,0.2)] hover:shadow-[0_15px_30px_rgba(255,255,255,0.3)] hover:-translate-y-1 hover:scale-[1.02] hover:bg-white transition-all duration-300">
+          <a href="#contact" className="group inline-flex items-center justify-center gap-2.5 focus-ring rounded-xl px-8 py-4 text-base font-bold text-[#0A1A70] bg-[#f8fafc] shadow-[0_8px_20px_rgba(0,0,0,0.2)] hover:shadow-[0_15px_30px_rgba(255,255,255,0.3)] hover:-translate-y-2 hover:bg-white transition-all duration-500 ease-out">
             Book a Free Career Counselling Now
             <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round" className="transition-transform duration-300 group-hover:translate-x-1.5"><path d="M5 12h14" /><path d="m12 5 7 7-7 7" /></svg>
           </a>

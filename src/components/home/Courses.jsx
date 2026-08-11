@@ -245,7 +245,7 @@ export default function Courses() {
                 style={{ perspective: 1000 }}
               >
                 <div
-                  className="w-[90vw] sm:w-[360px] flex-1 flex flex-col relative rounded-[12px] p-8 transition-all duration-700 ease-[cubic-bezier(0.16,1,0.3,1)] group overflow-hidden backdrop-blur-[24px] hover:-translate-y-2 hover:scale-[1.015] hover:shadow-[0_30px_60px_-15px_rgba(26,77,255,0.4),inset_0_1px_0_rgba(255,255,255,0.3)] hover:border-white/30"
+                  className="w-[90vw] sm:w-[360px] flex-1 flex flex-col relative rounded-[12px] p-8 group overflow-hidden backdrop-blur-[24px] hover:-translate-y-2 transition-all duration-500 ease-out hover:shadow-[0_30px_60px_-15px_rgba(26,77,255,0.4),inset_0_1px_0_rgba(255,255,255,0.3)] hover:border-white/30"
                   style={{
                     pointerEvents: isDragging ? 'none' : 'auto',
                     background: 'linear-gradient(145deg, rgba(255,255,255,0.12), rgba(255,255,255,0.04))',

@@ -49,58 +49,60 @@ function PremiumCourseCard({ feat, idx }) {
 
   return (
     <ScrollReveal type="card" delay={150 + idx * 100} className="h-[460px] perspective-1000 ">
-      <motion.div
-        ref={cardRef}
-        onMouseMove={handleMouseMove}
-        onMouseLeave={handleMouseLeave}
-        style={{ rotateX, rotateY, transformStyle: "preserve-3d" }}
-        className="h-full group relative samsung-glass-card !rounded-[12px] p-8 cursor-pointer flex flex-col hover:-translate-y-0.5 transition-all duration-700 ease-out z-10"
-      >
-        {/* Pointer-following reflection glow */}
+      <div className="h-full hover:-translate-y-2 transition-all duration-500 ease-out">
         <motion.div
-          className="absolute inset-0 z-0 pointer-events-none opacity-0 group-hover:opacity-100 transition-opacity duration-300 rounded-[1px]"
-          style={{
-            background: useTransform(
-              () => `radial-gradient(circle at ${lightX.get()}% ${lightY.get()}%, rgba(36, 91, 149, 0.06) 0%, transparent 60%)`
-            )
-          }}
-        />
+          ref={cardRef}
+          onMouseMove={handleMouseMove}
+          onMouseLeave={handleMouseLeave}
+          style={{ rotateX, rotateY, transformStyle: "preserve-3d" }}
+          className="h-full group relative samsung-glass-card !rounded-[12px] p-8 cursor-pointer flex flex-col z-10"
+        >
+          {/* Pointer-following reflection glow */}
+          <motion.div
+            className="absolute inset-0 z-0 pointer-events-none opacity-0 group-hover:opacity-100 transition-opacity duration-300 rounded-[1px]"
+            style={{
+              background: useTransform(
+                () => `radial-gradient(circle at ${lightX.get()}% ${lightY.get()}%, rgba(36, 91, 149, 0.06) 0%, transparent 60%)`
+              )
+            }}
+          />
 
-        {/* Outer subtle glow on hover */}
-        <div className="absolute -inset-1 rounded-[10px] bg-gradient-to-r from-[#1F5BFF] to-[#9ED5FF] opacity-0 group-hover:opacity-10 blur-md transition-opacity duration-500 z-0 pointer-events-none"></div>
+          {/* Outer subtle glow on hover */}
+          <div className="absolute -inset-1 rounded-[10px] bg-gradient-to-r from-[#1F5BFF] to-[#9ED5FF] opacity-0 group-hover:opacity-10 blur-md transition-opacity duration-500 z-0 pointer-events-none"></div>
 
-        <div className="relative z-10 flex flex-col h-full" style={{ transform: "translateZ(30px)" }}>
-          {/* Top Row: Badge & Icon */}
-          <div className="flex items-center justify-between mb-8">
-            <div className="w-14 h-14 rounded-2xl bg-gradient-to-br from-[#1F5BFF]/30 to-[#0036D9]/10 border border-white/20 flex items-center justify-center shadow-lg group-hover:scale-110 group-hover:rotate-6 transition-all duration-500 flex-shrink-0 backdrop-blur-md">
-              <svg width={24} height={24} viewBox="0 0 24 24" fill="none" stroke="#9ED5FF" strokeWidth={2} strokeLinecap="round" strokeLinejoin="round">
-                {feat.icon}
-              </svg>
+          <div className="relative z-10 flex flex-col h-full" style={{ transform: "translateZ(30px)" }}>
+            {/* Top Row: Badge & Icon */}
+            <div className="flex items-center justify-between mb-8">
+              <div className="w-14 h-14 rounded-2xl bg-gradient-to-br from-[#1F5BFF]/30 to-[#0036D9]/10 border border-white/20 flex items-center justify-center shadow-lg group-hover:scale-110 group-hover:rotate-6 transition-all duration-500 flex-shrink-0 backdrop-blur-md">
+                <svg width={24} height={24} viewBox="0 0 24 24" fill="none" stroke="#9ED5FF" strokeWidth={2} strokeLinecap="round" strokeLinejoin="round">
+                  {feat.icon}
+                </svg>
+              </div>
+              <div className="samsung-badge px-4 py-1.5 flex items-center gap-2 text-white text-xs font-semibold tracking-wider group-hover:-translate-y-1 transition-transform duration-300">
+                <span className="w-1.5 h-1.5 rounded-full bg-[#6FB6FF] animate-pulse"></span>
+                {String(idx + 1).padStart(2, '0')}
+              </div>
             </div>
-            <div className="samsung-badge px-4 py-1.5 flex items-center gap-2 text-white text-xs font-semibold tracking-wider group-hover:-translate-y-1 transition-transform duration-300">
-              <span className="w-1.5 h-1.5 rounded-full bg-[#6FB6FF] animate-pulse"></span>
-              {String(idx + 1).padStart(2, '0')}
+
+            <h4 className="font-display font-bold text-2xl text-white mb-3 tracking-tight group-hover:text-[#9ED5FF] transition-colors duration-300">
+              {feat.title}
+            </h4>
+            <p className="text-[15px] leading-relaxed text-[#B0C4DE] font-light flex-grow">
+              {feat.desc}
+            </p>
+
+            {/* Action Buttons */}
+            <div className="mt-8 flex flex-col gap-3">
+              <button className="samsung-primary-btn w-full py-3.5 rounded-xl text-white font-bold text-sm tracking-wide shadow-[0_0_10px_rgba(31,91,255,0.2)] group-hover:shadow-[0_0_15px_rgba(31,91,255,0.4)] transition-all duration-300 group-hover:scale-[1.02]">
+                Enroll Now
+              </button>
+              <button className="samsung-secondary-btn w-full py-3.5 rounded-xl text-white font-semibold text-sm tracking-wide">
+                View Syllabus
+              </button>
             </div>
           </div>
-
-          <h4 className="font-display font-bold text-2xl text-white mb-3 tracking-tight group-hover:text-[#9ED5FF] transition-colors duration-300">
-            {feat.title}
-          </h4>
-          <p className="text-[15px] leading-relaxed text-[#B0C4DE] font-light flex-grow">
-            {feat.desc}
-          </p>
-
-          {/* Action Buttons */}
-          <div className="mt-8 flex flex-col gap-3">
-            <button className="samsung-primary-btn w-full py-3.5 rounded-xl text-white font-bold text-sm tracking-wide shadow-[0_0_10px_rgba(31,91,255,0.2)] group-hover:shadow-[0_0_15px_rgba(31,91,255,0.4)] transition-all duration-300 group-hover:scale-[1.02]">
-              Enroll Now
-            </button>
-            <button className="samsung-secondary-btn w-full py-3.5 rounded-xl text-white font-semibold text-sm tracking-wide">
-              View Syllabus
-            </button>
-          </div>
-        </div>
-      </motion.div>
+        </motion.div>
+      </div>
     </ScrollReveal>
   );
 }
