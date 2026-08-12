@@ -2,6 +2,27 @@ import { useState, useEffect } from 'react';
 import heroMan1 from '../../assets/banner/1.png';
 import heroMan2 from '../../assets/banner/2.png';
 import ScrollReveal from '../ui/ScrollReveal';
+import { Globe, TrendingUp, Landmark, BookOpen, Calculator, Briefcase, Building2, GraduationCap, ClipboardCheck, PieChart, ChevronRight } from 'lucide-react';
+
+import logoAig from '../../assets/logo-slider/AIG-Logo.png';
+import logoAon from '../../assets/logo-slider/aon.jpeg';
+import logoAxa from '../../assets/logo-slider/axa.jpeg';
+import logoCapgemini from '../../assets/logo-slider/capgemini.jpeg';
+import logoCaterpillar from '../../assets/logo-slider/caterpiller.jpeg';
+import logoEy from '../../assets/logo-slider/ey.jpeg';
+import logoFlextronics from '../../assets/logo-slider/flextronics.jpeg';
+import logoJpmorgan from '../../assets/logo-slider/JP.png';
+import logoKpmg from '../../assets/logo-slider/KPMG.png';
+import logoMaersk from '../../assets/logo-slider/maersk.jpeg';
+import logoMetlife from '../../assets/logo-slider/MetLife.png';
+import logoPhilips from '../../assets/logo-slider/PHG.png';
+import logoTata from '../../assets/logo-slider/TATA.png';
+import logoVmware from '../../assets/logo-slider/vmware2.png';
+
+const sliderLogos = [
+  logoAig, logoAon, logoAxa, logoCapgemini, logoCaterpillar, logoEy, logoFlextronics,
+  logoJpmorgan, logoKpmg, logoMaersk, logoMetlife, logoPhilips, logoTata, logoVmware
+];
 
 export default function Hero() {
   const [currentImage, setCurrentImage] = useState(0);
@@ -15,8 +36,8 @@ export default function Hero() {
   }, []);
 
   return (
-    <section id="home" className="relative overflow-hidden bg-white dot-grid">
-      <div className="max-w-7xl mx-auto px-6 lg:px-10 pt-16 pb-20 lg:pt-24 lg:pb-28 relative flex flex-col lg:flex-row gap-16 lg:items-start">
+    <section id="home" className="relative overflow-hidden bg-[#F3F5FD] dot-grid">
+      <div className="max-w-[95%] mx-auto px-6 lg:px-10 pt-16 pb-20 lg:pt-12 lg:pb-28 relative flex flex-col lg:flex-row gap-16 lg:items-start">
         <div className="min-w-0 flex-1">
           <ScrollReveal type="badge" delay={0}>
             <p className="eyebrow !bg-transparent !border-none !p-0 mb-5">India's No.1 Commerce &amp; Accounting Institute</p>
@@ -30,50 +51,26 @@ export default function Hero() {
           </ScrollReveal>
 
           <ScrollReveal type="subtitle" delay={300}>
-            <p className="mt-6 text-base sm:text-lg max-w-xl leading-relaxed" style={{ color: 'var(--slate-600)' }}>
+            <p className="mt-6 text-base sm:text-lg max-w-3xl leading-relaxed" style={{ color: 'var(--slate-600)' }}>
               Catalyst guides students across Kerala and India into future-defining professional
               commerce careers, with expert faculty, industry-aligned training and a placement
               record built over a decade.
             </p>
           </ScrollReveal>
 
-          <ScrollReveal type="button" delay={450}>
-            <div className="mt-9 flex flex-wrap items-center gap-4">
-              <a href="#courses" className="inline-block focus-ring rounded-lg px-7 py-3.5 text-sm font-semibold text-white shadow-lg shadow-blue-700/20 hover:shadow-blue-700/40 hover:-translate-y-2 transition-all duration-500 ease-out bg-[var(--blue-700)] hover:bg-[var(--blue-900)]">Get Started</a>
-              <a href="#contact" className="inline-block focus-ring rounded-lg px-7 py-3.5 text-sm font-semibold border text-[var(--blue-700)] hover:text-[#1428A0] border-[var(--blue-100)] hover:border-[#1428A0]/30 hover:bg-[#1428A0]/5 hover:-translate-y-2 transition-all duration-500 ease-out">Find a Coaching Centre&nbsp;→</a>
+          <ScrollReveal type="button" delay={700}>
+            <div className="mt-10 flex flex-wrap items-center gap-4">
+              <a href="#courses" className="inline-block focus-ring rounded-lg px-7 py-3.5 text-sm font-semibold text-white shadow-lg shadow-blue-700/20 hover:shadow-blue-700/40 hover:-translate-y-2 transition-all duration-500 ease-out bg-[#1428A0] hover:bg-[var(--blue-900)]">Get Started</a>
+              <a href="#contact" className="inline-block focus-ring rounded-lg px-7 py-3.5 bg-white text-sm font-semibold border text-[#1428A0] hover:text-[#1428A0] border-[var(--blue-100)] hover:border-[#1428A0]/30 hover:bg-[#1428A0]/5 hover:-translate-y-2 transition-all duration-500 ease-out">Find a Coaching Centre&nbsp;→</a>
             </div>
           </ScrollReveal>
 
-          <ScrollReveal delay={550}>
-            <div className="mt-14">
-              <p className="eyebrow !bg-transparent !border-none !p-0 !text-[var(--slate-400)] mb-4">Our Students Placed At</p>
-              <div className="logo-slider">
-                <div className="logo-track">
-                  <span>AON</span><span>KPMG</span><span>Deloitte</span><span>Caterpillar</span><span>EY</span>
-                  <span>AON</span><span>KPMG</span><span>Deloitte</span><span>Caterpillar</span><span>EY</span>
-                </div>
-              </div>
-            </div>
-          </ScrollReveal>
-          <ScrollReveal delay={650}>
-            <div className="mt-8">
-              <div className="award-badge inline-flex items-center gap-4 rounded-lg pl-3 pr-6 py-3">
-                <div className="award-badge-icon flex items-center justify-center rounded-lg w-11 h-11 shrink-0">
-                  <svg width={22} height={22} viewBox="0 0 24 24" fill="none">
-                    <circle cx={12} cy={8} r="5.5" fill="#FFC93C" stroke="#0E1D6B" strokeWidth={1} />
-                    <path d="M9 12.5L7 21l5-2.5L17 21l-2-8.5" fill="#FFC93C" stroke="#0E1D6B" strokeWidth={1} strokeLinejoin="round" />
-                    <path d="M9.5 8.2l1.6 1.6 3.2-3.2" stroke="#0E1D6B" strokeWidth="1.4" strokeLinecap="round" strokeLinejoin="round" />
-                  </svg>
-                </div>
-                <p className="font-display font-bold text-white text-base sm:text-lg leading-snug">Best ROCC Centre&nbsp;2x&nbsp;times</p>
-              </div>
-            </div>
-          </ScrollReveal>
+
         </div>
 
-        <ScrollReveal type="image" direction="left" delay={300} className="relative mx-auto w-full max-w-md lg:mx-0 lg:w-[480px] lg:shrink-0 mt-16 lg:mt-0">
+        <ScrollReveal type="image" direction="left" delay={300} className="relative mx-auto  w-full max-w-md lg:mx-0 lg:w-[480px] lg:shrink-0 mt-16 lg:mt-[-40px]">
 
-          <div className="relative w-full aspect-square flex items-center justify-center">
+          <div className="relative w-full aspect-square  flex items-center justify-center">
             {/* Light Blue Circle Background */}
             <div className="absolute inset-4 bg-gradient-to-tr from-[#ebf3ff] to-[#d6e8ff] rounded-full z-0"></div>
 
@@ -149,6 +146,271 @@ export default function Hero() {
               </div>
             </div>
 
+          </div>
+        </ScrollReveal>
+      </div>
+
+      {/* NEW CAREER PATHS SECTION */}
+      <div className="w-full mx-auto px-6 lg:px-12 xl:px-16 pb-12 lg:pb-16 relative z-20 mt-8 lg:mt-[-5rem]">
+        <ScrollReveal delay={350}>
+          <p className="text-[11px] font-bold tracking-widest text-[#1428A0] uppercase mb-4">
+            Explore Your Career Path
+          </p>
+        </ScrollReveal>
+
+        {/* 2x2 Grid */}
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4">
+          <ScrollReveal delay={400}>
+            <div className="group relative p-4 rounded-xl border border-[var(--blue-100)] bg-white shadow-[0_4px_16px_rgba(0,0,0,0.03)] hover:shadow-[0_8px_24px_rgba(21,94,172,0.12)] hover:-translate-y-1 transition-all duration-300 overflow-hidden cursor-pointer">
+              <div className="absolute inset-0 bg-gradient-to-br from-[var(--blue-50)]/50 to-transparent opacity-0 group-hover:opacity-100 transition-opacity"></div>
+              <div className="relative z-10">
+                <div className="flex items-center gap-3 mb-2">
+                  <div className="w-8 h-8 rounded-lg bg-[var(--blue-50)] text-[#1428A0] flex items-center justify-center group-hover:scale-110 group-hover:bg-[#1428A0] group-hover:text-white transition-all duration-300">
+                    <Globe size={16} strokeWidth={2.5} />
+                  </div>
+                  <h3 className="font-bold text-gray-900 group-hover:text-[#1428A0] transition-colors">CMA USA</h3>
+                </div>
+                <p className="text-xs text-[var(--slate-500)]">Global Management Accounting</p>
+              </div>
+            </div>
+          </ScrollReveal>
+
+          <ScrollReveal delay={450}>
+            <div className="group relative p-4 rounded-xl border border-[var(--blue-100)] bg-white shadow-[0_4px_16px_rgba(0,0,0,0.03)] hover:shadow-[0_8px_24px_rgba(21,94,172,0.12)] hover:-translate-y-1 transition-all duration-300 overflow-hidden cursor-pointer">
+              <div className="absolute inset-0 bg-gradient-to-br from-[var(--blue-50)]/50 to-transparent opacity-0 group-hover:opacity-100 transition-opacity"></div>
+              <div className="relative z-10">
+                <div className="flex items-center gap-3 mb-2">
+                  <div className="w-8 h-8 rounded-lg bg-[var(--blue-50)] text-[#1428A0] flex items-center justify-center group-hover:scale-110 group-hover:bg-[#1428A0] group-hover:text-white transition-all duration-300">
+                    <TrendingUp size={16} strokeWidth={2.5} />
+                  </div>
+                  <h3 className="font-bold text-gray-900 group-hover:text-[#1428A0] transition-colors">CMA India</h3>
+                </div>
+                <p className="text-xs text-[var(--slate-500)]">Cost & Management Accounting</p>
+              </div>
+            </div>
+          </ScrollReveal>
+
+          <ScrollReveal delay={500}>
+            <div className="group relative p-4 rounded-xl border border-[var(--blue-100)] bg-white shadow-[0_4px_16px_rgba(0,0,0,0.03)] hover:shadow-[0_8px_24px_rgba(21,94,172,0.12)] hover:-translate-y-1 transition-all duration-300 overflow-hidden cursor-pointer">
+              <div className="absolute inset-0 bg-gradient-to-br from-[var(--blue-50)]/50 to-transparent opacity-0 group-hover:opacity-100 transition-opacity"></div>
+              <div className="relative z-10">
+                <div className="flex items-center gap-3 mb-2">
+                  <div className="w-8 h-8 rounded-lg bg-[var(--blue-50)] text-[#1428A0] flex items-center justify-center group-hover:scale-110 group-hover:bg-[#1428A0] group-hover:text-white transition-all duration-300">
+                    <Landmark size={16} strokeWidth={2.5} />
+                  </div>
+                  <h3 className="font-bold text-gray-900 group-hover:text-[#1428A0] transition-colors">ACCA</h3>
+                </div>
+                <p className="text-xs text-[var(--slate-500)]">Global Accounting Qualification</p>
+              </div>
+            </div>
+          </ScrollReveal>
+
+          <ScrollReveal delay={550}>
+            <div className="group relative p-4 rounded-xl border border-[var(--blue-100)] bg-white shadow-[0_4px_16px_rgba(0,0,0,0.03)] hover:shadow-[0_8px_24px_rgba(21,94,172,0.12)] hover:-translate-y-1 transition-all duration-300 overflow-hidden cursor-pointer">
+              <div className="absolute inset-0 bg-gradient-to-br from-[var(--blue-50)]/50 to-transparent opacity-0 group-hover:opacity-100 transition-opacity"></div>
+              <div className="relative z-10">
+                <div className="flex items-center gap-3 mb-2">
+                  <div className="w-8 h-8 rounded-lg bg-[var(--blue-50)] text-[#1428A0] flex items-center justify-center group-hover:scale-110 group-hover:bg-[#1428A0] group-hover:text-white transition-all duration-300">
+                    <BookOpen size={16} strokeWidth={2.5} />
+                  </div>
+                  <h3 className="font-bold text-gray-900 group-hover:text-[#1428A0] transition-colors">Commerce & Accounting</h3>
+                </div>
+                <p className="text-xs text-[var(--slate-500)]">Strong Foundation for Careers</p>
+              </div>
+            </div>
+          </ScrollReveal>
+        </div>
+
+        <ScrollReveal delay={550}>
+          <p className="text-[11px] font-bold tracking-widest text-[#1428A0] uppercase mb-3 mt-8">
+            BUILD PRACTICAL SKILLS IN
+          </p>
+        </ScrollReveal>
+        {/* Skills Micro-Row */}
+        <ScrollReveal delay={600}>
+          <div className="mt-5 grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 gap-3 w-full">
+            <div className="group relative flex flex-1 flex-col items-start justify-center gap-1 px-5 py-5 pb-6 rounded-xl bg-white border border-gray-100 shadow-[0_2px_8px_rgba(0,0,0,0.02)] hover:shadow-[0_4px_16px_rgba(21,94,172,0.08)] hover:-translate-y-0.5 hover:border-[#1428A0] transition-all cursor-default min-w-[180px]">
+              <div className="flex flex-col gap-1">
+                <div className="flex items-center gap-3 text-[13px] font-bold text-gray-800 group-hover:text-[#1428A0] transition-colors">
+                  <div className="w-7 h-7 rounded-md bg-[var(--blue-50)] text-[#1428A0] flex items-center justify-center group-hover:bg-[#1428A0] group-hover:text-white transition-all duration-300">
+                    <Calculator size={14} />
+                  </div>
+                  Accounting
+                </div>
+                <span className="text-[11px] text-[var(--slate-500)] ml-[40px]">Financial reporting</span>
+              </div>
+
+              <button className="group/btn flex items-center gap-1.5 px-3 py-1.5 rounded-full border border-[var(--blue-100)] bg-[var(--blue-50)] text-[#1428A0] opacity-0 translate-y-2 group-hover:opacity-100 group-hover:translate-y-0 transition-all duration-300 hover:bg-white hover:border-[#1428A0] hover:shadow-md cursor-pointer absolute bottom-3 right-4">
+                <span className="text-xs font-semibold pl-1">Explore</span>
+                <div className="w-5 h-5 rounded-full bg-[#1428A0] flex items-center justify-center text-white transition-transform duration-300 group-hover/btn:translate-x-1">
+                  <ChevronRight size={14} strokeWidth={2.5} />
+                </div>
+              </button>
+            </div>
+
+            <div className="group relative flex flex-1 flex-col items-start justify-center gap-1 px-5 py-5 pb-6 rounded-xl bg-white border border-gray-100 shadow-[0_2px_8px_rgba(0,0,0,0.02)] hover:shadow-[0_4px_16px_rgba(21,94,172,0.08)] hover:-translate-y-0.5 hover:border-[#1428A0] transition-all cursor-default min-w-[180px]">
+              <div className="flex flex-col gap-1">
+                <div className="flex items-center gap-3 text-[13px] font-bold text-gray-800 group-hover:text-[#1428A0] transition-colors">
+                  <div className="w-7 h-7 rounded-md bg-[var(--blue-50)] text-[#1428A0] flex items-center justify-center group-hover:bg-[#1428A0] group-hover:text-white transition-all duration-300">
+                    <TrendingUp size={14} />
+                  </div>
+                  Finance
+                </div>
+                <span className="text-[11px] text-[var(--slate-500)] ml-[40px]">Corporate strategy</span>
+              </div>
+
+              <button className="group/btn flex items-center gap-1.5 px-3 py-1.5 rounded-full border border-[var(--blue-100)] bg-[var(--blue-50)] text-[#1428A0] opacity-0 translate-y-2 group-hover:opacity-100 group-hover:translate-y-0 transition-all duration-300 hover:bg-white hover:border-[#1428A0] hover:shadow-md cursor-pointer absolute bottom-3 right-4">
+                <span className="text-xs font-semibold pl-1">Explore</span>
+                <div className="w-5 h-5 rounded-full bg-[#1428A0] flex items-center justify-center text-white transition-transform duration-300 group-hover/btn:translate-x-1">
+                  <ChevronRight size={14} strokeWidth={2.5} />
+                </div>
+              </button>
+            </div>
+
+            <div className="group relative flex flex-1 flex-col items-start justify-center gap-1 px-5 py-5 pb-6 rounded-xl bg-white border border-gray-100 shadow-[0_2px_8px_rgba(0,0,0,0.02)] hover:shadow-[0_4px_16px_rgba(21,94,172,0.08)] hover:-translate-y-0.5 hover:border-[#1428A0] transition-all cursor-default min-w-[180px]">
+              <div className="flex flex-col gap-1">
+                <div className="flex items-center gap-3 text-[13px] font-bold text-gray-800 group-hover:text-[#1428A0] transition-colors">
+                  <div className="w-7 h-7 rounded-md bg-[var(--blue-50)] text-[#1428A0] flex items-center justify-center group-hover:bg-[#1428A0] group-hover:text-white transition-all duration-300">
+                    <Landmark size={14} />
+                  </div>
+                  Taxation
+                </div>
+                <span className="text-[11px] text-[var(--slate-500)] ml-[40px]">Direct & indirect tax</span>
+              </div>
+
+              <button className="group/btn flex items-center gap-1.5 px-3 py-1.5 rounded-full border border-[var(--blue-100)] bg-[var(--blue-50)] text-[#1428A0] opacity-0 translate-y-2 group-hover:opacity-100 group-hover:translate-y-0 transition-all duration-300 hover:bg-white hover:border-[#1428A0] hover:shadow-md cursor-pointer absolute bottom-3 right-4">
+                <span className="text-xs font-semibold pl-1">Explore</span>
+                <div className="w-5 h-5 rounded-full bg-[#1428A0] flex items-center justify-center text-white transition-transform duration-300 group-hover/btn:translate-x-1">
+                  <ChevronRight size={14} strokeWidth={2.5} />
+                </div>
+              </button>
+            </div>
+
+            <div className="group relative flex flex-1 flex-col items-start justify-center gap-1 px-5 py-5 pb-6 rounded-xl bg-white border border-gray-100 shadow-[0_2px_8px_rgba(0,0,0,0.02)] hover:shadow-[0_4px_16px_rgba(21,94,172,0.08)] hover:-translate-y-0.5 hover:border-[#1428A0] transition-all cursor-default min-w-[180px]">
+              <div className="flex flex-col gap-1">
+                <div className="flex items-center gap-3 text-[13px] font-bold text-gray-800 group-hover:text-[#1428A0] transition-colors">
+                  <div className="w-7 h-7 rounded-md bg-[var(--blue-50)] text-[#1428A0] flex items-center justify-center group-hover:bg-[#1428A0] group-hover:text-white transition-all duration-300">
+                    <Briefcase size={14} />
+                  </div>
+                  Business
+                </div>
+                <span className="text-[11px] text-[var(--slate-500)] ml-[40px]">Management skills</span>
+              </div>
+
+              <button className="group/btn flex items-center gap-1.5 px-3 py-1.5 rounded-full border border-[var(--blue-100)] bg-[var(--blue-50)] text-[#1428A0] opacity-0 translate-y-2 group-hover:opacity-100 group-hover:translate-y-0 transition-all duration-300 hover:bg-white hover:border-[#1428A0] hover:shadow-md cursor-pointer absolute bottom-3 right-4">
+                <span className="text-xs font-semibold pl-1">Explore</span>
+                <div className="w-5 h-5 rounded-full bg-[#1428A0] flex items-center justify-center text-white transition-transform duration-300 group-hover/btn:translate-x-1">
+                  <ChevronRight size={14} strokeWidth={2.5} />
+                </div>
+              </button>
+            </div>
+
+            <div className="group relative flex flex-1 flex-col items-start justify-center gap-1 px-5 py-5 pb-6 rounded-xl bg-white border border-gray-100 shadow-[0_2px_8px_rgba(0,0,0,0.02)] hover:shadow-[0_4px_16px_rgba(21,94,172,0.08)] hover:-translate-y-0.5 hover:border-[#1428A0] transition-all cursor-default min-w-[180px]">
+              <div className="flex flex-col gap-1">
+                <div className="flex items-center gap-3 text-[13px] font-bold text-gray-800 group-hover:text-[#1428A0] transition-colors">
+                  <div className="w-7 h-7 rounded-md bg-[var(--blue-50)] text-[#1428A0] flex items-center justify-center group-hover:bg-[#1428A0] group-hover:text-white transition-all duration-300">
+                    <Building2 size={14} />
+                  </div>
+                  Banking
+                </div>
+                <span className="text-[11px] text-[var(--slate-500)] ml-[40px]">Financial systems</span>
+              </div>
+
+              <button className="group/btn flex items-center gap-1.5 px-3 py-1.5 rounded-full border border-[var(--blue-100)] bg-[var(--blue-50)] text-[#1428A0] opacity-0 translate-y-2 group-hover:opacity-100 group-hover:translate-y-0 transition-all duration-300 hover:bg-white hover:border-[#1428A0] hover:shadow-md cursor-pointer absolute bottom-3 right-4">
+                <span className="text-xs font-semibold pl-1">Explore</span>
+                <div className="w-5 h-5 rounded-full bg-[#1428A0] flex items-center justify-center text-white transition-transform duration-300 group-hover/btn:translate-x-1">
+                  <ChevronRight size={14} strokeWidth={2.5} />
+                </div>
+              </button>
+            </div>
+
+            <div className="group relative flex flex-1 flex-col items-start justify-center gap-1 px-5 py-5 pb-6 rounded-xl bg-white border border-gray-100 shadow-[0_2px_8px_rgba(0,0,0,0.02)] hover:shadow-[0_4px_16px_rgba(21,94,172,0.08)] hover:-translate-y-0.5 hover:border-[#1428A0] transition-all cursor-default min-w-[180px]">
+              <div className="flex flex-col gap-1">
+                <div className="flex items-center gap-3 text-[13px] font-bold text-gray-800 group-hover:text-[#1428A0] transition-colors">
+                  <div className="w-7 h-7 rounded-md bg-[var(--blue-50)] text-[#1428A0] flex items-center justify-center group-hover:bg-[#1428A0] group-hover:text-white transition-all duration-300">
+                    <BookOpen size={14} />
+                  </div>
+                  Excel
+                </div>
+                <span className="text-[11px] text-[var(--slate-500)] ml-[40px]">Data analysis</span>
+              </div>
+
+              <button className="group/btn flex items-center gap-1.5 px-3 py-1.5 rounded-full border border-[var(--blue-100)] bg-[var(--blue-50)] text-[#1428A0] opacity-0 translate-y-2 group-hover:opacity-100 group-hover:translate-y-0 transition-all duration-300 hover:bg-white hover:border-[#1428A0] hover:shadow-md cursor-pointer absolute bottom-3 right-4">
+                <span className="text-xs font-semibold pl-1">Explore</span>
+                <div className="w-5 h-5 rounded-full bg-[#1428A0] flex items-center justify-center text-white transition-transform duration-300 group-hover/btn:translate-x-1">
+                  <ChevronRight size={14} strokeWidth={2.5} />
+                </div>
+              </button>
+            </div>
+
+            <div className="group relative flex flex-1 flex-col items-start justify-center gap-1 px-5 py-5 pb-6 rounded-xl bg-white border border-gray-100 shadow-[0_2px_8px_rgba(0,0,0,0.02)] hover:shadow-[0_4px_16px_rgba(21,94,172,0.08)] hover:-translate-y-0.5 hover:border-[#1428A0] transition-all cursor-default min-w-[180px]">
+              <div className="flex flex-col gap-1">
+                <div className="flex items-center gap-3 text-[13px] font-bold text-gray-800 group-hover:text-[#1428A0] transition-colors">
+                  <div className="w-7 h-7 rounded-md bg-[var(--blue-50)] text-[#1428A0] flex items-center justify-center group-hover:bg-[#1428A0] group-hover:text-white transition-all duration-300">
+                    <PieChart size={14} />
+                  </div>
+                  Analytics
+                </div>
+                <span className="text-[11px] text-[var(--slate-500)] ml-[40px]">Business insights</span>
+              </div>
+
+              <button className="group/btn flex items-center gap-1.5 px-3 py-1.5 rounded-full border border-[var(--blue-100)] bg-[var(--blue-50)] text-[#1428A0] opacity-0 translate-y-2 group-hover:opacity-100 group-hover:translate-y-0 transition-all duration-300 hover:bg-white hover:border-[#1428A0] hover:shadow-md cursor-pointer absolute bottom-3 right-4">
+                <span className="text-xs font-semibold pl-1">Explore</span>
+                <div className="w-5 h-5 rounded-full bg-[#1428A0] flex items-center justify-center text-white transition-transform duration-300 group-hover/btn:translate-x-1">
+                  <ChevronRight size={14} strokeWidth={2.5} />
+                </div>
+              </button>
+            </div>
+
+            <div className="group relative flex flex-1 flex-col items-start justify-center gap-1 px-5 py-5 pb-6 rounded-xl bg-white border border-gray-100 shadow-[0_2px_8px_rgba(0,0,0,0.02)] hover:shadow-[0_4px_16px_rgba(21,94,172,0.08)] hover:-translate-y-0.5 hover:border-[#1428A0] transition-all cursor-default min-w-[180px]">
+              <div className="flex flex-col gap-1">
+                <div className="flex items-center gap-3 text-[13px] font-bold text-gray-800 group-hover:text-[#1428A0] transition-colors">
+                  <div className="w-7 h-7 rounded-md bg-[var(--blue-50)] text-[#1428A0] flex items-center justify-center group-hover:bg-[#1428A0] group-hover:text-white transition-all duration-300">
+                    <GraduationCap size={14} />
+                  </div>
+                  Career Skills
+                </div>
+                <span className="text-[11px] text-[var(--slate-500)] ml-[40px]">Interview prep</span>
+              </div>
+
+              <button className="group/btn flex items-center gap-1.5 px-3 py-1.5 rounded-full border border-[var(--blue-100)] bg-[var(--blue-50)] text-[#1428A0] opacity-0 translate-y-2 group-hover:opacity-100 group-hover:translate-y-0 transition-all duration-300 hover:bg-white hover:border-[#1428A0] hover:shadow-md cursor-pointer absolute bottom-3 right-4">
+                <span className="text-xs font-semibold pl-1">Explore</span>
+                <div className="w-5 h-5 rounded-full bg-[#1428A0] flex items-center justify-center text-white transition-transform duration-300 group-hover/btn:translate-x-1">
+                  <ChevronRight size={14} strokeWidth={2.5} />
+                </div>
+              </button>
+            </div>
+          </div>
+        </ScrollReveal>
+      </div>
+      <div className="w-full mx-auto px-6 lg:px-2 xl:px-16 pb-12 lg:pb-16 relative z-20">
+        <ScrollReveal delay={800}>
+          <div className="mt-14">
+            <p className="eyebrow !bg-transparent !border-none !p-0 !text-[#1428A0] mb-4">Our Students Placed At</p>
+            <div className="logo-slider w-[97%]  mx-auto">
+              <div className="logo-track items-center">
+                {sliderLogos.map((logo, idx) => (
+                  <img key={`logo-1-${idx}`} src={logo} alt="Company Logo" className="h-12 w-auto object-contain mix-blend-multiply opacity-80 hover:opacity-100 transition-opacity" />
+                ))}
+                {sliderLogos.map((logo, idx) => (
+                  <img key={`logo-2-${idx}`} src={logo} alt="Company Logo" className="h-12 w-auto object-contain mix-blend-multiply opacity-80 hover:opacity-100 transition-opacity" />
+                ))}
+              </div>
+            </div>
+          </div>
+        </ScrollReveal>
+        <ScrollReveal delay={900}>
+          <div className="mt-8">
+            <div className="award-badge inline-flex items-center gap-4 rounded-lg pl-3 pr-6 py-3">
+              <div className="award-badge-icon flex items-center justify-center rounded-lg w-11 h-11 shrink-0">
+                <svg width={22} height={22} viewBox="0 0 24 24" fill="none">
+                  <circle cx={12} cy={8} r="5.5" fill="#FFC93C" stroke="#0E1D6B" strokeWidth={1} />
+                  <path d="M9 12.5L7 21l5-2.5L17 21l-2-8.5" fill="#FFC93C" stroke="#0E1D6B" strokeWidth={1} strokeLinejoin="round" />
+                  <path d="M9.5 8.2l1.6 1.6 3.2-3.2" stroke="#0E1D6B" strokeWidth="1.4" strokeLinecap="round" strokeLinejoin="round" />
+                </svg>
+              </div>
+              <p className="font-display font-bold text-white text-base sm:text-lg leading-snug">Best ROCC Centre&nbsp;2x&nbsp;times</p>
+            </div>
           </div>
         </ScrollReveal>
       </div>

@@ -1,18 +1,20 @@
 import { useRef, useState, useEffect, useCallback } from 'react';
+import { motion, AnimatePresence } from 'framer-motion';
 import ScrollReveal from '../ui/ScrollReveal';
 
 export default function YouTube() {
   const [isHovered, setIsHovered] = useState(false);
   const [isTransitioning, setIsTransitioning] = useState(false);
   const [slideOffsets, setSlideOffsets] = useState([]);
+  const [activeVideo, setActiveVideo] = useState(null);
 
   const trackRef = useRef(null);
 
   const fullYoutubeData = [
-    { id: 1, videoId: 'XlJpz-RDcps' },
-    { id: 2, videoId: 'DQwNte00Noc' },
-    { id: 3, videoId: 'C5r6694Wz9I' },
-    { id: 4, videoId: '9zMhi51v-Mk' }
+    { id: 1, videoId: 'XlJpz-RDcps', title: 'A Proud Parent’s Joy', description: 'Discover how Catalyst played a key role in achieving her daughter’s success.' },
+    { id: 2, videoId: 'DQwNte00Noc', title: 'Building Confidence for CMA', description: 'How our focused mentoring helped a student clear the CMA Intermediate exam.' },
+    { id: 3, videoId: 'C5r6694Wz9I', title: 'The Joy of Success', description: 'A story of dedication, hard work, and the happiness of achieving your goals.' },
+    { id: 4, videoId: '9zMhi51v-Mk', title: 'Transforming Careers', description: 'Hear from our alumni on how their journey at Catalyst transformed their lives.' }
   ];
 
   const totalOriginal = fullYoutubeData.length;
@@ -153,14 +155,15 @@ export default function YouTube() {
                   key={idx}
                   type="card"
                   delay={(idx % fullYoutubeData.length) * 150}
-                  className="shrink-0"
+                  className="shrink-0 flex flex-col gap-3"
                 >
-                  <a
-                    href={`https://www.youtube.com/watch?v=${video.videoId}`}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="w-[85vw] sm:w-[420px] block rounded-lg overflow-hidden relative aspect-video group border border-[var(--line)] shadow-sm hover:shadow-lg transition-shadow"
-                    onClick={(e) => { if (hasDragged) e.preventDefault(); }}
+                  <button
+                    type="button"
+                    className="w-[85vw] sm:w-[420px] block rounded-lg overflow-hidden relative aspect-video group border border-[var(--line)] shadow-sm hover:shadow-lg transition-shadow text-left"
+                    onClick={(e) => {
+                      e.preventDefault();
+                      if (!hasDragged) setActiveVideo(video.videoId);
+                    }}
                     style={{ pointerEvents: 'auto' }}
                   >
                     <img src={`https://img.youtube.com/vi/${video.videoId}/maxresdefault.jpg`} alt={`Video ${video.id}`} className="absolute inset-0 w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" draggable="false" />
@@ -170,7 +173,11 @@ export default function YouTube() {
                         <svg width={20} height={20} viewBox="0 0 24 24" fill="var(--blue-700)"><path d="M8 5v14l11-7z" /></svg>
                       </div>
                     </div>
-                  </a>
+                  </button>
+                  <div className="px-1 flex flex-col gap-1 w-[85vw] sm:w-[420px]">
+                    <h3 className="font-display font-bold text-lg text-[var(--blue-900)] line-clamp-1">{video.title}</h3>
+                    <p className="text-sm text-[var(--slate-500)] line-clamp-2">{video.description}</p>
+                  </div>
                 </ScrollReveal>
               ))}
             </div>
@@ -200,6 +207,43 @@ export default function YouTube() {
           <a href="https://www.youtube.com/@catalysteducationindia" target="_blank" rel="noopener noreferrer" className="focus-ring inline-flex rounded-lg px-7 py-3.5 text-sm font-semibold text-white shadow-[0_8px_20px_rgba(20,40,160,0.25)] hover:shadow-[0_10px_25px_rgba(20,40,160,0.35)] hover:-translate-y-0.5 transition-all duration-300 bg-[var(--blue-700)] hover:bg-[var(--blue-900)]">Subscribe Now</a>
         </div>
       </ScrollReveal>
+
+      {/* Video Modal */}
+      <AnimatePresence>
+        {activeVideo && (
+          <div className="fixed inset-0 z-[999] flex items-center justify-center p-4 sm:p-6">
+            <motion.div
+              initial={{ opacity: 0 }}
+              animate={{ opacity: 1 }}
+              exit={{ opacity: 0 }}
+              className="absolute inset-0 bg-black/80 backdrop-blur-sm cursor-pointer"
+              onClick={() => setActiveVideo(null)}
+            />
+            <motion.div
+              initial={{ opacity: 0, scale: 0.95, y: 20 }}
+              animate={{ opacity: 1, scale: 1, y: 0 }}
+              exit={{ opacity: 0, scale: 0.95, y: 20 }}
+              transition={{ type: "spring", stiffness: 300, damping: 30 }}
+              className="relative w-full max-w-5xl aspect-video bg-black rounded-xl overflow-hidden shadow-2xl"
+            >
+              <button
+                onClick={() => setActiveVideo(null)}
+                className="absolute top-4 right-4 z-10 w-10 h-10 bg-black/50 hover:bg-black/80 text-white rounded-full flex items-center justify-center transition-colors focus-ring cursor-pointer"
+              >
+                <svg width={24} height={24} viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth={2} strokeLinecap="round" strokeLinejoin="round"><path d="M18 6L6 18M6 6l12 12" /></svg>
+              </button>
+              <iframe
+                src={`https://www.youtube.com/embed/${activeVideo}?autoplay=1`}
+                title="YouTube video player"
+                frameBorder="0"
+                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                allowFullScreen
+                className="w-full h-full"
+              ></iframe>
+            </motion.div>
+          </div>
+        )}
+      </AnimatePresence>
     </section>
   );
 }

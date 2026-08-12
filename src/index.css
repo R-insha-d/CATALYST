@@ -104,7 +104,7 @@ details[open] .chev {
 }
 
 .dot-grid {
-  background-image: radial-gradient(circle at 1px 1px, var(--blue-100) 1.6px, transparent 0);
+  background-image: radial-gradient(circle at 1px 1px, rgba(112, 156, 223, 0.319) 1.6px, transparent 0);
   background-size: 26px 26px;
 }
 
@@ -161,8 +161,7 @@ details[open] .chev {
   box-shadow: 0 14px 28px -10px rgba(20, 40, 160, .45);
 }
 
-.hero-btn-fill:active {
-}
+.hero-btn-fill:active {}
 
 .hero-btn-outline {
   display: inline-block;
@@ -173,8 +172,7 @@ details[open] .chev {
   border-color: var(--blue-500) !important;
 }
 
-.hero-btn-outline:active {
-}
+.hero-btn-outline:active {}
 
 /* Award badge */
 .award-badge {
@@ -568,8 +566,6 @@ details[open] .chev {
   left: 0;
   width: 100%;
   height: 100%;
-  background: linear-gradient(90deg, rgba(255, 255, 255, 0) 0%, rgba(255, 255, 255, 0.4) 50%, rgba(255, 255, 255, 0) 100%);
-  animation: lightSweep 6s infinite ease-in-out;
   transition: transform .75s ease, box-shadow .75s ease !important;
 }
 
@@ -640,7 +636,6 @@ details[open] .chev {
 /* Premium Hover Animation (8px lift, 1.03 scale, brighter borders) */
 .swiper-slide .samsung-glass-card:hover {
   transform: scale(1) translateY(-1px) !important;
-  box-shadow: 0 0 0 -5px rgba(0, 26, 114, 0.9), inset 0 0 0 rgba(255, 255, 255, 0.5), 0 0 10px rgba(31, 91, 255, 0.4) !important;
   border-color: rgba(255, 255, 255, 0.5) !important;
   background: rgba(255, 255, 255, 0.18) !important;
   z-index: 20;

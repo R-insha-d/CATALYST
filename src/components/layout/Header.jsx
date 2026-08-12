@@ -1,28 +1,286 @@
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
+import { motion, AnimatePresence } from 'framer-motion';
+import logo from '../../assets/logo/logo1.png';
+
+import { HoveredLink, Menu, MenuItem, ProductItem, TextItem, MegaMenuContent } from "../ui/navbar-menu";
+
+const megaMenuCourses = [
+  {
+    id: "global",
+    name: "Global Certifications",
+    icon: <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round"><circle cx="12" cy="12" r="10"></circle><line x1="2" y1="12" x2="22" y2="12"></line><path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"></path></svg>,
+    sections: [
+      {
+        title: "ACCOUNTING & FINANCE",
+        items: [
+          { title: "CMA USA", subtitle: "IMA, United States", image: "https://images.unsplash.com/photo-1454165804606-c3d57bc86b40?q=80&w=150&auto=format&fit=crop", href: "/courses/cma-usa" },
+          { title: "ACCA", subtitle: "ACCA Global, UK", image: "https://images.unsplash.com/photo-1434030216411-0b793f4b4173?q=80&w=150&auto=format&fit=crop", href: "/courses/acca" }
+        ]
+      }
+    ]
+  },
+  {
+    id: "indian",
+    name: "Indian Certifications",
+    icon: <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round"><path d="M21.54 15H17a2 2 0 0 0-2 2v4.54"></path><path d="M7 3.34V5a3 3 0 0 0 3 3v0a2 2 0 0 1 2 2v0c0 1.1.9 2 2 2v0a2 2 0 0 0 2-2v0c0-1.1.9-2 2-2h3.17"></path><path d="M11 21.95V18a2 2 0 0 0-2-2a2 2 0 0 1-2-2v-1a2 2 0 0 0-2-2H2.05"></path><circle cx="12" cy="12" r="10"></circle></svg>,
+    sections: [
+      {
+        title: "PROFESSIONAL COURSES",
+        items: [
+          { title: "CMA India", subtitle: "ICMAI, India", image: "https://images.unsplash.com/photo-1554224155-8d04cb21cd6c?q=80&w=150&auto=format&fit=crop", href: "/courses/cma-india" },
+          { title: "CA Foundation", subtitle: "ICAI, India", image: "https://images.unsplash.com/photo-1554224155-6726b3ff858f?q=80&w=150&auto=format&fit=crop", href: "/courses/ca" }
+        ]
+      }
+    ]
+  },
+  {
+    id: "short-term",
+    name: "Short Term Courses",
+    icon: <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round"><circle cx="12" cy="12" r="10"></circle><polyline points="12 6 12 12 16 14"></polyline></svg>,
+    sections: [
+      {
+        title: "SKILL DEVELOPMENT",
+        items: [
+          { title: "Financial Modeling", subtitle: "Practical Training", image: "https://images.unsplash.com/photo-1460925895917-afdab827c52f?q=80&w=150&auto=format&fit=crop", href: "/courses/financial-modeling" },
+          { title: "Tally Prime & GST", subtitle: "Accounting Software", image: "https://images.unsplash.com/photo-1554224154-26032ffc0d07?q=80&w=150&auto=format&fit=crop", href: "/courses/tally" }
+        ]
+      }
+    ]
+  }
+];
+
+const megaMenuBlogs = [
+  {
+    id: "latest",
+    name: "Latest Posts",
+    icon: <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"></path><polyline points="14 2 14 8 20 8"></polyline><line x1="16" y1="13" x2="8" y2="13"></line><line x1="16" y1="17" x2="8" y2="17"></line><polyline points="10 9 9 9 8 9"></polyline></svg>,
+    sections: [
+      {
+        title: "FEATURED READS",
+        items: [
+          { title: "Why CMA USA?", subtitle: "Accounting Trends", image: "https://images.unsplash.com/photo-1553877522-43269d4ea984?q=80&w=150&auto=format&fit=crop", href: "/blog/why-cma-usa" },
+          { title: "ACCA vs CMA", subtitle: "Comparisons", image: "https://images.unsplash.com/photo-1573164713988-8665fc963095?q=80&w=150&auto=format&fit=crop", href: "/blog/acca-vs-cma" }
+        ]
+      }
+    ]
+  },
+  {
+    id: "career",
+    name: "Career Guidance",
+    icon: <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"></path><polyline points="22 4 12 14.01 9 11.01"></polyline></svg>,
+    sections: [
+      {
+        title: "CAREER PATHS",
+        items: [
+          { title: "Career After Commerce", subtitle: "Finance Careers", image: "https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?q=80&w=150&auto=format&fit=crop", href: "/blog/commerce-career" },
+          { title: "Big 4 Interview Guide", subtitle: "Interviews", image: "https://images.unsplash.com/photo-1521737604893-d14cc237f11d?q=80&w=150&auto=format&fit=crop", href: "/blog/interview-guide" }
+        ]
+      }
+    ]
+  },
+  {
+    id: "exams",
+    name: "Exam Tips",
+    icon: <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round"><circle cx="12" cy="12" r="10"></circle><polyline points="12 6 12 12 16 14"></polyline></svg>,
+    sections: [
+      {
+        title: "STUDY HACKS",
+        items: [
+          { title: "Exam Preparation Tips", subtitle: "Preparation", image: "https://images.unsplash.com/photo-1516321497487-e288fb19713f?q=80&w=150&auto=format&fit=crop", href: "/blog/exam-tips" },
+          { title: "6 Month CMA Plan", subtitle: "Study Plans", image: "https://images.unsplash.com/photo-1434030216411-0b793f4b4173?q=80&w=150&auto=format&fit=crop", href: "/blog/cma-plan" }
+        ]
+      }
+    ]
+  }
+];
 
 export default function Header() {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
+  const [active, setActive] = useState(null);
+  const [scrolled, setScrolled] = useState(false);
+  const [isSearchOpen, setIsSearchOpen] = useState(false);
+
+  useEffect(() => {
+    const handleScroll = () => setScrolled(window.scrollY > 20);
+    window.addEventListener('scroll', handleScroll);
+    return () => window.removeEventListener('scroll', handleScroll);
+  }, []);
 
   return (
     <>
-      <header className="sticky top-0 z-50 bg-white/95 backdrop-blur border-b border-[var(--line)]">
-        <div className="max-w-7xl mx-auto px-6 lg:px-10 flex items-center justify-between h-20">
+      <header className={`sticky top-0 z-50 transition-all duration-500 ease-in-out flex justify-center ${scrolled ? "pt-2" : ""}`}>
+        <div
+          className={`transition-all duration-500 ease-in-out flex items-center justify-between flex-nowrap whitespace-nowrap ${scrolled
+            ? "w-[95%] xl:w-[75%] min-w-max max-w-[1500px] mx-auto rounded-full border border-black/5 shadow-[0_8px_30px_rgb(0,0,0,0.08)] h-[72px] px-6 lg:px-8 bg-white/80 backdrop-blur-lg"
+            : "w-full border-b border-gray-100 shadow-[0_8px_30px_rgb(0,0,0,0.05)] h-20 px-6 lg:px-12 xl:px-16 bg-white/95 backdrop-blur-sm"
+            }`}
+        >
           <a href="#top" className="flex items-center gap-2 focus-ring rounded">
-            <img src="data:image/png;base64,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" alt="Catalyst Education" className="h-10 w-auto" />
+            <img src={logo} alt="Catalyst Education" className="h-15 w-auto lg:pl-15" />
           </a>
-          <nav className="hidden lg:flex items-center gap-9 text-sm font-medium" style={{ color: 'var(--slate-600)' }}>
-            <a href="#home" className="hover:text-[var(--blue-700)] focus-ring rounded">Home</a>
-            <a href="#about" className="hover:text-[var(--blue-700)] focus-ring rounded">About</a>
-            <a href="#contact" className="hover:text-[var(--blue-700)] focus-ring rounded">Centers</a>
-            <a href="#courses" className="hover:text-[var(--blue-700)] focus-ring rounded">Courses</a>
-            <a href="#stories" className="hover:text-[var(--blue-700)] focus-ring rounded">Success Stories</a>
-            <a href="#contact" className="hover:text-[var(--blue-700)] focus-ring rounded">Contact</a>
-          </nav>
-          <div className="flex items-center gap-3">
-            <a href="tel:+919876543210" className="hidden md:flex items-center gap-2 text-sm font-semibold" style={{ color: 'var(--blue-700)' }}>
-              <svg width={16} height={16} viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth={2}><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.12.9.34 1.79.65 2.65a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.43-1.27a2 2 0 0 1 2.11-.45c.86.31 1.75.53 2.65.65A2 2 0 0 1 22 16.92z" /></svg>
-              +91 98765 43210
-            </a>
+          <div className={`hidden lg:flex items-center text-sm font-medium z-[100] transition-all duration-500 ease-in-out shrink-0 ${scrolled ? 'gap-4 xl:gap-6' : 'gap-9'}`} style={{ color: 'var(--slate-600)' }}>
+            <Menu setActive={setActive}>
+              <MenuItem setActive={setActive} active={active} item="Home" href="#home">
+                <div className="grid grid-cols-2 gap-6 p-4 text-sm w-[600px]">
+                  <TextItem
+                    title="Welcome to Catalyst"
+                    href="#home"
+                    description="India's leading institute for commerce and accounting."
+                    icon={<svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round"><path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"></path><polyline points="9 22 9 12 15 12 15 22"></polyline></svg>}
+                  />
+                  <TextItem
+                    title="Why Choose Us"
+                    href="#features"
+                    description="Expert faculty, industry-aligned training and more."
+                    icon={<svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"></path><polyline points="22 4 12 14.01 9 11.01"></polyline></svg>}
+                  />
+                  <TextItem
+                    title="Placements"
+                    href="#placements"
+                    description="A placement record built over a decade of excellence."
+                    icon={<svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round"><polyline points="23 6 13.5 15.5 8.5 10.5 1 18"></polyline><polyline points="17 6 23 6 23 12"></polyline></svg>}
+                  />
+                  <TextItem
+                    title="Latest Updates"
+                    href="#updates"
+                    description="News, events, and recent happenings at the campus."
+                    icon={<svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round"><path d="M18 8A6 6 0 0 0 6 8c0 7-3 9-3 9h18s-3-2-3-9"></path><path d="M13.73 21a2 2 0 0 1-3.46 0"></path></svg>}
+                  />
+                </div>
+              </MenuItem>
+              <MenuItem setActive={setActive} active={active} item="Courses" href="#courses">
+                <MegaMenuContent categories={megaMenuCourses} basePath="/courses" />
+              </MenuItem>
+
+              <MenuItem setActive={setActive} active={active} item="Centers" href="#centers">
+                <div className="grid grid-cols-2 gap-6 p-4 text-sm w-[600px]">
+                  <TextItem
+                    title="Kochi Campus"
+                    href="#kochi"
+                    description="Our flagship learning center in the heart of Kochi."
+                    icon={<svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"></path><circle cx="12" cy="10" r="3"></circle></svg>}
+                  />
+                  <TextItem
+                    title="Trivandrum Campus"
+                    href="#trivandrum"
+                    description="State of the art facilities for commerce students."
+                    icon={<svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"></path><circle cx="12" cy="10" r="3"></circle></svg>}
+                  />
+                  <TextItem
+                    title="Calicut Campus"
+                    href="#calicut"
+                    description="Empowering the next generation of accountants."
+                    icon={<svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"></path><circle cx="12" cy="10" r="3"></circle></svg>}
+                  />
+                  <TextItem
+                    title="Bangalore Campus"
+                    href="#bangalore"
+                    description="Our newest center for global finance certifications."
+                    icon={<svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"></path><circle cx="12" cy="10" r="3"></circle></svg>}
+                  />
+                </div>
+              </MenuItem>
+
+              <MenuItem setActive={setActive} active={active} item="Success Stories" href="#stories">
+                <div className="grid grid-cols-2 gap-10 p-4 text-sm">
+                  <ProductItem
+                    title="Student Journeys"
+                    href="#case-studies"
+                    src="https://images.unsplash.com/photo-1523240795612-9a054b0db644?q=80&w=600&auto=format&fit=crop"
+                    description="Read inspiring stories of our students' achievements."
+                  />
+                  <ProductItem
+                    title="Top Performers"
+                    href="#performers"
+                    src="https://images.unsplash.com/photo-1522202176988-66273c2fd55f?q=80&w=600&auto=format&fit=crop"
+                    description="Meet the highest scorers and global rank holders."
+                  />
+                  <ProductItem
+                    title="Testimonials"
+                    href="#testimonials"
+                    src="https://images.unsplash.com/photo-1516321497487-e288fb19713f?q=80&w=600&auto=format&fit=crop"
+                    description="What our alumni say about their experience."
+                  />
+                  <ProductItem
+                    title="Corporate Placements"
+                    href="#corporate"
+                    src="https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?q=80&w=600&auto=format&fit=crop"
+                    description="Where our students are working today."
+                  />
+                </div>
+              </MenuItem>
+              <MenuItem setActive={setActive} active={active} item="About" href="#about">
+                <div className="grid grid-cols-2 gap-6 p-4 text-sm w-[600px]">
+                  <TextItem
+                    title="Our Story"
+                    href="#about-catalyst"
+                    description="The journey of creating India's No.1 commerce institute."
+                    icon={<svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round"><path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20"></path><path d="M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2z"></path></svg>}
+                  />
+                  <TextItem
+                    title="Expert Faculty"
+                    href="#faculty"
+                    description="Learn from industry veterans and top professionals."
+                    icon={<svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"></path><circle cx="9" cy="7" r="4"></circle><path d="M23 21v-2a4 4 0 0 0-3-3.87"></path><path d="M16 3.13a4 4 0 0 1 0 7.75"></path></svg>}
+                  />
+                  <TextItem
+                    title="Awards & Recognition"
+                    href="#awards"
+                    description="Awarded Best ROCC Centre 2x times."
+                    icon={<svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round"><circle cx="12" cy="8" r="7"></circle><polyline points="8.21 13.89 7 23 12 20 17 23 15.79 13.88"></polyline></svg>}
+                  />
+                  <TextItem
+                    title="Careers"
+                    href="#careers"
+                    description="Join our team and help shape future careers."
+                    icon={<svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round"><rect x="2" y="7" width="20" height="14" rx="2" ry="2"></rect><path d="M16 21V5a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v16"></path></svg>}
+                  />
+                </div>
+              </MenuItem>
+              <MenuItem setActive={setActive} active={active} item="Blogs" href="#blogs">
+                <MegaMenuContent categories={megaMenuBlogs} basePath="/blog" />
+              </MenuItem>
+              <MenuItem setActive={setActive} active={active} item="Contact" href="#contact">
+                <div className="grid grid-cols-2 gap-6 p-4 text-sm w-[600px]">
+                  <TextItem
+                    title="General Enquiry"
+                    href="#enquiry"
+                    description="Have questions? Reach out to our support team."
+                    icon={<svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round"><circle cx="12" cy="12" r="10"></circle><path d="M9.09 9a3 3 0 0 1 5.83 1c0 2-3 3-3 3"></path><line x1="12" y1="17" x2="12.01" y2="17"></line></svg>}
+                  />
+                  <TextItem
+                    title="Admissions Support"
+                    href="#admissions"
+                    description="Get help with the enrollment and admission process."
+                    icon={<svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round"><path d="M22 10v6M2 10l10-5 10 5-10 5z"></path><path d="M6 12v5c3 3 9 3 12 0v-5"></path></svg>}
+                  />
+                  <TextItem
+                    title="Request Callback"
+                    href="#callback"
+                    description="Leave your number and we'll call you right back."
+                    icon={<svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.12.9.34 1.79.65 2.65a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.43-1.27a2 2 0 0 1 2.11-.45c.86.31 1.75.53 2.65.65A2 2 0 0 1 22 16.92z"></path><path d="M14.05 2a9 9 0 0 1 8 7.94"></path><path d="M14.05 6A5 5 0 0 1 18 10"></path></svg>}
+                  />
+                  <TextItem
+                    title="Visit Campus"
+                    href="#locations"
+                    description="Find directions to our nearest learning center."
+                    icon={<svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"></path><circle cx="12" cy="10" r="3"></circle></svg>}
+                  />
+                </div>
+              </MenuItem>
+            </Menu>
+          </div>
+          <div className="flex items-center gap-2 sm:gap-3 shrink-0 whitespace-nowrap">
+            {/* Premium Search Trigger */}
+            <button onClick={() => setIsSearchOpen(true)} aria-label="Search" className="hidden lg:flex items-center gap-2 px-4 py-2 rounded-full bg-[var(--blue-50)] hover:bg-[#dbe4fa] transition-all duration-300 border border-transparent hover:border-[var(--blue-100)] focus-ring group cursor-pointer">
+              <svg className="text-[var(--blue-700)] group-hover:scale-110 transition-transform duration-300" width={16} height={16} viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth={2.5} strokeLinecap="round" strokeLinejoin="round"><circle cx="11" cy="11" r="8"></circle><line x1="21" y1="21" x2="16.65" y2="16.65"></line></svg>
+              <span className="text-sm font-semibold text-[var(--blue-900)]">Search</span>
+            </button>
+            <button onClick={() => setIsSearchOpen(true)} aria-label="Search" className="flex lg:hidden items-center justify-center w-10 h-10 rounded-full bg-[var(--blue-50)] hover:bg-[#dbe4fa] transition-colors focus-ring text-[var(--blue-700)] cursor-pointer">
+              <svg width={18} height={18} viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth={2.5} strokeLinecap="round" strokeLinejoin="round"><circle cx="11" cy="11" r="8"></circle><line x1="21" y1="21" x2="16.65" y2="16.65"></line></svg>
+            </button>
+
+
             <a href="#contact" className="hidden sm:inline-flex focus-ring rounded-md px-5 py-2.5 text-sm font-semibold text-white shadow-sm hover:shadow-lg transition-all duration-300 hover:-translate-y-0.5 bg-[var(--blue-700)] hover:bg-[var(--blue-900)]">Enquire Now</a>
             <button id="mobileMenuBtn" type="button" aria-label="Open menu" aria-expanded={mobileMenuOpen} aria-controls="mobileMenu" className="lg:hidden focus-ring inline-flex items-center justify-center w-11 h-11 rounded-lg border" style={{ borderColor: 'var(--blue-100)', color: 'var(--blue-700)' }} onClick={() => setMobileMenuOpen(!mobileMenuOpen)}>
               <svg id="mmIconOpen" className={mobileMenuOpen ? "hidden" : ""} width={22} height={22} viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth={2} strokeLinecap="round"><path d="M4 7h16M4 12h16M4 17h16" /></svg>
@@ -39,14 +297,60 @@ export default function Header() {
             <a href="#courses" className="py-3 border-b border-[var(--line)] focus-ring rounded" onClick={() => setMobileMenuOpen(false)}>Courses</a>
             <a href="#stories" className="py-3 border-b border-[var(--line)] focus-ring rounded" onClick={() => setMobileMenuOpen(false)}>Success Stories</a>
             <a href="#contact" className="py-3 focus-ring rounded" onClick={() => setMobileMenuOpen(false)}>Contact</a>
-            <a href="tel:+919876543210" className="mt-2 flex items-center gap-2 text-sm font-semibold" style={{ color: 'var(--blue-700)' }}>
+            {/* <a href="tel:+919876543210" className="mt-2 flex items-center gap-2 text-sm font-semibold" style={{ color: 'var(--blue-700)' }}>
               <svg width={16} height={16} viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth={2}><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.12.9.34 1.79.65 2.65a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.43-1.27a2 2 0 0 1 2.11-.45c.86.31 1.75.53 2.65.65A2 2 0 0 1 22 16.92z" /></svg>
               +91 98765 43210
-            </a>
+            </a> */}
             <a href="#contact" className="mt-4 focus-ring rounded-md px-5 py-3 text-sm font-semibold text-white text-center shadow-sm hover:shadow-lg transition-all duration-300 hover:-translate-y-0.5 bg-[var(--blue-700)] hover:bg-[var(--blue-900)]" onClick={() => setMobileMenuOpen(false)}>Enquire Now</a>
           </nav>
         </div>
       </header>
+
+      {/* Search Modal Overlay */}
+      <AnimatePresence>
+        {isSearchOpen && (
+          <div className="fixed inset-0 z-[999] flex justify-center pt-[12vh]">
+            <motion.div
+              initial={{ opacity: 0 }}
+              animate={{ opacity: 1 }}
+              exit={{ opacity: 0 }}
+              transition={{ duration: 0.2 }}
+              className="absolute inset-0 bg-black/40 backdrop-blur-sm cursor-pointer"
+              onClick={() => setIsSearchOpen(false)}
+            />
+            <motion.div
+              initial={{ opacity: 0, scale: 0.95, y: -20 }}
+              animate={{ opacity: 1, scale: 1, y: 0 }}
+              exit={{ opacity: 0, scale: 0.95, y: -20 }}
+              transition={{ type: "spring", stiffness: 300, damping: 30 }}
+              className="relative w-[90%] md:w-[75%] max-w-4xl bg-white rounded-2xl shadow-2xl overflow-hidden flex flex-col h-max border border-white/20"
+            >
+              <div className="flex items-center px-6 py-4 border-b border-[var(--line)]">
+                <svg width={22} height={22} viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth={2.5} className="text-[var(--blue-700)]"><circle cx="11" cy="11" r="8"></circle><line x1="21" y1="21" x2="16.65" y2="16.65"></line></svg>
+                <input
+                  type="text"
+                  placeholder="Search courses, centers, or blogs..."
+                  className="flex-1 px-4 py-2 text-lg outline-none bg-transparent placeholder:text-gray-400 text-[var(--blue-900)]"
+                  autoFocus
+                />
+                <button onClick={() => setIsSearchOpen(false)} className="p-2 hover:bg-gray-100 rounded-full text-gray-500 transition-colors focus-ring">
+                  <svg width={20} height={20} viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth={2} strokeLinecap="round" strokeLinejoin="round"><path d="M18 6L6 18M6 6l12 12" /></svg>
+                </button>
+              </div>
+              <div className="p-6 bg-gray-50/80">
+                <div className="text-xs font-semibold text-gray-400 uppercase tracking-wider mb-4">Quick Links</div>
+                <div className="flex flex-wrap gap-2">
+                  <a href="#courses" onClick={() => setIsSearchOpen(false)} className="px-4 py-2 text-sm bg-white border border-gray-200 rounded-xl text-gray-600 hover:text-[var(--blue-700)] hover:border-[var(--blue-200)] transition-colors shadow-sm font-medium">CMA USA</a>
+                  <a href="#courses" onClick={() => setIsSearchOpen(false)} className="px-4 py-2 text-sm bg-white border border-gray-200 rounded-xl text-gray-600 hover:text-[var(--blue-700)] hover:border-[var(--blue-200)] transition-colors shadow-sm font-medium">ACCA</a>
+                  <a href="#centers" onClick={() => setIsSearchOpen(false)} className="px-4 py-2 text-sm bg-white border border-gray-200 rounded-xl text-gray-600 hover:text-[var(--blue-700)] hover:border-[var(--blue-200)] transition-colors shadow-sm font-medium">Kochi Campus</a>
+                  <a href="#contact" onClick={() => setIsSearchOpen(false)} className="px-4 py-2 text-sm bg-white border border-gray-200 rounded-xl text-gray-600 hover:text-[var(--blue-700)] hover:border-[var(--blue-200)] transition-colors shadow-sm font-medium">Admissions</a>
+                </div>
+              </div>
+            </motion.div>
+          </div>
+        )}
+      </AnimatePresence>
+
       <style dangerouslySetInnerHTML={{ __html: "\n  .mm-panel{\n    max-height:0;\n    transition:max-height .3s ease;\n  }\n  .mm-panel.mm-open{\n    max-height:520px;\n  }\n" }} />
     </>
   );

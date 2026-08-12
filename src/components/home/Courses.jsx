@@ -285,7 +285,7 @@ export default function Courses() {
                     </div>
 
                     <div className="flex items-center gap-3">
-                      <a href="#contact" className="samsung-primary-btn flex-1 flex items-center justify-center gap-2 rounded-xl px-6 py-3.5 text-sm font-bold tracking-wide text-white transition-all duration-300 hover:scale-[1.02] shadow-[0_0_20px_rgba(31,91,255,0.4)] group-hover:shadow-[0_0_30px_rgba(31,91,255,0.6)] group/enroll">
+                      <a href="#contact" className="samsung-primary-btn flex-1 flex items-center justify-center gap-2 rounded-xl px-6 py-3.5 text-sm font-bold tracking-wide text-white transition-all duration-300 hover:scale-[1.02] group/enroll">
                         Enroll Now
                         <svg className="w-4 h-4 transition-transform duration-300 group-hover/enroll:translate-x-1" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M14 5l7 7m0 0l-7 7m7-7H3" /></svg>
                       </a>

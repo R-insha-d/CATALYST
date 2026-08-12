@@ -93,7 +93,7 @@ function PremiumCourseCard({ feat, idx }) {
 
             {/* Action Buttons */}
             <div className="mt-8 flex flex-col gap-3">
-              <button className="samsung-primary-btn w-full py-3.5 rounded-xl text-white font-bold text-sm tracking-wide shadow-[0_0_10px_rgba(31,91,255,0.2)] group-hover:shadow-[0_0_15px_rgba(31,91,255,0.4)] transition-all duration-300 group-hover:scale-[1.02]">
+              <button className="samsung-primary-btn w-full py-3.5 rounded-xl text-white font-bold text-sm tracking-wide transition-all duration-300 group-hover:scale-[1.02]">
                 Enroll Now
               </button>
               <button className="samsung-secondary-btn w-full py-3.5 rounded-xl text-white font-semibold text-sm tracking-wide">

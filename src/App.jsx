@@ -19,6 +19,7 @@ import ScrollReveal from './components/ui/ScrollReveal';
 import FloatingContact from './components/ui/FloatingContact';
 import FreeLearning from './components/home/FreeLearning';
 
+
 export default function App() {
   return (
     <>
