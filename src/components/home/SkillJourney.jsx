@@ -136,10 +136,10 @@ export default function SkillJourney() {
         >
           {steps.map((step) => (
             <motion.div key={step.number} variants={cardVariants} className="group">
-              <div className="relative h-[520px] rounded-[28px] bg-white shadow-[0_4px_24px_rgba(0,0,0,0.04)] transition-all duration-500 ease-out hover:-translate-y-2 hover:shadow-[0_20px_44px_rgba(15,23,42,0.18)] overflow-hidden">
+              <div className="relative h-[520px] rounded-[28px] bg-white shadow-[0_4px_24px_rgba(0,0,0,0.04)] transition-all duration-700 ease-[cubic-bezier(0.22,1,0.36,1)] hover:-translate-y-2 hover:shadow-[0_20px_44px_rgba(15,23,42,0.18)] overflow-hidden">
 
                 {/* Default layer */}
-                <div className="absolute inset-0 flex flex-col transition-opacity duration-300 ease-out group-hover:opacity-0">
+                <div className="absolute inset-0 flex flex-col transition-[opacity,transform] duration-700 ease-[cubic-bezier(0.22,1,0.36,1)] group-hover:opacity-0 group-hover:scale-[0.98]">
                   {/* Image panel */}
                   <div className="relative m-3 mb-0 h-[190px] shrink-0 rounded-[20px] bg-gradient-to-b from-[#EFF4FF] to-[#F8FAFC] flex items-center justify-center overflow-hidden">
                     <img
@@ -181,13 +181,13 @@ export default function SkillJourney() {
                 </div>
 
                 {/* Hover layer: full-bleed image with overlaid content */}
-                <div className="absolute inset-0 opacity-0 pointer-events-none transition-opacity duration-300 ease-out group-hover:opacity-100 group-hover:pointer-events-auto">
+                <div className="absolute inset-0 scale-[1.04] opacity-0 pointer-events-none transition-[opacity,transform] duration-700 ease-[cubic-bezier(0.22,1,0.36,1)] group-hover:opacity-100 group-hover:scale-100 group-hover:pointer-events-auto">
                   <div className="absolute inset-0 flex items-center justify-center bg-gradient-to-b from-[#1E3A8A] to-[#0F1F4D]">
                     <img
                       src={step.image}
                       alt=""
                       aria-hidden="true"
-                      className="w-[72%] h-[72%] object-contain transition-transform duration-500 ease-out scale-95 group-hover:scale-100"
+                      className="w-[72%] h-[72%] object-contain transition-transform duration-700 ease-[cubic-bezier(0.22,1,0.36,1)] scale-95 group-hover:scale-100"
                     />
                   </div>
                   <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/30 to-transparent" />
@@ -196,7 +196,7 @@ export default function SkillJourney() {
                     {step.number}
                   </span>
 
-                  <div className="absolute inset-x-0 bottom-0 px-6 pb-6 pt-10">
+                  <div className="absolute inset-x-0 bottom-0 px-6 pb-6 pt-10 translate-y-3 transition-transform duration-700 ease-[cubic-bezier(0.22,1,0.36,1)] group-hover:translate-y-0">
                     <h3 className="font-display font-bold text-xl text-white">
                       {step.title}
                     </h3>

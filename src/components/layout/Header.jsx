@@ -2,7 +2,7 @@ import { useState, useEffect } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import logo from '../../assets/logo/logo1.png';
 
-import { HoveredLink, Menu, MenuItem, ProductItem, TextItem, MegaMenuContent } from "../ui/navbar-menu";
+import { HoveredLink, Menu, MenuItem, ProductItem, TextItem, MegaMenuContent, ColumnLink, ColumnGroup } from "../ui/navbar-menu";
 
 const megaMenuCourses = [
   {
@@ -93,6 +93,76 @@ const megaMenuBlogs = [
     ]
   }
 ];
+
+const megaMenuMore = [
+  {
+    id: "resources",
+    name: "Resources",
+    icon: <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round"><path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20"></path><path d="M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2z"></path></svg>,
+    sections: [
+      {
+        title: "HELP & MEDIA",
+        items: [
+          { title: "FAQs", subtitle: "Answers to common questions.", image: "https://images.unsplash.com/photo-1633613286991-611fe299c4be?q=80&w=150&auto=format&fit=crop", href: "#faq" },
+          { title: "Gallery", subtitle: "Photos and videos.", image: "https://images.unsplash.com/photo-1523240795612-9a054b0db644?q=80&w=150&auto=format&fit=crop", href: "#gallery" },
+          { title: "Free Resources", subtitle: "Learn at your own pace.", image: "https://images.unsplash.com/photo-1434030216411-0b793f4b4173?q=80&w=150&auto=format&fit=crop", href: "#free-learning" },
+          { title: "Webinars", subtitle: "Live sessions with experts.", image: "https://images.unsplash.com/photo-1516321497487-e288fb19713f?q=80&w=150&auto=format&fit=crop", href: "#webinars" }
+        ]
+      }
+    ]
+  },
+  {
+    id: "company",
+    name: "Company",
+    icon: <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round"><path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"></path><polyline points="9 22 9 12 15 12 15 22"></polyline></svg>,
+    sections: [
+      {
+        title: "ABOUT CATALYST",
+        items: [
+          { title: "About Us", subtitle: "Our story & mission.", image: "https://images.unsplash.com/photo-1554224155-8d04cb21cd6c?q=80&w=150&auto=format&fit=crop", href: "#about" },
+          { title: "Our Faculty", subtitle: "Meet the experts.", image: "https://images.unsplash.com/photo-1522202176988-66273c2fd55f?q=80&w=150&auto=format&fit=crop", href: "#faculty" },
+          { title: "Careers", subtitle: "Join our team.", image: "https://images.unsplash.com/photo-1521737604893-d14cc237f11d?q=80&w=150&auto=format&fit=crop", href: "#careers" }
+        ]
+      }
+    ]
+  },
+  {
+    id: "others",
+    name: "Others",
+    icon: <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round"><circle cx="12" cy="12" r="10"></circle><line x1="12" y1="8" x2="12" y2="16"></line><line x1="8" y1="12" x2="16" y2="12"></line></svg>,
+    sections: [
+      {
+        title: "MORE LINKS",
+        items: [
+          { title: "Events", subtitle: "Workshops & webinars.", image: "https://images.unsplash.com/photo-1511578314322-379afb476865?q=80&w=150&auto=format&fit=crop", href: "#events" },
+          { title: "Refer & Earn", subtitle: "Get rewarded.", image: "https://images.unsplash.com/photo-1556761175-5973dc0f32b7?q=80&w=150&auto=format&fit=crop", href: "#refer" }
+        ]
+      }
+    ]
+  }
+];
+
+const MoreCta = (
+  <div className="w-[200px] shrink-0 rounded-2xl bg-gradient-to-br from-[var(--blue-900)] to-[var(--blue-700)] p-5 flex flex-col text-white relative overflow-hidden h-full">
+    <div className="absolute -top-8 -right-8 w-28 h-28 rounded-full bg-white/10 blur-2xl pointer-events-none" />
+    <div className="w-10 h-10 rounded-full bg-white/15 flex items-center justify-center mb-4 relative z-10">
+      <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round"><path d="M21 11.5a8.38 8.38 0 0 1-.9 3.8 8.5 8.5 0 0 1-7.6 4.7 8.38 8.38 0 0 1-3.8-.9L3 21l1.9-5.7a8.38 8.38 0 0 1-.9-3.8 8.5 8.5 0 0 1 4.7-7.6 8.38 8.38 0 0 1 3.8-.9h.5a8.48 8.48 0 0 1 8 8v.5z"></path></svg>
+    </div>
+    <h4 className="font-display font-bold text-lg leading-snug mb-2 relative z-10">
+      Need Help Choosing?
+    </h4>
+    <p className="text-sm text-white/70 leading-relaxed mb-5 relative z-10">
+      Talk to our admissions team and find the right course for you.
+    </p>
+    <a
+      href="#contact"
+      className="mt-auto inline-flex items-center justify-center gap-1.5 w-full py-2.5 rounded-full bg-white text-[var(--blue-900)] text-sm font-semibold hover:bg-slate-100 transition-colors relative z-10"
+    >
+      Talk to Us
+      <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round"><line x1="5" y1="12" x2="19" y2="12"></line><polyline points="12 5 19 12 12 19"></polyline></svg>
+    </a>
+  </div>
+);
 
 export default function Header() {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
@@ -268,6 +338,9 @@ export default function Header() {
                   />
                 </div>
               </MenuItem>
+              <MenuItem setActive={setActive} active={active} item="More" href="#more">
+                <MegaMenuContent categories={megaMenuMore} basePath="#more" viewAllText="View All Resources" cta={MoreCta} />
+              </MenuItem>
             </Menu>
           </div>
           <div className="flex items-center gap-2 sm:gap-3 shrink-0 whitespace-nowrap">
@@ -296,7 +369,8 @@ export default function Header() {
             <a href="#centers" className="py-3 border-b border-[var(--line)] focus-ring rounded" onClick={() => setMobileMenuOpen(false)}>Centers</a>
             <a href="#courses" className="py-3 border-b border-[var(--line)] focus-ring rounded" onClick={() => setMobileMenuOpen(false)}>Courses</a>
             <a href="#stories" className="py-3 border-b border-[var(--line)] focus-ring rounded" onClick={() => setMobileMenuOpen(false)}>Success Stories</a>
-            <a href="#contact" className="py-3 focus-ring rounded" onClick={() => setMobileMenuOpen(false)}>Contact</a>
+            <a href="#contact" className="py-3 border-b border-[var(--line)] focus-ring rounded" onClick={() => setMobileMenuOpen(false)}>Contact</a>
+            <a href="#more" className="py-3 focus-ring rounded" onClick={() => setMobileMenuOpen(false)}>More</a>
             {/* <a href="tel:+919876543210" className="mt-2 flex items-center gap-2 text-sm font-semibold" style={{ color: 'var(--blue-700)' }}>
               <svg width={16} height={16} viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth={2}><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.12.9.34 1.79.65 2.65a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.43-1.27a2 2 0 0 1 2.11-.45c.86.31 1.75.53 2.65.65A2 2 0 0 1 22 16.92z" /></svg>
               +91 98765 43210

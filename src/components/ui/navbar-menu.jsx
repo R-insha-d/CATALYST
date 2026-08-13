@@ -10,7 +10,7 @@ const transition = {
   restSpeed: 0.001,
 };
 
-export const MenuItem = ({ setActive, active, item, children, href }) => {
+export const MenuItem = ({ setActive, active, item, children, href, align = "center" }) => {
   return (
     <div onMouseEnter={() => setActive(item)} className="relative ">
       <AnimatePresence>
@@ -33,27 +33,23 @@ export const MenuItem = ({ setActive, active, item, children, href }) => {
       >
         {item}
       </motion.a>
-      {active !== null && children && (
-        <motion.div
-          initial={{ opacity: 0, scale: 0.85, y: 10 }}
-          animate={{ opacity: 1, scale: 1, y: 0 }}
-          transition={transition}
-        >
-          {active === item && (
-            <div className="absolute top-full left-1/2 transform -translate-x-1/2 pt-6">
-              <motion.div
-                transition={transition}
-                layoutId="active"
-                className="bg-white backdrop-blur-sm rounded-2xl overflow-hidden border border-black/[0.1] shadow-xl"
-              >
-                <motion.div layout className="w-max h-full p-4 whitespace-normal">
-                  {children}
-                </motion.div>
-              </motion.div>
+      <AnimatePresence>
+        {active === item && children && (
+          <motion.div
+            initial={{ opacity: 0, scale: 0.95, y: 5 }}
+            animate={{ opacity: 1, scale: 1, y: 0 }}
+            exit={{ opacity: 0, scale: 0.95, y: 5 }}
+            transition={{ duration: 0.2 }}
+            className="absolute top-[32px] pt-[12px] left-1/2 transform -translate-x-1/2 z-50"
+          >
+            <div className="bg-white backdrop-blur-sm rounded-2xl overflow-hidden border border-black/[0.1] shadow-xl">
+              <div className="w-max h-full p-4 whitespace-normal">
+                {children}
+              </div>
             </div>
-          )}
-        </motion.div>
-      )}
+          </motion.div>
+        )}
+      </AnimatePresence>
     </div>
   );
 };
@@ -122,6 +118,24 @@ export const TextItem = ({ title, description, href, icon }) => {
   );
 };
 
+export const ColumnLink = ({ title, description, href }) => (
+  <a href={href} className="block group">
+    <div className="font-semibold text-[15px] text-[var(--blue-900)] group-hover:text-[var(--blue-700)] transition-colors">
+      {title}
+    </div>
+    <div className="text-sm text-[var(--slate-600)] mt-0.5 max-w-[180px] leading-relaxed">{description}</div>
+  </a>
+);
+
+export const ColumnGroup = ({ label, children }) => (
+  <div className="flex-1 min-w-[170px]">
+    <div className="text-xs font-semibold tracking-wider text-gray-400 uppercase pb-3 border-b border-[var(--line)] mb-4">
+      {label}
+    </div>
+    <div className="space-y-5">{children}</div>
+  </div>
+);
+
 export const MegaMenuContent = ({ categories, basePath = "/courses" }) => {
   const [activeTab, setActiveTab] = useState(categories[0]?.id);
   const activeCategory = categories.find((c) => c.id === activeTab);
@@ -140,8 +154,8 @@ export const MegaMenuContent = ({ categories, basePath = "/courses" }) => {
               key={cat.id}
               onMouseEnter={() => setActiveTab(cat.id)}
               className={`w-full text-left px-4 py-3 rounded-xl flex justify-between items-center transition-all duration-200 ${activeTab === cat.id
-                  ? "bg-[var(--blue-50)] text-[var(--blue-700)] font-semibold"
-                  : "hover:bg-gray-50 text-[var(--slate-600)] font-medium"
+                ? "bg-[var(--blue-50)] text-[var(--blue-700)] font-semibold"
+                : "hover:bg-gray-50 text-[var(--slate-600)] font-medium"
                 }`}
             >
               <span className="flex items-center gap-3">
