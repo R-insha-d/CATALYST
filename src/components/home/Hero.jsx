@@ -386,7 +386,7 @@ export default function Hero() {
       <div className="w-full mx-auto px-6 lg:px-2 xl:px-16 pb-12 lg:pb-16 relative z-20">
         <ScrollReveal delay={800}>
           <div className="mt-14">
-            <p className="eyebrow !bg-transparent !border-none !p-0 !text-[#1428A0] mb-4">Our Students Placed At</p>
+            <p className="eyebrow !bg-transparent !border-none !p-0 !text-[#1428A0] mb-8">Our Students Placed At</p>
             <div className="logo-slider w-[97%]  mx-auto">
               <div className="logo-track items-center">
                 {sliderLogos.map((logo, idx) => (
