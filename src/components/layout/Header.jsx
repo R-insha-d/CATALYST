@@ -135,7 +135,7 @@ const megaMenuMore = [
         title: "MORE LINKS",
         items: [
           { title: "Events", subtitle: "Workshops & webinars.", image: "https://images.unsplash.com/photo-1511578314322-379afb476865?q=80&w=150&auto=format&fit=crop", href: "#events" },
-          { title: "Refer & Earn", subtitle: "Get rewarded.", image: "https://images.unsplash.com/photo-1556761175-5973dc0f32b7?q=80&w=150&auto=format&fit=crop", href: "#refer" }
+          { title: "Refer & Earn", subtitle: "Get rewarded.", image: "https://images.unsplash.com/photo-1516321497487-e288fb19713f?q=80&w=150&auto=format&fit=crop", href: "#refer" }
         ]
       }
     ]

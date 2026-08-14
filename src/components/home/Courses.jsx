@@ -16,7 +16,8 @@ export default function Courses() {
     { id: "all", name: "All Programmes" },
     { id: "global", name: "Global Certifications" },
     { id: "indian", name: "Indian Certifications" },
-    { id: "short-term", name: "Short Term Courses" }
+    { id: "short-term", name: "Short Term Courses" },
+    { id: "corporate", name: "Corporate Training" }
   ];
 
   const allCoursesData = [
@@ -79,6 +80,36 @@ export default function Courses() {
       duration: "3 Months",
       eligibility: "10th/12th",
       highlight: false
+    },
+    {
+      id: 7,
+      category: "corporate",
+      eyebrow: "Corporate",
+      title: "Business Analytics",
+      desc: "Comprehensive training in data analysis, reporting, and business intelligence tailored for modern corporate needs.",
+      duration: "4 Months",
+      eligibility: "Working Professionals",
+      highlight: false
+    },
+    {
+      id: 8,
+      category: "corporate",
+      eyebrow: "Corporate",
+      title: "Digital Transformation",
+      desc: "Learn to leverage digital technologies to create new or modify existing business processes and customer experiences.",
+      duration: "6 Months",
+      eligibility: "Working Professionals",
+      highlight: false
+    },
+    {
+      id: 9,
+      category: "corporate",
+      eyebrow: "Corporate",
+      title: "Leadership Strategy",
+      desc: "Develop core leadership skills to manage teams effectively, drive organizational change, and build a positive workplace culture.",
+      duration: "3 Months",
+      eligibility: "Managers & Leads",
+      highlight: true
     }
   ];
 
@@ -324,7 +355,7 @@ export default function Courses() {
                           }
                         }
                       }}
-                      className="shrink-0 self-stretch flex h-[420px]"
+                      className="shrink-0 self-stretch flex h-[460px]"
                       style={{ perspective: 1000 }}
                     >
                       <div
