@@ -206,7 +206,7 @@ export default function Faculty() {
                   className="shrink-0 self-stretch flex"
                 >
                   <div
-                    className={`w-[85vw] sm:w-[330px] h-[440px] shrink-0 relative rounded-[32px] p-4 pb-5 flex flex-col justify-end border transition-all duration-500 ease-out overflow-hidden ${hoveredCardIdx === idx ? 'bg-[var(--blue-950)] border-[#1428A0]/30' : 'bg-white border-gray-100'}`}
+                    className={`w-[85vw] sm:w-[330px] h-[450px] shrink-0 relative rounded-[32px] p-4 pb-5 flex flex-col justify-end border transition-all duration-500 ease-out overflow-hidden ${hoveredCardIdx === idx ? 'bg-[var(--blue-950)] border-[#1428A0]/30' : 'bg-white border-gray-100'}`}
                     style={{ pointerEvents: isDragging ? 'none' : 'auto' }}
                     onMouseEnter={() => setHoveredCardIdx(idx)}
                     onMouseLeave={() => setHoveredCardIdx(null)}
@@ -241,7 +241,7 @@ export default function Faculty() {
                       </div>
 
                       {/* Mentor Role label */}
-                      <p className={`text-[9px] font-mono uppercase tracking-widest font-bold mb-2 transition-colors duration-300 ${hoveredCardIdx === idx ? 'text-sky-300' : 'text-[var(--blue-600)]'}`}>{mentor.role}</p>
+                      <p className={`text-[9px] font-mono uppercase tracking-widest font-bold mb-2  transition-colors duration-300 ${hoveredCardIdx === idx ? 'text-sky-300' : 'text-[var(--blue-600)]'}`}>{mentor.role}</p>
 
                       {/* Bio details description */}
                       <p className={`text-[12px] font-light leading-relaxed line-clamp-3 transition-colors duration-300 ${hoveredCardIdx === idx ? 'text-blue-100' : 'text-gray-500'}`}>{mentor.desc}</p>
