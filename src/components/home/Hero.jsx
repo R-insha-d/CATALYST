@@ -1,5 +1,5 @@
 import { useState, useEffect } from 'react';
-import heroMan1 from '../../assets/banner/1.png';
+import heroMan1 from '../../assets/banner/5.png';
 import heroMan2 from '../../assets/banner/2.png';
 import ScrollReveal from '../ui/ScrollReveal';
 import { Globe, TrendingUp, Landmark, BookOpen, Calculator, Briefcase, Building2, GraduationCap, ClipboardCheck, PieChart, ChevronRight } from 'lucide-react';
@@ -36,7 +36,7 @@ export default function Hero() {
   }, []);
 
   return (
-    <section id="home" className="relative overflow-hidden bg-[#F3F5FD] dot-grid">
+    <section id="home" className="relative overflow-hidden bg-[#F3F5FD]">
       <div className="max-w-[95%] mx-auto px-6 lg:px-10 pt-16 pb-20 lg:pt-12 lg:pb-28 relative flex flex-col lg:flex-row gap-16 lg:items-start">
         <div className="min-w-0 flex-1">
           <ScrollReveal type="badge" delay={0}>
@@ -45,7 +45,7 @@ export default function Hero() {
 
           <ScrollReveal type="heading" delay={150}>
             <h1 className="font-display font-bold text-4xl sm:text-5xl leading-[1.08] tracking-tight" style={{ color: 'var(--blue-900)' }}>
-              Build a high-performing commerce career —
+              Build A High Performing Commerce Career —&nbsp;
               <span className="blue-text">CMA&nbsp;USA, CMA&nbsp;India &amp; ACCA</span>
             </h1>
           </ScrollReveal>
@@ -68,41 +68,28 @@ export default function Hero() {
 
         </div>
 
-        <ScrollReveal type="image" direction="left" delay={300} className="relative mx-auto  w-full max-w-md lg:mx-0 lg:w-[480px] lg:shrink-0 mt-16 lg:mt-[-40px]">
+        <ScrollReveal type="image" direction="left" delay={300} className="relative mx-auto w-full max-w-md lg:mx-0 lg:w-[500px] lg:shrink-0 mt-16 lg:mt-[-40px]">
 
-          <div className="relative w-full aspect-square  flex items-center justify-center">
-            {/* Light Blue Circle Background */}
-            <div className="absolute inset-4 bg-gradient-to-tr from-[#ebf3ff] to-[#d6e8ff] rounded-full z-0"></div>
-
-            {/* Back half of the 3D Ring */}
-            <svg viewBox="0 0 400 400" className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[115%] h-[115%] z-0" style={{ transform: 'rotate(-15deg)' }}>
-              <path d="M 40,200 A 160,80 0 0,1 360,200" fill="none" stroke="#d4e4fc" strokeWidth="28" strokeLinecap="round" opacity="0.8" />
-            </svg>
+          <div className="relative w-full aspect-square flex items-center justify-center">
 
             {/* Person Image */}
-            <div className="relative z-10 w-full h-full grid items-end justify-center overflow-hidden rounded-full px-6">
+            <div className="relative z-20 w-full h-full flex items-center justify-center">
               <img
                 src={images[0]}
-                alt="Expert Faculty"
-                className={`col-start-1 row-start-1 w-full object-contain object-bottom h-[130%] drop-shadow-xl transition-all duration-[1200ms] ease-[cubic-bezier(0.25,0.8,0.25,1)] origin-bottom ${currentImage === 0 ? 'opacity-100 scale-100 translate-y-0' : 'opacity-0 scale-[0.96] translate-y-2'}`}
+                alt="Commerce Student"
+                className={`absolute w-[135%] h-[135%] max-w-none object-contain transition-all duration-[1200ms] ease-[cubic-bezier(0.25,0.8,0.25,1)] origin-center ${currentImage === 0 ? 'opacity-100 scale-100 translate-y-0 z-10' : 'opacity-0 scale-[0.96] translate-y-4 -z-10 pointer-events-none'}`}
               />
               <img
                 src={images[1]}
                 alt="Expert Faculty"
-                className={`col-start-1 row-start-1 w-full object-contain object-bottom h-[130%] drop-shadow-xl transition-all duration-[1200ms] ease-[cubic-bezier(0.25,0.8,0.25,1)] origin-bottom ${currentImage === 1 ? 'opacity-100 scale-100 translate-y-0' : 'opacity-0 scale-[0.96] translate-y-2'}`}
+                className={`absolute w-[135%] h-[135%] max-w-none object-contain transition-all duration-[1200ms] ease-[cubic-bezier(0.25,0.8,0.25,1)] origin-center ${currentImage === 1 ? 'opacity-100 scale-100 translate-y-0 z-10' : 'opacity-0 scale-[0.96] translate-y-4 -z-10 pointer-events-none'}`}
               />
             </div>
 
-            {/* Front half of the 3D Ring */}
-            <svg viewBox="0 0 400 400" className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[115%] h-[115%] z-20 drop-shadow-[0_20px_20px_rgba(21,94,172,0.4)]" style={{ transform: 'rotate(-15deg)' }}>
-              <path d="M 360,200 A 160,80 0 0,1 40,200" fill="none" stroke="#093f7a" strokeWidth="28" strokeLinecap="round" />
-              <path d="M 360,200 A 160,80 0 0,1 40,200" fill="none" stroke="#155eac" strokeWidth="24" strokeLinecap="round" />
-            </svg>
-
             {/* Pill 1: Google */}
-            <div className="absolute top-16 -left-10 bg-white rounded-full px-5 py-3 shadow-[0_8px_20px_rgba(0,0,0,0.08)] border border-gray-50 flex items-center gap-3 animate-float-slow z-30">
-              <div className="w-7 h-7 flex items-center justify-center shrink-0">
-                <svg width="24" height="24" viewBox="0 0 24 24">
+            <div className="absolute top-[12%] -left-2 sm:-left-12 bg-white rounded-full px-5 py-3 shadow-[0_12px_30px_rgba(0,0,0,0.12)] border border-gray-50 flex items-center gap-3 animate-float-slow z-30">
+              <div className="w-8 h-8 flex items-center justify-center shrink-0">
+                <svg width="26" height="26" viewBox="0 0 24 24">
                   <path fill="#4285F4" d="M22.56 12.25c0-.78-.07-1.53-.2-2.25H12v4.26h5.92c-.26 1.37-1.04 2.53-2.21 3.31v2.77h3.57c2.08-1.92 3.28-4.74 3.28-8.09z" />
                   <path fill="#34A853" d="M12 23c2.97 0 5.46-.98 7.28-2.66l-3.57-2.77c-.98.66-2.23 1.06-3.71 1.06-2.86 0-5.29-1.93-6.16-4.53H2.18v2.84C3.99 20.53 7.7 23 12 23z" />
                   <path fill="#FBBC05" d="M5.84 14.09c-.22-.66-.35-1.36-.35-2.09s.13-1.43.35-2.09V7.07H2.18C1.43 8.55 1 10.22 1 12s.43 3.45 1.18 4.93l2.85-2.22.81-.62z" />
@@ -110,38 +97,38 @@ export default function Hero() {
                 </svg>
               </div>
               <div>
-                <p className="font-bold text-[15px] text-gray-900 leading-none">Google</p>
-                <div className="flex items-center gap-1 mt-1">
-                  <span className="text-[13px] font-semibold text-gray-500">4.9</span>
-                  <svg width="12" height="12" viewBox="0 0 24 24" fill="#FFC107"><path d="M12 17.27l5.18 3.73-1.64-7.03L21 9.24l-7.19-.61L12 2 10.19 8.63 3 9.24l5.46 4.73-1.64 7.03L12 17.27z" /></svg>
+                <p className="font-bold text-[16px] text-gray-900 leading-none">Google</p>
+                <div className="flex items-center gap-1 mt-1.5">
+                  <span className="text-[13.5px] font-semibold text-gray-500 leading-none">4.9</span>
+                  <svg width="13" height="13" viewBox="0 0 24 24" fill="#FFC107"><path d="M12 17.27l5.18 3.73-1.64-7.03L21 9.24l-7.19-.61L12 2 10.19 8.63 3 9.24l5.46 4.73-1.64 7.03L12 17.27z" /></svg>
                 </div>
               </div>
             </div>
 
             {/* Pill 2: Trustpilot */}
-            <div className="absolute top-1/4 -right-12 bg-white rounded-full px-5 py-3 shadow-[0_8px_20px_rgba(0,0,0,0.08)] border border-gray-50 flex items-center gap-3 animate-float-delayed z-30">
-              <div className="w-7 h-7 flex items-center justify-center shrink-0">
-                <svg width="24" height="24" viewBox="0 0 24 24" fill="#00b67a"><path d="M12 17.27l5.18 3.73-1.64-7.03L21 9.24l-7.19-.61L12 2 10.19 8.63 3 9.24l5.46 4.73-1.64 7.03z" /></svg>
+            <div className="absolute top-[22%] -right-4 sm:-right-12 bg-white rounded-full px-5 py-3 shadow-[0_12px_30px_rgba(0,0,0,0.12)] border border-gray-50 flex items-center gap-3 animate-float-delayed z-30">
+              <div className="w-8 h-8 flex items-center justify-center shrink-0">
+                <svg width="26" height="26" viewBox="0 0 24 24" fill="#00b67a"><path d="M12 17.27l5.18 3.73-1.64-7.03L21 9.24l-7.19-.61L12 2 10.19 8.63 3 9.24l5.46 4.73-1.64 7.03z" /></svg>
               </div>
               <div>
-                <p className="font-bold text-[15px] text-gray-900 leading-none">Trustpilot</p>
-                <div className="flex items-center gap-1 mt-1">
-                  <span className="text-[13px] font-semibold text-gray-500">4.8</span>
-                  <svg width="12" height="12" viewBox="0 0 24 24" fill="#FFC107"><path d="M12 17.27l5.18 3.73-1.64-7.03L21 9.24l-7.19-.61L12 2 10.19 8.63 3 9.24l5.46 4.73-1.64 7.03L12 17.27z" /></svg>
+                <p className="font-bold text-[16px] text-gray-900 leading-none">Trustpilot</p>
+                <div className="flex items-center gap-1 mt-1.5">
+                  <span className="text-[13.5px] font-semibold text-gray-500 leading-none">4.8</span>
+                  <svg width="13" height="13" viewBox="0 0 24 24" fill="#FFC107"><path d="M12 17.27l5.18 3.73-1.64-7.03L21 9.24l-7.19-.61L12 2 10.19 8.63 3 9.24l5.46 4.73-1.64 7.03L12 17.27z" /></svg>
                 </div>
               </div>
             </div>
 
             {/* Pill 3: AmbitionBox */}
-            <div className="absolute bottom-16 -right-6 bg-white rounded-full px-5 py-3 shadow-[0_8px_20px_rgba(0,0,0,0.08)] border border-gray-50 flex items-center gap-3 animate-float-slow z-30" style={{ animationDelay: '2s' }}>
-              <div className="w-7 h-7 flex items-center justify-center shrink-0">
-                <svg width="22" height="22" viewBox="0 0 24 24" fill="#155eac"><path d="M21 7v10l-9 5-9-5V7l9-5 9 5z" fill="#155eac" /><path d="M12 12l4-2.5v5L12 17v-5z" fill="#3377cc" /><path d="M8 9.5l4-2.5 4 2.5v-5L12 2 8 4.5v5z" fill="#3377cc" /></svg>
+            <div className="absolute bottom-[20%] -right-6 sm:-right-8 bg-white rounded-full px-5 py-3 shadow-[0_12px_30px_rgba(0,0,0,0.12)] border border-gray-50 flex items-center gap-3 animate-float-slow z-30" style={{ animationDelay: '1.5s' }}>
+              <div className="w-8 h-8 flex items-center justify-center shrink-0">
+                <svg width="24" height="24" viewBox="0 0 24 24" fill="#155eac"><path d="M21 7v10l-9 5-9-5V7l9-5 9 5z" fill="#155eac" /><path d="M12 12l4-2.5v5L12 17v-5z" fill="#3377cc" /><path d="M8 9.5l4-2.5 4 2.5v-5L12 2 8 4.5v5z" fill="#3377cc" /></svg>
               </div>
               <div>
-                <p className="font-bold text-[15px] text-gray-900 leading-none">AmbitionBox</p>
-                <div className="flex items-center gap-1 mt-1">
-                  <span className="text-[13px] font-semibold text-gray-500">5.0</span>
-                  <svg width="12" height="12" viewBox="0 0 24 24" fill="#FFC107"><path d="M12 17.27l5.18 3.73-1.64-7.03L21 9.24l-7.19-.61L12 2 10.19 8.63 3 9.24l5.46 4.73-1.64 7.03L12 17.27z" /></svg>
+                <p className="font-bold text-[16px] text-gray-900 leading-none">AmbitionBox</p>
+                <div className="flex items-center gap-1 mt-1.5">
+                  <span className="text-[13.5px] font-semibold text-gray-500 leading-none">5.0</span>
+                  <svg width="13" height="13" viewBox="0 0 24 24" fill="#FFC107"><path d="M12 17.27l5.18 3.73-1.64-7.03L21 9.24l-7.19-.61L12 2 10.19 8.63 3 9.24l5.46 4.73-1.64 7.03L12 17.27z" /></svg>
                 </div>
               </div>
             </div>

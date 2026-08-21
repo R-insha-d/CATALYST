@@ -176,19 +176,29 @@ export default function Header() {
     return () => window.removeEventListener('scroll', handleScroll);
   }, []);
 
+  useEffect(() => {
+    if (mobileMenuOpen) {
+      document.body.style.overflow = 'hidden';
+    } else {
+      document.body.style.overflow = '';
+    }
+  }, [mobileMenuOpen]);
+
   return (
     <>
-      <header className={`sticky top-0 z-50 transition-all duration-500 ease-in-out flex justify-center ${scrolled ? "pt-2" : ""}`}>
+      <header className={`sticky top-0 z-50 w-full transition-all duration-500 ease-in-out flex flex-col items-center ${scrolled ? "lg:pt-2" : ""}`}>
+
+        {/* --- DESKTOP NAVBAR (lg and up) --- */}
         <div
-          className={`transition-all duration-500 ease-in-out flex items-center justify-between flex-nowrap whitespace-nowrap ${scrolled
-            ? "w-[95%] xl:w-[75%] min-w-max max-w-[1500px] mx-auto rounded-full border border-black/5 shadow-[0_8px_30px_rgb(0,0,0,0.08)] h-[72px] px-6 lg:px-8 bg-white/80 backdrop-blur-lg"
-            : "w-full border-b border-gray-100 shadow-[0_8px_30px_rgb(0,0,0,0.05)] h-20 px-6 lg:px-12 xl:px-16 bg-white/95 backdrop-blur-sm"
+          className={`hidden lg:flex transition-all duration-500 ease-in-out items-center justify-between ${scrolled
+            ? "w-[95%] xl:w-[75%] max-w-[1500px] mx-auto rounded-full border border-black/5 shadow-[0_8px_30px_rgb(0,0,0,0.08)] h-[72px] px-8 bg-white/80 backdrop-blur-lg"
+            : "w-full border-b border-gray-100 shadow-[0_8px_30px_rgb(0,0,0,0.05)] h-20 px-12 xl:px-16 bg-white/95 backdrop-blur-sm"
             }`}
         >
-          <a href="#top" className="flex items-center gap-2 focus-ring rounded">
-            <img src={logo} alt="Catalyst Education" className="h-15 w-auto lg:pl-15" />
+          <a href="#top" className="flex items-center gap-2 focus-ring rounded shrink-0">
+            <img src={logo} alt="Catalyst Education" className="h-[45px] xl:h-[50px] w-auto xl:pl-4" />
           </a>
-          <div className={`hidden lg:flex items-center text-sm font-medium z-[100] transition-all duration-500 ease-in-out shrink-0 ${scrolled ? 'gap-4 xl:gap-6' : 'gap-9'}`} style={{ color: 'var(--slate-600)' }}>
+          <div className={`flex items-center text-sm font-medium z-[100] transition-all duration-500 ease-in-out shrink-0 ${scrolled ? 'gap-4 xl:gap-6' : 'gap-9'}`} style={{ color: 'var(--slate-600)' }}>
             <Menu setActive={setActive}>
               <MenuItem setActive={setActive} active={active} item="Home" href="#home">
                 <div className="grid grid-cols-2 gap-6 p-4 text-sm w-[600px]">
@@ -343,40 +353,71 @@ export default function Header() {
               </MenuItem>
             </Menu>
           </div>
-          <div className="flex items-center gap-2 sm:gap-3 shrink-0 whitespace-nowrap">
-            {/* Premium Search Trigger */}
-            <button onClick={() => setIsSearchOpen(true)} aria-label="Search" className="hidden lg:flex items-center gap-2 px-4 py-2 rounded-full bg-[var(--blue-50)] hover:bg-[#dbe4fa] transition-all duration-300 border border-transparent hover:border-[var(--blue-100)] focus-ring group cursor-pointer">
+          <div className="flex items-center gap-3 shrink-0">
+            <button onClick={() => setIsSearchOpen(true)} aria-label="Search" className="flex items-center gap-2 px-4 py-2 rounded-full bg-[var(--blue-50)] hover:bg-[#dbe4fa] transition-all duration-300 border border-transparent hover:border-[var(--blue-100)] focus-ring group cursor-pointer">
               <svg className="text-[var(--blue-700)] group-hover:scale-110 transition-transform duration-300" width={16} height={16} viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth={2.5} strokeLinecap="round" strokeLinejoin="round"><circle cx="11" cy="11" r="8"></circle><line x1="21" y1="21" x2="16.65" y2="16.65"></line></svg>
               <span className="text-sm font-semibold text-[var(--blue-900)]">Search</span>
             </button>
-            <button onClick={() => setIsSearchOpen(true)} aria-label="Search" className="flex lg:hidden items-center justify-center w-10 h-10 rounded-full bg-[var(--blue-50)] hover:bg-[#dbe4fa] transition-colors focus-ring text-[var(--blue-700)] cursor-pointer">
+            <a href="#contact" className="inline-flex focus-ring rounded-md px-5 py-2.5 text-sm font-semibold text-white shadow-sm hover:shadow-lg transition-all duration-300 hover:-translate-y-0.5 bg-[var(--blue-700)] hover:bg-[var(--blue-900)]">Enquire Now</a>
+          </div>
+        </div>
+
+        {/* --- MOBILE/TABLET NAVBAR (below lg) --- */}
+        <div
+          className="flex lg:hidden transition-all duration-500 ease-in-out items-center justify-between w-full border-b border-gray-100 shadow-[0_8px_30px_rgb(0,0,0,0.05)] h-16 md:h-20 px-4 md:px-6 bg-white/95 backdrop-blur-sm"
+        >
+          <a href="#top" className="flex items-center gap-2 focus-ring rounded shrink-0">
+            <img src={logo} alt="Catalyst Education" className="h-[32px] md:h-[40px] w-auto" />
+          </a>
+
+          <div className="flex items-center gap-2 sm:gap-3 shrink-0">
+            <button onClick={() => setIsSearchOpen(true)} aria-label="Search" className="flex items-center justify-center w-10 h-10 rounded-full bg-[var(--blue-50)] hover:bg-[#dbe4fa] transition-colors focus-ring text-[var(--blue-700)] cursor-pointer">
               <svg width={18} height={18} viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth={2.5} strokeLinecap="round" strokeLinejoin="round"><circle cx="11" cy="11" r="8"></circle><line x1="21" y1="21" x2="16.65" y2="16.65"></line></svg>
             </button>
-
-
-            <a href="#contact" className="hidden sm:inline-flex focus-ring rounded-md px-5 py-2.5 text-sm font-semibold text-white shadow-sm hover:shadow-lg transition-all duration-300 hover:-translate-y-0.5 bg-[var(--blue-700)] hover:bg-[var(--blue-900)]">Enquire Now</a>
-            <button id="mobileMenuBtn" type="button" aria-label="Open menu" aria-expanded={mobileMenuOpen} aria-controls="mobileMenu" className="lg:hidden focus-ring inline-flex items-center justify-center w-11 h-11 rounded-lg border" style={{ borderColor: 'var(--blue-100)', color: 'var(--blue-700)' }} onClick={() => setMobileMenuOpen(!mobileMenuOpen)}>
+            <button id="mobileMenuBtn" type="button" aria-label="Open menu" aria-expanded={mobileMenuOpen} aria-controls="mobileMenu" className="focus-ring inline-flex items-center justify-center w-11 h-11 rounded-lg border bg-white" style={{ borderColor: 'var(--blue-100)', color: 'var(--blue-700)' }} onClick={() => setMobileMenuOpen(!mobileMenuOpen)}>
               <svg id="mmIconOpen" className={mobileMenuOpen ? "hidden" : ""} width={22} height={22} viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth={2} strokeLinecap="round"><path d="M4 7h16M4 12h16M4 17h16" /></svg>
               <svg id="mmIconClose" className={!mobileMenuOpen ? "hidden" : ""} width={22} height={22} viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth={2} strokeLinecap="round"><path d="M6 6l12 12M18 6L6 18" /></svg>
             </button>
           </div>
         </div>
-        {/* Mobile menu panel */}
-        <div id="mobileMenu" className={`mm-panel lg:hidden bg-white border-t border-[var(--line)] overflow-hidden ${mobileMenuOpen ? "mm-open" : ""}`}>
-          <nav className="max-w-7xl mx-auto px-6 py-4 flex flex-col text-sm font-medium" style={{ color: 'var(--slate-600)' }}>
-            <a href="#home" className="py-3 border-b border-[var(--line)] focus-ring rounded" onClick={() => setMobileMenuOpen(false)}>Home</a>
-            <a href="#about" className="py-3 border-b border-[var(--line)] focus-ring rounded" onClick={() => setMobileMenuOpen(false)}>About</a>
-            <a href="#centers" className="py-3 border-b border-[var(--line)] focus-ring rounded" onClick={() => setMobileMenuOpen(false)}>Centers</a>
-            <a href="#courses" className="py-3 border-b border-[var(--line)] focus-ring rounded" onClick={() => setMobileMenuOpen(false)}>Courses</a>
-            <a href="#stories" className="py-3 border-b border-[var(--line)] focus-ring rounded" onClick={() => setMobileMenuOpen(false)}>Success Stories</a>
-            <a href="#contact" className="py-3 border-b border-[var(--line)] focus-ring rounded" onClick={() => setMobileMenuOpen(false)}>Contact</a>
-            <a href="#more" className="py-3 focus-ring rounded" onClick={() => setMobileMenuOpen(false)}>More</a>
-            {/* <a href="tel:+919876543210" className="mt-2 flex items-center gap-2 text-sm font-semibold" style={{ color: 'var(--blue-700)' }}>
-              <svg width={16} height={16} viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth={2}><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.12.9.34 1.79.65 2.65a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.43-1.27a2 2 0 0 1 2.11-.45c.86.31 1.75.53 2.65.65A2 2 0 0 1 22 16.92z" /></svg>
-              +91 98765 43210
-            </a> */}
-            <a href="#contact" className="mt-4 focus-ring rounded-md px-5 py-3 text-sm font-semibold text-white text-center shadow-sm hover:shadow-lg transition-all duration-300 hover:-translate-y-0.5 bg-[var(--blue-700)] hover:bg-[var(--blue-900)]" onClick={() => setMobileMenuOpen(false)}>Enquire Now</a>
-          </nav>
+        {/* Mobile menu overlay */}
+        <div
+          className={`fixed inset-0 bg-black/40 backdrop-blur-sm z-[110] lg:hidden transition-opacity duration-300 ${mobileMenuOpen ? "opacity-100 visible" : "opacity-0 invisible"}`}
+          onClick={() => setMobileMenuOpen(false)}
+        />
+
+        {/* Mobile menu drawer */}
+        <div
+          className={`fixed top-0 right-0 h-[100dvh] w-[85%] max-w-sm bg-white z-[120] lg:hidden shadow-2xl transition-transform duration-300 ease-in-out transform flex flex-col ${mobileMenuOpen ? "translate-x-0" : "translate-x-full"}`}
+        >
+          {/* Drawer Header */}
+          <div className="flex items-center justify-between p-5 border-b border-[var(--line)]">
+            <img src={logo} alt="Catalyst Education" className="h-[32px] w-auto" />
+            <button
+              onClick={() => setMobileMenuOpen(false)}
+              className="p-2 rounded-full hover:bg-gray-100 transition-colors text-gray-500 hover:text-gray-900 focus-ring"
+            >
+              <svg width={24} height={24} viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth={2} strokeLinecap="round"><path d="M18 6L6 18M6 6l12 12" /></svg>
+            </button>
+          </div>
+
+          {/* Drawer Content */}
+          <div className="flex flex-col py-6 px-6 gap-1 h-full overflow-y-auto">
+            <a href="#home" className="text-lg font-semibold py-4 border-b border-[var(--line)] text-gray-800 hover:text-[var(--blue-700)] hover:pl-2 transition-all" onClick={() => setMobileMenuOpen(false)}>Home</a>
+            <a href="#about" className="text-lg font-semibold py-4 border-b border-[var(--line)] text-gray-800 hover:text-[var(--blue-700)] hover:pl-2 transition-all" onClick={() => setMobileMenuOpen(false)}>About</a>
+            <a href="#centers" className="text-lg font-semibold py-4 border-b border-[var(--line)] text-gray-800 hover:text-[var(--blue-700)] hover:pl-2 transition-all" onClick={() => setMobileMenuOpen(false)}>Centers</a>
+            <a href="#courses" className="text-lg font-semibold py-4 border-b border-[var(--line)] text-gray-800 hover:text-[var(--blue-700)] hover:pl-2 transition-all" onClick={() => setMobileMenuOpen(false)}>Courses</a>
+            <a href="#stories" className="text-lg font-semibold py-4 border-b border-[var(--line)] text-gray-800 hover:text-[var(--blue-700)] hover:pl-2 transition-all" onClick={() => setMobileMenuOpen(false)}>Success Stories</a>
+            <a href="#contact" className="text-lg font-semibold py-4 border-b border-[var(--line)] text-gray-800 hover:text-[var(--blue-700)] hover:pl-2 transition-all" onClick={() => setMobileMenuOpen(false)}>Contact</a>
+
+            <div className="mt-6 mb-8">
+              <a href="#contact" className="flex items-center justify-center w-full focus-ring rounded-lg px-5 py-3.5 text-[20px] font-bold text-white bg-[#102C93] hover:bg-[#0c2275] transition-all" onClick={() => setMobileMenuOpen(false)}>Enquire Now</a>
+
+              <div className="flex justify-center mt-10">
+                <span className="text-xs text-gray-400 font-medium tracking-wide uppercase">Catalyst Education © 2026</span>
+              </div>
+            </div>
+          </div>
         </div>
       </header>
 

@@ -277,27 +277,29 @@ export default function Courses() {
         <div className="grid grid-cols-1 lg:grid-cols-4 gap-8 lg:gap-15 ">
 
           {/* Left Sidebar - Category Menu */}
-          <div className="col-span-1 flex flex-col gap-3 relative z-20 ">
-            <h3 className="text-[#B0C4DE] font-semibold text-sm tracking-wider uppercase mb-2 px-2">Categories</h3>
-            {categories.map((cat) => (
-              <button
-                type="button"
-                key={cat.id}
-                onClick={() => setActiveCategory(cat.id)}
-                className={`text-left px-5 py-4 rounded-xl transition-all duration-300 flex items-center justify-between group ${activeCategory === cat.id
-                  ? 'bg-[#3A78FF] text-white shadow-[0_10px_30px_-10px_rgba(58,120,255,0.5)] border border-[#3A78FF]'
-                  : 'bg-white/5 text-[#B0C4DE] border border-white/10 hover:bg-white/10 hover:text-white hover:border-white/20'
-                  }`}
-              >
-                <span className="font-medium text-sm sm:text-base">{cat.name}</span>
-                <svg
-                  className={`w-4 h-4 transition-transform duration-300 ${activeCategory === cat.id ? 'translate-x-1 text-white' : 'text-white/50 group-hover:translate-x-1 group-hover:text-white'}`}
-                  fill="none" viewBox="0 0 24 24" stroke="currentColor"
+          <div className="col-span-1 relative z-20">
+            <h3 className="text-[#B0C4DE] font-semibold text-sm tracking-wider uppercase mb-3 px-2 lg:block hidden">Categories</h3>
+            <div className="flex flex-row lg:flex-col gap-3 overflow-x-auto pb-4 lg:pb-0 scrollbar-hide snap-x w-full">
+              {categories.map((cat) => (
+                <button
+                  type="button"
+                  key={cat.id}
+                  onClick={() => setActiveCategory(cat.id)}
+                  className={`text-left px-5 py-3 lg:py-4 rounded-xl transition-all duration-300 flex items-center justify-between group whitespace-nowrap shrink-0 snap-start ${activeCategory === cat.id
+                    ? 'bg-[#3A78FF] text-white shadow-[0_10px_30px_-10px_rgba(58,120,255,0.5)] border border-[#3A78FF]'
+                    : 'bg-white/5 text-[#B0C4DE] border border-white/10 hover:bg-white/10 hover:text-white hover:border-white/20'
+                    }`}
                 >
-                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M9 5l7 7-7 7" />
-                </svg>
-              </button>
-            ))}
+                  <span className="font-medium text-sm sm:text-base mr-2 lg:mr-0">{cat.name}</span>
+                  <svg
+                    className={`w-4 h-4 hidden lg:block transition-transform duration-300 ${activeCategory === cat.id ? 'translate-x-1 text-white' : 'text-white/50 group-hover:translate-x-1 group-hover:text-white'}`}
+                    fill="none" viewBox="0 0 24 24" stroke="currentColor"
+                  >
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M9 5l7 7-7 7" />
+                  </svg>
+                </button>
+              ))}
+            </div>
           </div>
 
           {/* Right Area - Interactive Infinite Carousel */}
@@ -312,8 +314,8 @@ export default function Courses() {
                 visible: {
                   opacity: 1,
                   transition: {
-                    staggerChildren: 0.08,
-                    delayChildren: 0.05
+                    staggerChildren: 0.02,
+                    delayChildren: 0.01
                   }
                 }
               }}
@@ -343,7 +345,7 @@ export default function Courses() {
                     <motion.div
                       key={idx}
                       variants={{
-                        hidden: { opacity: 0, y: 40, scale: 0.95 },
+                        hidden: { opacity: 0, y: 10, scale: 0.98 },
                         visible: {
                           opacity: 1,
                           y: 0,
@@ -351,7 +353,7 @@ export default function Courses() {
                           transition: {
                             type: "spring",
                             bounce: 0,
-                            duration: 0.7
+                            duration: 0.15
                           }
                         }
                       }}

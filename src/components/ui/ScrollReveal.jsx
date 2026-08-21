@@ -1,4 +1,5 @@
 
+import { useState, useEffect } from "react";
 import { motion, useReducedMotion } from "framer-motion";
 
 export default function ScrollReveal({
@@ -11,6 +12,14 @@ export default function ScrollReveal({
   once = true,
 }) {
   const prefersReducedMotion = useReducedMotion();
+  const [isMobile, setIsMobile] = useState(false);
+
+  useEffect(() => {
+    const handleResize = () => setIsMobile(window.innerWidth < 768);
+    handleResize();
+    window.addEventListener("resize", handleResize);
+    return () => window.removeEventListener("resize", handleResize);
+  }, []);
 
   /*
    * Premium easing:
@@ -21,8 +30,9 @@ export default function ScrollReveal({
 
   /*
    * Convert milliseconds to seconds.
+   * Significantly reduce delay on mobile to optimize the scrolling experience.
    */
-  const delayInSeconds = delay / 1000;
+  const delayInSeconds = (isMobile ? delay * 0.2 : delay) / 1000;
 
   /*
    * Reduced-motion users get a simple opacity transition.
@@ -64,7 +74,7 @@ export default function ScrollReveal({
     y: 0,
   };
 
-  let duration = 0.9;
+  let duration = 0.3;
 
   /*
    * ---------------------------------------------------------
@@ -150,7 +160,7 @@ export default function ScrollReveal({
      * Standard content
      */
     case "standard":
-      duration = 0.9;
+      duration = 0.3;
       break;
 
     /*
@@ -175,7 +185,7 @@ export default function ScrollReveal({
         scale: 1,
       };
 
-      duration = 1.05;
+      duration = 0.4;
       break;
 
     /*
@@ -195,7 +205,7 @@ export default function ScrollReveal({
         scale: 1,
       };
 
-      duration = 1.05;
+      duration = 0.4;
       break;
 
     /*
@@ -215,7 +225,7 @@ export default function ScrollReveal({
         scale: 1,
       };
 
-      duration = 0.75;
+      duration = 0.25;
       break;
 
     /*
@@ -238,7 +248,7 @@ export default function ScrollReveal({
         rotate: 0,
       };
 
-      duration = 0.75;
+      duration = 0.25;
       break;
 
     /*
@@ -258,7 +268,7 @@ export default function ScrollReveal({
         scale: 1,
       };
 
-      duration = 0.75;
+      duration = 0.25;
       break;
 
     /*
@@ -276,7 +286,7 @@ export default function ScrollReveal({
         y: 0,
       };
 
-      duration = 1;
+      duration = 0.4;
       break;
 
     /*
@@ -294,7 +304,7 @@ export default function ScrollReveal({
         y: 0,
       };
 
-      duration = 0.9;
+      duration = 0.3;
       break;
 
     default:
@@ -323,7 +333,7 @@ export default function ScrollReveal({
       transition={{
         type: "spring",
         bounce: 0,
-        duration: duration + 0.3, // Adds a bit more length to the tail for that ultra-premium slow settle
+        duration: duration, // Reduced length for a faster, snappier settle
         delay: delayInSeconds,
 
         /*
@@ -334,7 +344,7 @@ export default function ScrollReveal({
           scale: {
             type: "spring",
             bounce: 0,
-            duration: duration + 0.3,
+            duration: duration,
           },
         }),
       }}
