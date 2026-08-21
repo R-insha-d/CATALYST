@@ -219,7 +219,6 @@ export default function Faculty() {
                         className={`absolute inset-0 w-full h-full object-cover object-[10%_0%] transition-transform duration-500  ${hoveredCardIdx === idx ? 'scale-105' : 'scale-100'}`}
                         draggable="false"
                       />
-
                       {/* Dark smoky gradient & Backdrop blur overlay - selectively covers from center to bottom on hover */}
                       <div className={`absolute bottom-0 left-0 right-0 z-10 transition-all duration-500 ${hoveredCardIdx === idx ? 'top-[50%] bg-gradient-to-t from-[var(--blue-950)] via-[var(--blue-900)]/80 to-transparent opacity-60 backdrop-blur-[2px]' : 'top-0 bg-transparent opacity-0 backdrop-blur-[0px]'}`}></div>
                     </div>

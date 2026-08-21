@@ -442,6 +442,15 @@ export default function Courses() {
 }
 
 export const AnimatedCourseBackground = ({ mouseX, mouseY }) => {
+  const [isMobile, setIsMobile] = useState(false);
+
+  useEffect(() => {
+    const handleResize = () => setIsMobile(window.innerWidth < 768);
+    handleResize();
+    window.addEventListener("resize", handleResize);
+    return () => window.removeEventListener("resize", handleResize);
+  }, []);
+
   const springConfig = { damping: 25, stiffness: 100 };
   const smoothX = useSpring(mouseX, springConfig);
   const smoothY = useSpring(mouseY, springConfig);
@@ -464,7 +473,7 @@ export const AnimatedCourseBackground = ({ mouseX, mouseY }) => {
           x: [0, 80, 0],
           y: [0, -50, 0]
         }}
-        transition={{ duration: 25, repeat: Infinity, ease: "easeInOut" }}
+        transition={{ duration: isMobile ? 12.5 : 25, repeat: Infinity, ease: "easeInOut" }}
         className="absolute -top-20 -left-20 w-[600px] h-[600px] bg-[#1A4DFF]/30 rounded-full blur-[140px]"
       />
       <motion.div
@@ -473,26 +482,26 @@ export const AnimatedCourseBackground = ({ mouseX, mouseY }) => {
           x: [0, -60, 0],
           y: [0, 60, 0]
         }}
-        transition={{ duration: 30, repeat: Infinity, ease: "easeInOut", delay: 2 }}
+        transition={{ duration: isMobile ? 15 : 30, repeat: Infinity, ease: "easeInOut", delay: isMobile ? 1 : 2 }}
         className="absolute bottom-[-10%] right-[-5%] w-[700px] h-[700px] bg-[#3A78FF]/20 rounded-full blur-[150px]"
       />
 
       {/* Subtle flowing SVG Wave */}
       <svg className="absolute w-[200%] h-[200%] left-[-50%] top-[-50%] opacity-30 mix-blend-overlay" viewBox="0 0 200 200" preserveAspectRatio="none">
-        <path className="animate-[samsungWaveFlow_20s_ease-in-out_infinite]" d="M-50,100 C 50,50 150,150 250,100" fill="none" stroke="#3A78FF" strokeWidth="2" />
-        <path className="animate-[samsungWaveFlow_25s_ease-in-out_infinite_reverse]" d="M-50,120 C 50,180 150,20 250,120" fill="none" stroke="#1A4DFF" strokeWidth="1" />
+        <path className="animate-[samsungWaveFlow_20s_ease-in-out_infinite]" style={{ animationDuration: isMobile ? '10s' : '20s' }} d="M-50,100 C 50,50 150,150 250,100" fill="none" stroke="#3A78FF" strokeWidth="2" />
+        <path className="animate-[samsungWaveFlow_25s_ease-in-out_infinite_reverse]" style={{ animationDuration: isMobile ? '12.5s' : '25s' }} d="M-50,120 C 50,180 150,20 250,120" fill="none" stroke="#1A4DFF" strokeWidth="1" />
       </svg>
 
       {/* Slowly rotating glowing ring for dynamic depth */}
       <motion.div
         animate={{ rotate: [0, 360] }}
-        transition={{ duration: 90, repeat: Infinity, ease: "linear" }}
+        transition={{ duration: isMobile ? 45 : 90, repeat: Infinity, ease: "linear" }}
         className="absolute top-[10%] left-[20%] w-[80vw] h-[80vw] max-w-[1000px] max-h-[1000px] bg-gradient-to-tr from-transparent via-[#3A78FF]/10 to-transparent rounded-full blur-[80px]"
       />
 
       {/* Floating particles */}
-      <div className="absolute top-[30%] left-[20%] w-1.5 h-1.5 bg-white rounded-full animate-[samsungStarTwinkle_4s_infinite] shadow-[0_0_10px_white]"></div>
-      <div className="absolute bottom-[40%] right-[30%] w-2 h-2 bg-[#9ED5FF] rounded-full animate-[samsungStarTwinkle_6s_infinite_1s] shadow-[0_0_12px_#9ED5FF]"></div>
+      <div className="absolute top-[30%] left-[20%] w-1.5 h-1.5 bg-white rounded-full animate-[samsungStarTwinkle_4s_infinite] shadow-[0_0_10px_white]" style={{ animationDuration: isMobile ? '2s' : '4s' }}></div>
+      <div className="absolute bottom-[40%] right-[30%] w-2 h-2 bg-[#9ED5FF] rounded-full animate-[samsungStarTwinkle_6s_infinite_1s] shadow-[0_0_12px_#9ED5FF]" style={{ animationDuration: isMobile ? '3s' : '6s', animationDelay: isMobile ? '0.5s' : '1s' }}></div>
 
       {/* Enterprise structural dot grid */}
       <div className="absolute inset-0 bg-[url('data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iNDAiIGhlaWdodD0iNDAiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyI+PGNpcmNsZSBjeD0iMSIgY3k9IjEiIHI9IjEiIGZpbGw9InJnYmEoMjU1LCAyNTUsIDI1NSwgMC4wNSkiLz48L3N2Zz4=')] mix-blend-overlay"></div>

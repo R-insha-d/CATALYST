@@ -30,9 +30,9 @@ export default function ScrollReveal({
 
   /*
    * Convert milliseconds to seconds.
-   * Significantly reduce delay on mobile to optimize the scrolling experience.
+   * Reduced delay on all devices for a faster appearance.
    */
-  const delayInSeconds = (isMobile ? delay * 0.2 : delay) / 1000;
+  const delayInSeconds = (isMobile ? delay * 0.1 : delay * 0.3) / 1000;
 
   /*
    * Reduced-motion users get a simple opacity transition.

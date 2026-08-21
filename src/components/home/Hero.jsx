@@ -216,15 +216,15 @@ export default function Hero() {
         {/* Skills Micro-Row */}
         <ScrollReveal delay={600}>
           <div className="mt-5 grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 gap-3 w-full">
-            <div className="group relative flex flex-1 flex-col items-start justify-center gap-1 px-5 py-5 pb-6 rounded-xl bg-white border border-gray-100 shadow-[0_2px_8px_rgba(0,0,0,0.02)] hover:shadow-[0_4px_16px_rgba(21,94,172,0.08)] hover:-translate-y-0.5 hover:border-[#1428A0] transition-all cursor-default min-w-[180px]">
+            <div className="group relative flex flex-col items-start justify-center gap-1 px-3.5 py-4 sm:px-5 sm:py-5 sm:pb-6 rounded-xl bg-white border border-gray-100 shadow-[0_2px_8px_rgba(0,0,0,0.02)] hover:shadow-[0_4px_16px_rgba(21,94,172,0.08)] hover:-translate-y-0.5 hover:border-[#1428A0] transition-all cursor-default w-full">
               <div className="flex flex-col gap-1">
-                <div className="flex items-center gap-3 text-[13px] font-bold text-gray-800 group-hover:text-[#1428A0] transition-colors">
+                <div className="flex items-center gap-2 sm:gap-3 text-[12px] sm:text-[13px] font-bold text-gray-800 group-hover:text-[#1428A0] transition-colors">
                   <div className="w-7 h-7 rounded-md bg-[var(--blue-50)] text-[#1428A0] flex items-center justify-center group-hover:bg-[#1428A0] group-hover:text-white transition-all duration-300">
                     <Calculator size={14} />
                   </div>
                   Accounting
                 </div>
-                <span className="text-[11px] text-[var(--slate-500)] ml-[40px]">Financial reporting</span>
+                <span className="text-[10px] sm:text-[11px] leading-tight text-[var(--slate-500)] ml-[36px] sm:ml-[40px]">Financial reporting</span>
               </div>
 
               <button className="group/btn flex items-center gap-1.5 px-3 py-1.5 rounded-full border border-[var(--blue-100)] bg-[var(--blue-50)] text-[#1428A0] opacity-0 translate-y-2 group-hover:opacity-100 group-hover:translate-y-0 transition-all duration-300 hover:bg-white hover:border-[#1428A0] hover:shadow-md cursor-pointer absolute bottom-3 right-4">
@@ -235,15 +235,15 @@ export default function Hero() {
               </button>
             </div>
 
-            <div className="group relative flex flex-1 flex-col items-start justify-center gap-1 px-5 py-5 pb-6 rounded-xl bg-white border border-gray-100 shadow-[0_2px_8px_rgba(0,0,0,0.02)] hover:shadow-[0_4px_16px_rgba(21,94,172,0.08)] hover:-translate-y-0.5 hover:border-[#1428A0] transition-all cursor-default min-w-[180px]">
+            <div className="group relative flex flex-col items-start justify-center gap-1 px-3.5 py-4 sm:px-5 sm:py-5 sm:pb-6 rounded-xl bg-white border border-gray-100 shadow-[0_2px_8px_rgba(0,0,0,0.02)] hover:shadow-[0_4px_16px_rgba(21,94,172,0.08)] hover:-translate-y-0.5 hover:border-[#1428A0] transition-all cursor-default w-full">
               <div className="flex flex-col gap-1">
-                <div className="flex items-center gap-3 text-[13px] font-bold text-gray-800 group-hover:text-[#1428A0] transition-colors">
+                <div className="flex items-center gap-2 sm:gap-3 text-[12px] sm:text-[13px] font-bold text-gray-800 group-hover:text-[#1428A0] transition-colors">
                   <div className="w-7 h-7 rounded-md bg-[var(--blue-50)] text-[#1428A0] flex items-center justify-center group-hover:bg-[#1428A0] group-hover:text-white transition-all duration-300">
                     <TrendingUp size={14} />
                   </div>
                   Finance
                 </div>
-                <span className="text-[11px] text-[var(--slate-500)] ml-[40px]">Corporate strategy</span>
+                <span className="text-[10px] sm:text-[11px] leading-tight text-[var(--slate-500)] ml-[36px] sm:ml-[40px]">Corporate strategy</span>
               </div>
 
               <button className="group/btn flex items-center gap-1.5 px-3 py-1.5 rounded-full border border-[var(--blue-100)] bg-[var(--blue-50)] text-[#1428A0] opacity-0 translate-y-2 group-hover:opacity-100 group-hover:translate-y-0 transition-all duration-300 hover:bg-white hover:border-[#1428A0] hover:shadow-md cursor-pointer absolute bottom-3 right-4">
@@ -254,15 +254,15 @@ export default function Hero() {
               </button>
             </div>
 
-            <div className="group relative flex flex-1 flex-col items-start justify-center gap-1 px-5 py-5 pb-6 rounded-xl bg-white border border-gray-100 shadow-[0_2px_8px_rgba(0,0,0,0.02)] hover:shadow-[0_4px_16px_rgba(21,94,172,0.08)] hover:-translate-y-0.5 hover:border-[#1428A0] transition-all cursor-default min-w-[180px]">
+            <div className="group relative flex flex-col items-start justify-center gap-1 px-3.5 py-4 sm:px-5 sm:py-5 sm:pb-6 rounded-xl bg-white border border-gray-100 shadow-[0_2px_8px_rgba(0,0,0,0.02)] hover:shadow-[0_4px_16px_rgba(21,94,172,0.08)] hover:-translate-y-0.5 hover:border-[#1428A0] transition-all cursor-default w-full">
               <div className="flex flex-col gap-1">
-                <div className="flex items-center gap-3 text-[13px] font-bold text-gray-800 group-hover:text-[#1428A0] transition-colors">
+                <div className="flex items-center gap-2 sm:gap-3 text-[12px] sm:text-[13px] font-bold text-gray-800 group-hover:text-[#1428A0] transition-colors">
                   <div className="w-7 h-7 rounded-md bg-[var(--blue-50)] text-[#1428A0] flex items-center justify-center group-hover:bg-[#1428A0] group-hover:text-white transition-all duration-300">
                     <Landmark size={14} />
                   </div>
                   Taxation
                 </div>
-                <span className="text-[11px] text-[var(--slate-500)] ml-[40px]">Direct & indirect tax</span>
+                <span className="text-[10px] sm:text-[11px] leading-tight text-[var(--slate-500)] ml-[36px] sm:ml-[40px]">Direct & indirect tax</span>
               </div>
 
               <button className="group/btn flex items-center gap-1.5 px-3 py-1.5 rounded-full border border-[var(--blue-100)] bg-[var(--blue-50)] text-[#1428A0] opacity-0 translate-y-2 group-hover:opacity-100 group-hover:translate-y-0 transition-all duration-300 hover:bg-white hover:border-[#1428A0] hover:shadow-md cursor-pointer absolute bottom-3 right-4">
@@ -273,15 +273,15 @@ export default function Hero() {
               </button>
             </div>
 
-            <div className="group relative flex flex-1 flex-col items-start justify-center gap-1 px-5 py-5 pb-6 rounded-xl bg-white border border-gray-100 shadow-[0_2px_8px_rgba(0,0,0,0.02)] hover:shadow-[0_4px_16px_rgba(21,94,172,0.08)] hover:-translate-y-0.5 hover:border-[#1428A0] transition-all cursor-default min-w-[180px]">
+            <div className="group relative flex flex-col items-start justify-center gap-1 px-3.5 py-4 sm:px-5 sm:py-5 sm:pb-6 rounded-xl bg-white border border-gray-100 shadow-[0_2px_8px_rgba(0,0,0,0.02)] hover:shadow-[0_4px_16px_rgba(21,94,172,0.08)] hover:-translate-y-0.5 hover:border-[#1428A0] transition-all cursor-default w-full">
               <div className="flex flex-col gap-1">
-                <div className="flex items-center gap-3 text-[13px] font-bold text-gray-800 group-hover:text-[#1428A0] transition-colors">
+                <div className="flex items-center gap-2 sm:gap-3 text-[12px] sm:text-[13px] font-bold text-gray-800 group-hover:text-[#1428A0] transition-colors">
                   <div className="w-7 h-7 rounded-md bg-[var(--blue-50)] text-[#1428A0] flex items-center justify-center group-hover:bg-[#1428A0] group-hover:text-white transition-all duration-300">
                     <Briefcase size={14} />
                   </div>
                   Business
                 </div>
-                <span className="text-[11px] text-[var(--slate-500)] ml-[40px]">Management skills</span>
+                <span className="text-[10px] sm:text-[11px] leading-tight text-[var(--slate-500)] ml-[36px] sm:ml-[40px]">Management skills</span>
               </div>
 
               <button className="group/btn flex items-center gap-1.5 px-3 py-1.5 rounded-full border border-[var(--blue-100)] bg-[var(--blue-50)] text-[#1428A0] opacity-0 translate-y-2 group-hover:opacity-100 group-hover:translate-y-0 transition-all duration-300 hover:bg-white hover:border-[#1428A0] hover:shadow-md cursor-pointer absolute bottom-3 right-4">
@@ -292,15 +292,15 @@ export default function Hero() {
               </button>
             </div>
 
-            <div className="group relative flex flex-1 flex-col items-start justify-center gap-1 px-5 py-5 pb-6 rounded-xl bg-white border border-gray-100 shadow-[0_2px_8px_rgba(0,0,0,0.02)] hover:shadow-[0_4px_16px_rgba(21,94,172,0.08)] hover:-translate-y-0.5 hover:border-[#1428A0] transition-all cursor-default min-w-[180px]">
+            <div className="group relative flex flex-col items-start justify-center gap-1 px-3.5 py-4 sm:px-5 sm:py-5 sm:pb-6 rounded-xl bg-white border border-gray-100 shadow-[0_2px_8px_rgba(0,0,0,0.02)] hover:shadow-[0_4px_16px_rgba(21,94,172,0.08)] hover:-translate-y-0.5 hover:border-[#1428A0] transition-all cursor-default w-full">
               <div className="flex flex-col gap-1">
-                <div className="flex items-center gap-3 text-[13px] font-bold text-gray-800 group-hover:text-[#1428A0] transition-colors">
+                <div className="flex items-center gap-2 sm:gap-3 text-[12px] sm:text-[13px] font-bold text-gray-800 group-hover:text-[#1428A0] transition-colors">
                   <div className="w-7 h-7 rounded-md bg-[var(--blue-50)] text-[#1428A0] flex items-center justify-center group-hover:bg-[#1428A0] group-hover:text-white transition-all duration-300">
                     <Building2 size={14} />
                   </div>
                   Banking
                 </div>
-                <span className="text-[11px] text-[var(--slate-500)] ml-[40px]">Financial systems</span>
+                <span className="text-[10px] sm:text-[11px] leading-tight text-[var(--slate-500)] ml-[36px] sm:ml-[40px]">Financial systems</span>
               </div>
 
               <button className="group/btn flex items-center gap-1.5 px-3 py-1.5 rounded-full border border-[var(--blue-100)] bg-[var(--blue-50)] text-[#1428A0] opacity-0 translate-y-2 group-hover:opacity-100 group-hover:translate-y-0 transition-all duration-300 hover:bg-white hover:border-[#1428A0] hover:shadow-md cursor-pointer absolute bottom-3 right-4">
@@ -311,15 +311,15 @@ export default function Hero() {
               </button>
             </div>
 
-            <div className="group relative flex flex-1 flex-col items-start justify-center gap-1 px-5 py-5 pb-6 rounded-xl bg-white border border-gray-100 shadow-[0_2px_8px_rgba(0,0,0,0.02)] hover:shadow-[0_4px_16px_rgba(21,94,172,0.08)] hover:-translate-y-0.5 hover:border-[#1428A0] transition-all cursor-default min-w-[180px]">
+            <div className="group relative flex flex-col items-start justify-center gap-1 px-3.5 py-4 sm:px-5 sm:py-5 sm:pb-6 rounded-xl bg-white border border-gray-100 shadow-[0_2px_8px_rgba(0,0,0,0.02)] hover:shadow-[0_4px_16px_rgba(21,94,172,0.08)] hover:-translate-y-0.5 hover:border-[#1428A0] transition-all cursor-default w-full">
               <div className="flex flex-col gap-1">
-                <div className="flex items-center gap-3 text-[13px] font-bold text-gray-800 group-hover:text-[#1428A0] transition-colors">
+                <div className="flex items-center gap-2 sm:gap-3 text-[12px] sm:text-[13px] font-bold text-gray-800 group-hover:text-[#1428A0] transition-colors">
                   <div className="w-7 h-7 rounded-md bg-[var(--blue-50)] text-[#1428A0] flex items-center justify-center group-hover:bg-[#1428A0] group-hover:text-white transition-all duration-300">
                     <BookOpen size={14} />
                   </div>
                   Excel
                 </div>
-                <span className="text-[11px] text-[var(--slate-500)] ml-[40px]">Data analysis</span>
+                <span className="text-[10px] sm:text-[11px] leading-tight text-[var(--slate-500)] ml-[36px] sm:ml-[40px]">Data analysis</span>
               </div>
 
               <button className="group/btn flex items-center gap-1.5 px-3 py-1.5 rounded-full border border-[var(--blue-100)] bg-[var(--blue-50)] text-[#1428A0] opacity-0 translate-y-2 group-hover:opacity-100 group-hover:translate-y-0 transition-all duration-300 hover:bg-white hover:border-[#1428A0] hover:shadow-md cursor-pointer absolute bottom-3 right-4">
@@ -330,15 +330,15 @@ export default function Hero() {
               </button>
             </div>
 
-            <div className="group relative flex flex-1 flex-col items-start justify-center gap-1 px-5 py-5 pb-6 rounded-xl bg-white border border-gray-100 shadow-[0_2px_8px_rgba(0,0,0,0.02)] hover:shadow-[0_4px_16px_rgba(21,94,172,0.08)] hover:-translate-y-0.5 hover:border-[#1428A0] transition-all cursor-default min-w-[180px]">
+            <div className="group relative flex flex-col items-start justify-center gap-1 px-3.5 py-4 sm:px-5 sm:py-5 sm:pb-6 rounded-xl bg-white border border-gray-100 shadow-[0_2px_8px_rgba(0,0,0,0.02)] hover:shadow-[0_4px_16px_rgba(21,94,172,0.08)] hover:-translate-y-0.5 hover:border-[#1428A0] transition-all cursor-default w-full">
               <div className="flex flex-col gap-1">
-                <div className="flex items-center gap-3 text-[13px] font-bold text-gray-800 group-hover:text-[#1428A0] transition-colors">
+                <div className="flex items-center gap-2 sm:gap-3 text-[12px] sm:text-[13px] font-bold text-gray-800 group-hover:text-[#1428A0] transition-colors">
                   <div className="w-7 h-7 rounded-md bg-[var(--blue-50)] text-[#1428A0] flex items-center justify-center group-hover:bg-[#1428A0] group-hover:text-white transition-all duration-300">
                     <PieChart size={14} />
                   </div>
                   Analytics
                 </div>
-                <span className="text-[11px] text-[var(--slate-500)] ml-[40px]">Business insights</span>
+                <span className="text-[10px] sm:text-[11px] leading-tight text-[var(--slate-500)] ml-[36px] sm:ml-[40px]">Business insights</span>
               </div>
 
               <button className="group/btn flex items-center gap-1.5 px-3 py-1.5 rounded-full border border-[var(--blue-100)] bg-[var(--blue-50)] text-[#1428A0] opacity-0 translate-y-2 group-hover:opacity-100 group-hover:translate-y-0 transition-all duration-300 hover:bg-white hover:border-[#1428A0] hover:shadow-md cursor-pointer absolute bottom-3 right-4">
@@ -349,15 +349,15 @@ export default function Hero() {
               </button>
             </div>
 
-            <div className="group relative flex flex-1 flex-col items-start justify-center gap-1 px-5 py-5 pb-6 rounded-xl bg-white border border-gray-100 shadow-[0_2px_8px_rgba(0,0,0,0.02)] hover:shadow-[0_4px_16px_rgba(21,94,172,0.08)] hover:-translate-y-0.5 hover:border-[#1428A0] transition-all cursor-default min-w-[180px]">
+            <div className="group relative flex flex-col items-start justify-center gap-1 px-3.5 py-4 sm:px-5 sm:py-5 sm:pb-6 rounded-xl bg-white border border-gray-100 shadow-[0_2px_8px_rgba(0,0,0,0.02)] hover:shadow-[0_4px_16px_rgba(21,94,172,0.08)] hover:-translate-y-0.5 hover:border-[#1428A0] transition-all cursor-default w-full">
               <div className="flex flex-col gap-1">
-                <div className="flex items-center gap-3 text-[13px] font-bold text-gray-800 group-hover:text-[#1428A0] transition-colors">
+                <div className="flex items-center gap-2 sm:gap-3 text-[12px] sm:text-[13px] font-bold text-gray-800 group-hover:text-[#1428A0] transition-colors">
                   <div className="w-7 h-7 rounded-md bg-[var(--blue-50)] text-[#1428A0] flex items-center justify-center group-hover:bg-[#1428A0] group-hover:text-white transition-all duration-300">
                     <GraduationCap size={14} />
                   </div>
                   Career Skills
                 </div>
-                <span className="text-[11px] text-[var(--slate-500)] ml-[40px]">Interview prep</span>
+                <span className="text-[10px] sm:text-[11px] leading-tight text-[var(--slate-500)] ml-[36px] sm:ml-[40px]">Interview prep</span>
               </div>
 
               <button className="group/btn flex items-center gap-1.5 px-3 py-1.5 rounded-full border border-[var(--blue-100)] bg-[var(--blue-50)] text-[#1428A0] opacity-0 translate-y-2 group-hover:opacity-100 group-hover:translate-y-0 transition-all duration-300 hover:bg-white hover:border-[#1428A0] hover:shadow-md cursor-pointer absolute bottom-3 right-4">
