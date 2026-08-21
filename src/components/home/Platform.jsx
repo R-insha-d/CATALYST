@@ -20,7 +20,7 @@ export default function Platform() {
       onMouseMove={handleMouseMove}
       className="relative overflow-hidden py-20 lg:py-35 sm:py-24 text-center border-y border-[rgba(20,40,160,0.2)]"
     >
-      <AnimatedCourseBackground mouseX={mouseX} mouseY={mouseY} />
+      <AnimatedCourseBackground mouseX={mouseX} mouseY={mouseY} hideSparkles={true} />
 
       <div className="relative z-10 max-w-4xl mx-auto px-6 lg:px-10">
         <ScrollReveal type="heading" direction="scale" delay={0}>

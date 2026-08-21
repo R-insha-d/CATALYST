@@ -215,8 +215,8 @@ export default function Placements() {
           visible: {
             opacity: 1,
             transition: {
-              staggerChildren: 0.08, // Very fast stagger
-              delayChildren: 0.05 
+              staggerChildren: 0.04, // Faster stagger
+              delayChildren: 0 
             }
           }
         }}
@@ -246,7 +246,7 @@ export default function Placements() {
               <motion.div
                 key={idx}
                 variants={{
-                  hidden: { opacity: 0, y: 40, scale: 0.95 },
+                  hidden: { opacity: 0, y: 20, scale: 0.98 },
                   visible: { 
                     opacity: 1, 
                     y: 0, 
@@ -254,7 +254,7 @@ export default function Placements() {
                     transition: { 
                       type: "spring",
                       bounce: 0,       
-                      duration: 0.7    
+                      duration: 0.4    
                     } 
                   }
                 }}
@@ -298,7 +298,7 @@ export default function Placements() {
         </div>
       </motion.div>
 
-      <ScrollReveal delay={600}>
+      <ScrollReveal delay={200}>
         <div className="text-center mt-16 relative z-10">
           <a href="#contact" className="focus-ring inline-flex rounded-lg px-8 py-4 text-sm font-semibold text-[var(--blue-900)] bg-white shadow-lg hover:shadow-xl hover:-translate-y-0.5 transition-all duration-300 hover:bg-gray-50">Enquire Now</a>
         </div>
