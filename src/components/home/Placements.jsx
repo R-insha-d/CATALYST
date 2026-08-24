@@ -4,13 +4,13 @@ import { useMotionValue, motion } from 'framer-motion';
 import ScrollReveal from '../ui/ScrollReveal';
 import { AnimatedCourseBackground } from './Courses';
 
-import diyaImg from '../../assets/placement-img/placement-DIYA.jpg';
-import althafImg from '../../assets/placement-img/placement ALTHAF ALI-01.jpg';
-import shamilImg from '../../assets/placement-img/placement SHAMIL-01.jpg';
-import abhijithImg from '../../assets/placement-img/placement-ABHIJITH.jpg';
-import ameerImg from '../../assets/placement-img/placement-AMEER-ALI.jpg';
-import shibiliImg from '../../assets/placement-img/placement-SHIBILI.jpg';
-import shahalImg from '../../assets/placement-img/SHAHAL-SANEEL-03.02-1.jpg';
+import diyaImg from '../../assets/placement-img/placement-DIYA.webp';
+import althafImg from '../../assets/placement-img/placement ALTHAF ALI-01.webp';
+import shamilImg from '../../assets/placement-img/placement SHAMIL-01.webp';
+import abhijithImg from '../../assets/placement-img/placement-ABHIJITH.webp';
+import ameerImg from '../../assets/placement-img/placement-AMEER-ALI.webp';
+import shibiliImg from '../../assets/placement-img/placement-SHIBILI.webp';
+import shahalImg from '../../assets/placement-img/SHAHAL-SANEEL-03.02-1.webp';
 
 export default function Placements() {
   const sectionRef = useRef(null);
@@ -269,6 +269,8 @@ export default function Placements() {
                     <img
                       src={placement.img}
                       alt={placement.name}
+                      loading="lazy"
+                      decoding="async"
                       className="w-full h-full object-cover object-top"
                       draggable="false"
                     />

@@ -1,23 +1,23 @@
 import { useState, useEffect } from 'react';
-import heroMan1 from '../../assets/banner/5.png';
-import heroMan2 from '../../assets/banner/2.png';
+import heroMan1 from '../../assets/banner/5.webp';
+import heroMan2 from '../../assets/banner/2.webp';
 import ScrollReveal from '../ui/ScrollReveal';
 import { Globe, TrendingUp, Landmark, BookOpen, Calculator, Briefcase, Building2, GraduationCap, ClipboardCheck, PieChart, ChevronRight } from 'lucide-react';
 
-import logoAig from '../../assets/logo-slider/AIG-Logo.png';
-import logoAon from '../../assets/logo-slider/aon.jpeg';
-import logoAxa from '../../assets/logo-slider/axa.jpeg';
-import logoCapgemini from '../../assets/logo-slider/capgemini.jpeg';
-import logoCaterpillar from '../../assets/logo-slider/caterpiller.jpeg';
-import logoEy from '../../assets/logo-slider/ey.jpeg';
-import logoFlextronics from '../../assets/logo-slider/flextronics.jpeg';
-import logoJpmorgan from '../../assets/logo-slider/JP.png';
-import logoKpmg from '../../assets/logo-slider/KPMG.png';
-import logoMaersk from '../../assets/logo-slider/maersk.jpeg';
-import logoMetlife from '../../assets/logo-slider/MetLife.png';
-import logoPhilips from '../../assets/logo-slider/PHG.png';
-import logoTata from '../../assets/logo-slider/TATA.png';
-import logoVmware from '../../assets/logo-slider/vmware2.png';
+import logoAig from '../../assets/logo-slider/AIG-Logo.webp';
+import logoAon from '../../assets/logo-slider/aon.webp';
+import logoAxa from '../../assets/logo-slider/axa.webp';
+import logoCapgemini from '../../assets/logo-slider/capgemini.webp';
+import logoCaterpillar from '../../assets/logo-slider/caterpiller.webp';
+import logoEy from '../../assets/logo-slider/ey.webp';
+import logoFlextronics from '../../assets/logo-slider/flextronics.webp';
+import logoJpmorgan from '../../assets/logo-slider/JP.webp';
+import logoKpmg from '../../assets/logo-slider/KPMG.webp';
+import logoMaersk from '../../assets/logo-slider/maersk.webp';
+import logoMetlife from '../../assets/logo-slider/MetLife.webp';
+import logoPhilips from '../../assets/logo-slider/PHG.webp';
+import logoTata from '../../assets/logo-slider/TATA.webp';
+import logoVmware from '../../assets/logo-slider/vmware2.webp';
 
 const sliderLogos = [
   logoAig, logoAon, logoAxa, logoCapgemini, logoCaterpillar, logoEy, logoFlextronics,
@@ -77,11 +77,15 @@ export default function Hero() {
               <img
                 src={images[0]}
                 alt="Commerce Student"
+                loading="eager"
+                fetchPriority="high"
                 className={`absolute w-[135%] h-[135%] max-w-none object-contain transition-all duration-[1200ms] ease-[cubic-bezier(0.25,0.8,0.25,1)] origin-center ${currentImage === 0 ? 'opacity-100 scale-100 translate-y-0 z-10' : 'opacity-0 scale-[0.96] translate-y-4 -z-10 pointer-events-none'}`}
               />
               <img
                 src={images[1]}
                 alt="Expert Faculty"
+                loading="lazy"
+                decoding="async"
                 className={`absolute w-[135%] h-[135%] max-w-none object-contain transition-all duration-[1200ms] ease-[cubic-bezier(0.25,0.8,0.25,1)] origin-center ${currentImage === 1 ? 'opacity-100 scale-100 translate-y-0 z-10' : 'opacity-0 scale-[0.96] translate-y-4 -z-10 pointer-events-none'}`}
               />
             </div>
@@ -377,10 +381,10 @@ export default function Hero() {
             <div className="logo-slider w-[97%]  mx-auto">
               <div className="logo-track items-center">
                 {sliderLogos.map((logo, idx) => (
-                  <img key={`logo-1-${idx}`} src={logo} alt="Company Logo" className="h-12 w-auto object-contain mix-blend-multiply opacity-80 hover:opacity-100 transition-opacity" />
+                  <img key={`logo-1-${idx}`} src={logo} alt="Company Logo" loading="lazy" decoding="async" className="h-12 w-auto object-contain mix-blend-multiply opacity-80 hover:opacity-100 transition-opacity" />
                 ))}
                 {sliderLogos.map((logo, idx) => (
-                  <img key={`logo-2-${idx}`} src={logo} alt="Company Logo" className="h-12 w-auto object-contain mix-blend-multiply opacity-80 hover:opacity-100 transition-opacity" />
+                  <img key={`logo-2-${idx}`} src={logo} alt="Company Logo" loading="lazy" decoding="async" className="h-12 w-auto object-contain mix-blend-multiply opacity-80 hover:opacity-100 transition-opacity" />
                 ))}
               </div>
             </div>

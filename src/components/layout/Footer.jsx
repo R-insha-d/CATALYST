@@ -1,4 +1,4 @@
-import logoImg from '../../assets/logo/logo2.png';
+import logoImg from '../../assets/logo/logo2.webp';
 
 export default function Footer() {
   return (
@@ -7,7 +7,7 @@ export default function Footer() {
 
         {/* Column 1: Brand & HQ */}
         <div className="flex flex-col gap-6">
-          <a href="/"><img src={logoImg} alt="Catalyst Education" className="h-11 w-auto object-contain self-start hover:scale-105 transition-transform duration-300 cursor-pointer" /></a>
+          <a href="/"><img src={logoImg} alt="Catalyst Education" loading="lazy" decoding="async" className="h-11 w-auto object-contain self-start hover:scale-105 transition-transform duration-300 cursor-pointer" /></a>
           <p className="text-[15px] leading-relaxed text-[#c3c8eb]">
             India's leading commerce platform,built<br />to shape a better future.
           </p>

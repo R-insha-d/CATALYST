@@ -1,8 +1,8 @@
 import { motion, useReducedMotion } from 'framer-motion';
-import step1 from '../../assets/Skill-j/1.png';
-import step2 from '../../assets/Skill-j/2.png';
-import step3 from '../../assets/Skill-j/3.png';
-import step4 from '../../assets/Skill-j/4.png';
+import step1 from '../../assets/Skill-j/1.webp';
+import step2 from '../../assets/Skill-j/2.webp';
+import step3 from '../../assets/Skill-j/3.webp';
+import step4 from '../../assets/Skill-j/4.webp';
 
 const TagIcon = () => (
   <svg className="w-4 h-4" fill="none" stroke="currentColor" strokeWidth={2} viewBox="0 0 24 24">
@@ -145,6 +145,8 @@ export default function SkillJourney() {
                     <img
                       src={step.image}
                       alt={step.title}
+                      loading="lazy"
+                      decoding="async"
                       className="w-[68%] h-[68%] object-contain"
                     />
                     <span className="absolute top-3 right-3 w-9 h-9 rounded-full bg-white/90 backdrop-blur flex items-center justify-center text-xs font-bold text-[var(--blue-900)] shadow-sm">
@@ -187,6 +189,8 @@ export default function SkillJourney() {
                       src={step.image}
                       alt=""
                       aria-hidden="true"
+                      loading="lazy"
+                      decoding="async"
                       className="w-[72%] h-[72%] object-contain transition-transform duration-700 ease-[cubic-bezier(0.22,1,0.36,1)] scale-95 group-hover:scale-100"
                     />
                   </div>

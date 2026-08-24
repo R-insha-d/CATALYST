@@ -1,4 +1,4 @@
-import trustedImg from '../../assets/trusted.png';
+import trustedImg from '../../assets/trusted.webp';
 import ScrollReveal from '../ui/ScrollReveal';
 
 export default function About() {
@@ -8,7 +8,7 @@ export default function About() {
         <ScrollReveal type="image" direction="left" delay={0}>
           <div className="relative group cursor-pointer">
             <div className="rounded-md overflow-hidden aspect-[4/3] bg-[var(--blue-50)]">
-              <img src={trustedImg} alt="Catalyst Classroom" className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105" />
+              <img src={trustedImg} alt="Catalyst Classroom" loading="lazy" decoding="async" className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105" />
             </div>
             <div className="absolute -bottom-6 -right-6 bg-white rounded-md shadow-xl px-5 py-4 hidden sm:block border border-[var(--line)] animate-float-slow transition-transform duration-500 group-hover:-translate-y-2 group-hover:shadow-2xl">
               <p className="font-mono-data text-2xl font-semibold" style={{ color: 'var(--blue-900)' }}>12+ Yrs</p>

@@ -1,5 +1,5 @@
 import { useRef, useState, useEffect, useMemo } from 'react';
-import bannerImg from '../../assets/event/event.jpg';
+import bannerImg from '../../assets/event/event.webp';
 import ScrollReveal from '../ui/ScrollReveal';
 import { AnimatedCourseBackground } from './Courses';
 
@@ -201,7 +201,7 @@ export default function CtaStrip() {
 
             <div className="relative rounded-2xl aspect-[4/3] lg:aspect-[16/11] overflow-hidden border border-white/15 shadow-[0_20px_50px_rgba(0,0,0,0.5)] transform group-hover:-translate-y-2 transition-all duration-700 ease-out">
               <div className="absolute inset-0 bg-[var(--blue-900)]/20 mix-blend-overlay z-10 pointer-events-none group-hover:opacity-0 transition-opacity duration-700"></div>
-              <img src={bannerImg} alt="Catalyst Students" className="w-full h-full object-cover transform group-hover:scale-105 transition-transform duration-1000 ease-out" />
+              <img src={bannerImg} alt="Catalyst Students" loading="lazy" decoding="async" className="w-full h-full object-cover transform group-hover:scale-105 transition-transform duration-1000 ease-out" />
             </div>
           </div>
         </ScrollReveal>

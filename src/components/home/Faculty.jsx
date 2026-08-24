@@ -1,9 +1,9 @@
 import { useRef, useState, useEffect, useCallback } from 'react';
 import ScrollReveal from '../ui/ScrollReveal';
-import mentor1 from '../../assets/Mentor/1.png';
-import mentor2 from '../../assets/Mentor/2.png';
-import mentor3 from '../../assets/Mentor/3.png';
-import mentor4 from '../../assets/Mentor/4.png';
+import mentor1 from '../../assets/Mentor/1.webp';
+import mentor2 from '../../assets/Mentor/2.webp';
+import mentor3 from '../../assets/Mentor/3.webp';
+import mentor4 from '../../assets/Mentor/4.webp';
 
 export default function Faculty() {
   const [isHovered, setIsHovered] = useState(false);
@@ -216,6 +216,8 @@ export default function Faculty() {
                       <img
                         src={mentor.image}
                         alt={mentor.name}
+                        loading="lazy"
+                        decoding="async"
                         className={`absolute inset-0 w-full h-full object-cover object-[10%_0%] transition-transform duration-500  ${hoveredCardIdx === idx ? 'scale-105' : 'scale-100'}`}
                         draggable="false"
                       />

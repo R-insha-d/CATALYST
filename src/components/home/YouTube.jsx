@@ -166,7 +166,7 @@ export default function YouTube() {
                     }}
                     style={{ pointerEvents: 'auto' }}
                   >
-                    <img src={`https://img.youtube.com/vi/${video.videoId}/maxresdefault.jpg`} alt={`Video ${video.id}`} className="absolute inset-0 w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" draggable="false" />
+                    <img src={`https://img.youtube.com/vi/${video.videoId}/maxresdefault.jpg`} alt={`Video ${video.id}`} loading="lazy" decoding="async" className="absolute inset-0 w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" draggable="false" />
                     <div className="absolute inset-0 bg-black/20 group-hover:bg-black/10 transition-colors duration-500 pointer-events-none"></div>
                     <div className="absolute inset-0 flex items-center justify-center pointer-events-none">
                       <div className="w-14 h-14 rounded-full bg-white flex items-center justify-center group-hover:scale-110 transition-transform shadow-md">

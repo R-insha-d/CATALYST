@@ -1,6 +1,6 @@
 import { useState, useEffect } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
-import logo from '../../assets/logo/logo1.png';
+import logo from '../../assets/logo/logo1.webp';
 
 import { HoveredLink, Menu, MenuItem, ProductItem, TextItem, MegaMenuContent, ColumnLink, ColumnGroup } from "../ui/navbar-menu";
 
@@ -196,7 +196,7 @@ export default function Header() {
             }`}
         >
           <a href="#top" className="flex items-center gap-2 focus-ring rounded shrink-0">
-            <img src={logo} alt="Catalyst Education" className="h-[45px] xl:h-[50px] w-auto xl:pl-4" />
+            <img src={logo} alt="Catalyst Education" loading="lazy" decoding="async" className="h-[45px] xl:h-[50px] w-auto xl:pl-4" />
           </a>
           <div className={`flex items-center text-sm font-medium z-[100] transition-all duration-500 ease-in-out shrink-0 ${scrolled ? 'gap-4 xl:gap-6' : 'gap-9'}`} style={{ color: 'var(--slate-600)' }}>
             <Menu setActive={setActive}>
@@ -367,7 +367,7 @@ export default function Header() {
           className="flex lg:hidden transition-all duration-500 ease-in-out items-center justify-between w-full border-b border-gray-100 shadow-[0_8px_30px_rgb(0,0,0,0.05)] h-16 md:h-20 px-4 md:px-6 bg-white/95 backdrop-blur-sm"
         >
           <a href="#top" className="flex items-center gap-2 focus-ring rounded shrink-0">
-            <img src={logo} alt="Catalyst Education" className="h-[32px] md:h-[40px] w-auto" />
+            <img src={logo} alt="Catalyst Education" loading="lazy" decoding="async" className="h-[32px] md:h-[40px] w-auto" />
           </a>
 
           <div className="flex items-center gap-2 sm:gap-3 shrink-0">
@@ -392,7 +392,7 @@ export default function Header() {
         >
           {/* Drawer Header */}
           <div className="flex items-center justify-between p-5 border-b border-[var(--line)]">
-            <img src={logo} alt="Catalyst Education" className="h-[32px] w-auto" />
+            <img src={logo} alt="Catalyst Education" loading="lazy" decoding="async" className="h-[32px] w-auto" />
             <button
               onClick={() => setMobileMenuOpen(false)}
               className="p-2 rounded-full hover:bg-gray-100 transition-colors text-gray-500 hover:text-gray-900 focus-ring"

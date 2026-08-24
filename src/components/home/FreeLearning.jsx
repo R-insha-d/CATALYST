@@ -168,6 +168,8 @@ export default function FreeLearning() {
                       <img
                         src={video.image}
                         alt={video.title}
+                        loading="lazy"
+                        decoding="async"
                         className="absolute inset-0 w-full h-full object-cover transition-transform duration-500 group-hover:scale-[1.05]"
                         draggable="false"
                       />
