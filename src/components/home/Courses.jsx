@@ -224,50 +224,57 @@ export default function Courses() {
   // Ensure safe fallback if offsets are not yet computed
   const targetOffset = slideOffsets[currentIndex] ?? (currentIndex * 392);
 
-  const sectionRef = useRef(null);
-  const mouseX = useMotionValue(0);
-  const mouseY = useMotionValue(0);
-
-  const handleMouseMove = (e) => {
-    if (!sectionRef.current) return;
-    const { left, top, width, height } = sectionRef.current.getBoundingClientRect();
-    const x = (e.clientX - left) / width - 0.5;
-    const y = (e.clientY - top) / height - 0.5;
-    mouseX.set(x);
-    mouseY.set(y);
-  };
-
   return (
     <section
       id="courses"
-      ref={sectionRef}
-      onMouseMove={handleMouseMove}
-      className="relative py-20 md:py-28 lg:py-32 overflow-hidden select-none"
+      className="relative py-20 md:py-28 lg:py-20 overflow-hidden select-none"
     >
-      <AnimatedCourseBackground mouseX={mouseX} mouseY={mouseY} />
-      <div className="relative z-10 max-w-7xl mx-auto px-6 lg:px-10">
-        <div className="relative text-center max-w-3xl mx-auto mb-20 md:mb-28">
-          {/* Behind-header decorations */}
-          <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[120%] h-[150%] bg-[#1A4DFF]/15 blur-[100px] rounded-[100%] pointer-events-none -z-10"></div>
+      <CourseBackground />
+      <div className="relative z-10 max-w-[95%] mx-auto px-6 lg:px-10">
+        <div className="relative flex flex-col lg:flex-row lg:items-center lg:justify-between gap-10 lg:gap-16 mb-20 md:mb-28">
+          <div className="relative text-left max-w-3xl">
+            {/* Behind-header decorations */}
+            <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[120%] h-[150%] bg-[#1A4DFF]/15 blur-[100px] rounded-[100%] pointer-events-none -z-10"></div>
 
-          <ScrollReveal type="badge" delay={0}>
-            <div className="inline-flex items-center gap-2 px-5 py-2 rounded-full bg-white/5 border border-white/10 backdrop-blur-md shadow-[0_0_15px_rgba(58,120,255,0.2)] mb-6 text-[11px] font-bold tracking-[0.25em] text-[#9ED5FF] uppercase relative group">
-              <span className="absolute inset-0 rounded-full border border-[#3A78FF]/30 animate-[pulse_3s_ease-in-out_infinite] pointer-events-none"></span>
-              <svg width={14} height={14} viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth={2} strokeLinecap="round" strokeLinejoin="round"><path d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5" /></svg>
-              Our Programmes
+            <ScrollReveal type="badge" delay={0}>
+              <div className="inline-flex items-center gap-2 px-5 py-2 rounded-full bg-white/5 border border-white/10 backdrop-blur-md shadow-[0_0_15px_rgba(58,120,255,0.2)] mb-6 text-[11px] font-bold tracking-[0.25em] text-[#9ED5FF] uppercase relative group">
+                <span className="absolute inset-0 rounded-full border border-[#3A78FF]/30 animate-[pulse_3s_ease-in-out_infinite] pointer-events-none"></span>
+                <svg width={14} height={14} viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth={2} strokeLinecap="round" strokeLinejoin="round"><path d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5" /></svg>
+                Our Programmes
+              </div>
+            </ScrollReveal>
+
+            <ScrollReveal type="heading" delay={150}>
+              <h2 className="font-display font-bold text-4xl sm:text-5xl md:text-6xl text-transparent bg-clip-text bg-gradient-to-r from-white via-[#E6F0FF] to-[#3A78FF] leading-[1.15] tracking-tight mb-6 drop-shadow-[0_0_15px_rgba(255,255,255,0.1)]">
+                Explore Our Signature Courses
+              </h2>
+            </ScrollReveal>
+
+            <ScrollReveal type="subtitle" delay={300}>
+              <p className="text-lg md:text-xl text-[#B0C4DE] font-light leading-relaxed max-w-2xl">
+                Globally recognised programmes, meticulously designed to build real-world skills and accelerate your commerce career to the highest echelons.
+              </p>
+            </ScrollReveal>
+          </div>
+
+          {/* Right side: a real stat pulled from this section's own data, paired with a
+              direct next step — gives the visitor something to act on, not just read. */}
+          <ScrollReveal type="subtitle" delay={450} className="hidden lg:block max-w-xs shrink-0">
+            <div className="border-l-2 border-[#3A78FF]/40 pl-6">
+              <p className="font-display font-extrabold text-5xl text-white leading-none mb-2">
+                {allCoursesData.length}
+              </p>
+              <p className="text-sm text-[#B0C4DE] uppercase tracking-[0.15em] font-semibold mb-5">
+                Flagship Programmes
+              </p>
+              <a
+                href="#contact"
+                className="group inline-flex items-center gap-1.5 text-sm font-semibold text-[#9ED5FF] hover:text-white transition-colors duration-300"
+              >
+                Not sure which fits? Talk to an advisor
+                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round" className="transition-transform duration-300 group-hover:translate-x-1"><path d="M5 12h14" /><path d="m12 5 7 7-7 7" /></svg>
+              </a>
             </div>
-          </ScrollReveal>
-
-          <ScrollReveal type="heading" delay={150}>
-            <h2 className="font-display font-bold text-4xl sm:text-5xl md:text-6xl text-transparent bg-clip-text bg-gradient-to-r from-white via-[#E6F0FF] to-[#3A78FF] leading-[1.15] tracking-tight mb-6 drop-shadow-[0_0_15px_rgba(255,255,255,0.1)]">
-              Explore Our Signature Courses
-            </h2>
-          </ScrollReveal>
-
-          <ScrollReveal type="subtitle" delay={300}>
-            <p className="text-lg md:text-xl text-[#B0C4DE] font-light leading-relaxed max-w-2xl mx-auto">
-              Globally recognised programmes, meticulously designed to build real-world skills and accelerate your commerce career to the highest echelons.
-            </p>
           </ScrollReveal>
         </div>
       </div>
@@ -441,74 +448,14 @@ export default function Courses() {
   );
 }
 
-export const AnimatedCourseBackground = ({ mouseX, mouseY, hideSparkles = false }) => {
-  const [isMobile, setIsMobile] = useState(false);
-
-  useEffect(() => {
-    const handleResize = () => setIsMobile(window.innerWidth < 768);
-    handleResize();
-    window.addEventListener("resize", handleResize);
-    return () => window.removeEventListener("resize", handleResize);
-  }, []);
-
-  const springConfig = { damping: 25, stiffness: 100 };
-  const smoothX = useSpring(mouseX, springConfig);
-  const smoothY = useSpring(mouseY, springConfig);
-
-  const bgX = useTransform(smoothX, [-0.5, 0.5], ['-2%', '2%']);
-  const bgY = useTransform(smoothY, [-0.5, 0.5], ['-2%', '2%']);
-
+export const CourseBackground = () => {
   return (
-    <motion.div
-      style={{ x: bgX, y: bgY }}
-      className="absolute inset-[-5%] z-0 overflow-hidden bg-[#0D1630] pointer-events-none"
-    >
+    <div className="absolute inset-0 z-0 overflow-hidden bg-[#0D1630] pointer-events-none">
       {/* Deep gradient base */}
       <div className="absolute inset-0 bg-gradient-to-br from-[#071D63] via-[#0D2FA6] to-[#0D1630] opacity-80 mix-blend-overlay"></div>
 
-      {/* Slow floating massive orbs */}
-      <motion.div
-        animate={{
-          scale: [1, 1.25, 1],
-          x: [0, 80, 0],
-          y: [0, -50, 0]
-        }}
-        transition={{ duration: isMobile ? 12.5 : 25, repeat: Infinity, ease: "easeInOut" }}
-        className="hidden md:block absolute -top-20 -left-20 w-[600px] h-[600px] bg-[#1A4DFF]/30 rounded-full blur-[140px]"
-      />
-      <motion.div
-        animate={{
-          scale: [1, 1.15, 1],
-          x: [0, -60, 0],
-          y: [0, 60, 0]
-        }}
-        transition={{ duration: isMobile ? 15 : 30, repeat: Infinity, ease: "easeInOut", delay: isMobile ? 1 : 2 }}
-        className="hidden md:block absolute bottom-[-10%] right-[-5%] w-[700px] h-[700px] bg-[#3A78FF]/20 rounded-full blur-[150px]"
-      />
-
-      {/* Subtle flowing SVG Wave */}
-      <svg className="hidden md:block absolute w-[200%] h-[200%] left-[-50%] top-[-50%] opacity-30 mix-blend-overlay" viewBox="0 0 200 200" preserveAspectRatio="none">
-        <path className="animate-[samsungWaveFlow_20s_ease-in-out_infinite]" style={{ animationDuration: isMobile ? '10s' : '20s' }} d="M-50,100 C 50,50 150,150 250,100" fill="none" stroke="#3A78FF" strokeWidth="2" />
-        <path className="animate-[samsungWaveFlow_25s_ease-in-out_infinite_reverse]" style={{ animationDuration: isMobile ? '12.5s' : '25s' }} d="M-50,120 C 50,180 150,20 250,120" fill="none" stroke="#1A4DFF" strokeWidth="1" />
-      </svg>
-
-      {/* Slowly rotating glowing ring for dynamic depth */}
-      <motion.div
-        animate={{ rotate: [0, 360] }}
-        transition={{ duration: isMobile ? 45 : 90, repeat: Infinity, ease: "linear" }}
-        className="hidden md:block absolute top-[10%] left-[20%] w-[80vw] h-[80vw] max-w-[1000px] max-h-[1000px] bg-gradient-to-tr from-transparent via-[#3A78FF]/10 to-transparent rounded-full blur-[80px]"
-      />
-
-      {/* Floating particles */}
-      {!hideSparkles && (
-        <>
-          <div className="absolute top-[30%] left-[20%] w-1.5 h-1.5 bg-white rounded-full animate-[samsungStarTwinkle_4s_infinite] shadow-[0_0_10px_white]" style={{ animationDuration: isMobile ? '2s' : '4s' }}></div>
-          <div className="absolute bottom-[40%] right-[30%] w-2 h-2 bg-[#9ED5FF] rounded-full animate-[samsungStarTwinkle_6s_infinite_1s] shadow-[0_0_12px_#9ED5FF]" style={{ animationDuration: isMobile ? '3s' : '6s', animationDelay: isMobile ? '0.5s' : '1s' }}></div>
-        </>
-      )}
-
       {/* Enterprise structural dot grid */}
       <div className="absolute inset-0 bg-[url('data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iNDAiIGhlaWdodD0iNDAiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyI+PGNpcmNsZSBjeD0iMSIgY3k9IjEiIHI9IjEiIGZpbGw9InJnYmEoMjU1LCAyNTUsIDI1NSwgMC4wNSkiLz48L3N2Zz4=')] mix-blend-overlay"></div>
-    </motion.div>
+    </div>
   );
 };

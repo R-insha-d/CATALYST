@@ -55,13 +55,38 @@ const MiniAnimatedBackground = () => {
 export default function Contact() {
   return (
     <section id="contact" className="py-16 md:py-20 lg:py-24 bg-[var(--blue-50)]">
-      <div className="max-w-7xl mx-auto px-6 lg:px-10">
-        <div className="text-center max-w-xl mx-auto mb-12 md:mb-16">
-          <ScrollReveal type="heading" delay={0}>
-            <h2 className="font-display font-bold text-3xl sm:text-4xl" style={{ color: 'var(--blue-900)' }}>Get in touch — <span className="blue-text">take the first step today</span></h2>
-          </ScrollReveal>
-          <ScrollReveal type="subtitle" delay={150}>
-            <p className="mt-4" style={{ color: 'var(--slate-600)' }}>Connect with our team for clear guidance on commerce and accounting programmes.</p>
+      <div className="max-w-[95%] mx-auto px-6 lg:px-10">
+        <div className="flex flex-col lg:flex-row lg:items-center justify-between gap-10 lg:gap-16 mb-12 md:mb-16">
+          <div className="max-w-xl">
+            <ScrollReveal type="heading" delay={0}>
+              <h2 className="font-display font-bold text-3xl sm:text-4xl" style={{ color: 'var(--blue-900)' }}>Get in touch — <span className="blue-text">take the first step today</span></h2>
+            </ScrollReveal>
+            <ScrollReveal type="subtitle" delay={150}>
+              <p className="mt-4" style={{ color: 'var(--slate-600)' }}>Connect with our team for clear guidance on commerce and accounting programmes.</p>
+            </ScrollReveal>
+          </div>
+
+          {/* Right side: matches the stat-card pattern used in YouTube.jsx / Faculty.jsx /
+              Pathway.jsx / FreeLearning.jsx — a quick fact plus a direct way to reach us. */}
+          <ScrollReveal type="subtitle" delay={300} className="hidden lg:block max-w-md shrink-0">
+            <div className="border-l-2 pl-6" style={{ borderColor: 'var(--blue-200)' }}>
+              <p className="font-display font-extrabold text-5xl leading-none mb-2" style={{ color: 'var(--blue-900)' }}>
+                24 Hrs
+              </p>
+              <p className="text-sm uppercase tracking-[0.15em] font-semibold mb-5" style={{ color: 'var(--slate-600)' }}>
+                Average Response Time
+              </p>
+              <p className='text-sm mb-3' style={{ color: 'var(--slate-600)' }}>Get timely assistance and expert support from our experienced team,
+dedicated to answering your questions and helping you make the right decisions.</p>
+              <a
+                href="tel:+919887446874"
+                className="group inline-flex items-center gap-1.5 text-sm font-semibold transition-colors duration-300"
+                style={{ color: 'var(--blue-600)' }}
+              >
+                Call us now
+                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round" className="transition-transform duration-300 group-hover:translate-x-1"><path d="M5 12h14" /><path d="m12 5 7 7-7 7" /></svg>
+              </a>
+            </div>
           </ScrollReveal>
         </div>
         <div className="grid lg:grid-cols-[0.9fr_1.1fr] gap-8">

@@ -1,5 +1,6 @@
 import './App.css'
 import Header from './components/layout/Header';
+import Hero2 from './components/home/Hero2';
 import Hero from './components/home/Hero';
 import Stats from './components/home/Stats';
 import About from './components/home/About';
@@ -26,8 +27,9 @@ export default function App() {
       <div>
         <Header />
         <main id="top">
-          <Hero />
+          <Hero2 />
           <Stats />
+          <Hero />
           <About />
           <Features />
           <SkillJourney />

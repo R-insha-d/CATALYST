@@ -56,7 +56,7 @@ export default function FreeLearning() {
   // Auto-rotation disabled since we now have embedded videos that the user might play
 
   return (
-    <section className="py-20 lg:py-28 bg-[var(--blue-50)] relative overflow-hidden">
+    <section className="py-20 lg:pb-22 bg-[var(--blue-50)] relative overflow-hidden">
 
       {/* Editorial Environment Background */}
       <div className="absolute inset-0 pointer-events-none overflow-hidden z-0 flex items-center justify-center">
@@ -64,10 +64,10 @@ export default function FreeLearning() {
         <div className="absolute top-1/4 left-[-10%] w-[800px] h-[800px] rounded-full bg-blue-100/30 blur-[120px] mix-blend-multiply"></div>
       </div>
 
-      <div className="max-w-7xl mx-auto px-6 lg:px-10 relative z-10">
+      <div className="max-w-[95%] mx-auto px-6 lg:px-10 relative z-10">
 
         {/* 1. Section Header */}
-        <div className="flex flex-col md:flex-row md:items-end justify-between gap-8 mb-12 lg:mb-16">
+        <div className="flex flex-col lg:flex-row lg:items-center justify-between gap-10 lg:gap-16 mb-12 lg:mb-16">
           <div className="max-w-2xl">
             <ScrollReveal type="badge" delay={0}>
               <p className="eyebrow mb-5">Free Learning</p>
@@ -85,18 +85,28 @@ export default function FreeLearning() {
             </ScrollReveal>
           </div>
 
-          <ScrollReveal delay={450} className="shrink-0 mb-2">
-            <a
-              href="https://youtube.com/@catalysteduhub?si=29Wr2p-sA5epZtry"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="inline-flex items-center gap-2 font-bold text-[var(--blue-900)] hover:text-blue-600 transition-colors uppercase tracking-wider text-sm group"
-            >
-              View YouTube Channel
-              <svg className="w-4 h-4 transition-transform group-hover:translate-x-1" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round">
-                <path d="M5 12h14M12 5l7 7-7 7" />
-              </svg>
-            </a>
+          {/* Right side: matches the stat-card pattern used in YouTube.jsx / Faculty.jsx /
+              Pathway.jsx — a quick fact plus a direct link to the full library. */}
+          <ScrollReveal type="subtitle" delay={450} className="hidden lg:block max-w-md shrink-0">
+            <div className="border-l-2 pl-6" style={{ borderColor: 'var(--blue-200)' }}>
+              <p className="font-display font-extrabold text-5xl leading-none mb-2" style={{ color: 'var(--blue-900)' }}>
+                100+
+              </p>
+              <p className="text-sm uppercase tracking-[0.15em] font-semibold mb-5" style={{ color: 'var(--slate-600)' }}>
+                Free Video Lessons
+              </p>
+              <p className='text-[var(--slate-600)] mb-3'>Learn anytime with expert-led lessons designed to simplify concepts and strengthen your commerce skills.</p>
+              <a
+                href="https://youtube.com/@catalysteduhub?si=29Wr2p-sA5epZtry"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="group inline-flex items-center gap-1.5 text-sm font-semibold transition-colors duration-300"
+                style={{ color: 'var(--blue-600)' }}
+              >
+                View YouTube Channel
+                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round" className="transition-transform duration-300 group-hover:translate-x-1"><path d="M5 12h14" /><path d="m12 5 7 7-7 7" /></svg>
+              </a>
+            </div>
           </ScrollReveal>
         </div>
 

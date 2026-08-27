@@ -69,6 +69,14 @@ const faqs = [
   {
     q: "How can I book a free career counselling session?",
     a: 'Use the "Book a Free Career Counselling Now" button anywhere on this page, or reach us directly on our contact number.'
+  },
+  {
+    q: "What placement support does Catalyst provide?",
+    a: "We offer 100% placement support, including interview preparation, resume building and direct connections with our hiring partners once you complete your programme."
+  },
+  {
+    q: "Are scholarships or fee instalments available?",
+    a: "Yes, we offer merit-based scholarships and flexible instalment plans. Talk to our counselling team to find the option that best fits your situation."
   }
 ];
 
@@ -80,8 +88,8 @@ export default function Faq() {
       {/* Background glow */}
       <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[300px] bg-[var(--blue-200)] rounded-full blur-[120px] opacity-30 pointer-events-none"></div>
 
-      <div className="max-w-6xl mx-auto px-6 lg:px-10 relative z-10">
-        <div className="grid lg:grid-cols-[1fr_1.6fr] gap-12 lg:gap-16 items-start">
+      <div className="max-w-[95%] mx-auto px-6 lg:px-10 relative z-10">
+        <div className="grid lg:grid-cols-[1fr_1.5fr] gap-12 lg:gap-25 items-start">
 
           {/* Left panel */}
           <ScrollReveal delay={0}>

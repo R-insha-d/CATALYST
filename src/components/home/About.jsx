@@ -3,8 +3,14 @@ import ScrollReveal from '../ui/ScrollReveal';
 
 export default function About() {
   return (
-    <section id="about" className="py-16 md:py-8 lg:py-20 bg-[var(--blue-50)]">
-      <div className="max-w-7xl mx-auto px-6 lg:px-10 grid lg:grid-cols-2 gap-12 lg:gap-16 items-center">
+    <section id="about" className="py-16 md:py-8 lg:pb-20 bg-[var(--blue-50)]">
+
+      <div className='w-full py-6 flex items-center justify-center '>
+        <ScrollReveal type="badge" direction="right" delay={150}>
+            <p className="eyebrow mb-3">Why Catalyst</p>
+          </ScrollReveal>
+      </div>
+      <div className="w-[95%] mx-auto px-6 lg:px-10 grid lg:grid-cols-2 gap-12 lg:gap-16 items-start">
         <ScrollReveal type="image" direction="left" delay={0}>
           <div className="relative group cursor-pointer">
             <div className="rounded-md overflow-hidden aspect-[4/3] bg-[var(--blue-50)]">
@@ -17,9 +23,7 @@ export default function About() {
           </div>
         </ScrollReveal>
         <div>
-          <ScrollReveal type="badge" direction="right" delay={150}>
-            <p className="eyebrow mb-3">Why Catalyst</p>
-          </ScrollReveal>
+          
           <ScrollReveal type="heading" direction="right" delay={250}>
             <h2 className="font-display font-bold text-3xl sm:text-4xl leading-tight" style={{ color: 'var(--blue-900)' }}>
               Trusted as a leading commerce professional <span className="blue-text">course institute in India</span>

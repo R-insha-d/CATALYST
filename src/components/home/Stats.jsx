@@ -48,10 +48,11 @@ function CountUp({ end, duration = 2000 }) {
 
 export default function Stats() {
   return (
-    <section className="relative overflow-hidden bg-[#0a1128] border-none text-white">
-      <CtaStripBackground />
+    <section className="relative overflow-hidden bg-[#050B33] text-white" >
+      {/* <CtaStripBackground /> */}
+      
 
-      <div className="max-w-7xl mx-auto px-6 lg:px-10 py-16 grid grid-cols-2 md:grid-cols-4 gap-8 md:gap-4 relative z-10">
+      <div className="max-w-7xl mx-auto px-6 lg:px-10 py-8 grid grid-cols-2 md:grid-cols-4 gap-8 md:gap-4 relative z-10">
         <ScrollReveal type="badge" delay={0}>
           <div className="text-center md:text-left md:border-l md:border-white/10 md:pl-8 md:first:border-l-0 md:first:pl-0">
             <p className="font-display text-4xl sm:text-5xl font-bold tracking-tight text-white drop-shadow-md"><CountUp end={500} /><span className="text-[var(--blue-400)] ml-1">+</span></p>

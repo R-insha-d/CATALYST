@@ -87,43 +87,125 @@ export default function SkillJourney() {
   };
 
   return (
-    <section className="py-24 lg:py-32 bg-[#F8FAFC] overflow-hidden relative z-10">
-      <div className="max-w-[1400px] mx-auto px-6 lg:px-10 relative">
+    <section className="py-24 lg:pt-15 bg-[#F8FAFC] overflow-hidden relative z-10">
+      <div className="w-[90%] mx-auto px-6 lg:px-0 relative">
 
-        {/* Section Header */}
-        <div className="text-center max-w-4xl mx-auto mb-16 lg:mb-[100px]">
+        {/* Section Eyebrow */}
+        <div className="flex justify-center mb-12">
           <motion.div
             initial={{ opacity: 0, y: -10 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.5, ease: "easeOut" }}
-
           >
-            <span className="eyebrow mb-3 uppercase">
+            <span className="eyebrow uppercase">
               Skill Journey
             </span>
           </motion.div>
+        </div>
 
-          <motion.h2
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.5, delay: 0.1, ease: "easeOut" }}
-            className="font-display font-bold text-3xl sm:text-4xl" style={{ color: 'var(--blue-900)' }}
-          >
-            Your Journey from Learning to <span className="blue-text">
-              <br />Career Success</span>
-          </motion.h2>
+        {/* Section Header */}
+        <div className="flex flex-col lg:flex-row lg:items-start justify-between gap-12 mb-16 lg:mb-[100px]">
+          <div className="text-left max-w-2xl flex flex-col justify-center py-2">
+            <motion.h2
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.5, delay: 0.1, ease: "easeOut" }}
+              className="font-display font-bold text-3xl sm:text-4xl" style={{ color: 'var(--blue-900)' }}
+            >
+              Your Journey from Learning to <span className="blue-text">
+                <br />Career Success</span>
+            </motion.h2>
 
-          <motion.p
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
+            <motion.p
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.5, delay: 0.2, ease: "easeOut" }}
+              className="mt-4 text-base sm:text-lg max-w-[90%]" style={{ color: 'var(--slate-600)' }}
+            >
+              Embark on a structured path designed to transform ambitious learners into industry-ready professionals. By mastering practical skills, building an impressive portfolio of real-world projects, and leveraging modern technologies, you'll take confident, actionable steps toward achieving your long-term career goals.
+            </motion.p>
+
+            <motion.div
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.5, delay: 0.3, ease: "easeOut" }}
+              className="mt-10 flex flex-wrap items-center gap-8 sm:gap-12"
+            >
+              <div>
+                <div className="font-display text-3xl font-bold text-[var(--blue-900)]">93%</div>
+                <div className="text-sm text-slate-500 font-medium mt-1">Placement Rate</div>
+              </div>
+              <div className="w-px h-10 bg-slate-200 hidden sm:block"></div>
+              <div>
+                <div className="font-display text-3xl font-bold text-[var(--blue-900)]">4.9/5</div>
+                <div className="text-sm text-slate-500 font-medium mt-1">Average Rating</div>
+              </div>
+              <div className="w-px h-10 bg-slate-200 hidden sm:block"></div>
+              <div>
+                <div className="font-display text-3xl font-bold text-[var(--blue-900)]">50+</div>
+                <div className="text-sm text-slate-500 font-medium mt-1">Hiring Partners</div>
+              </div>
+            </motion.div>
+          </div>
+
+          {/* Right Side Content */}
+          <motion.div
+            initial={{ opacity: 0, x: 20 }}
+            whileInView={{ opacity: 1, x: 0 }}
             viewport={{ once: true }}
-            transition={{ duration: 0.5, delay: 0.2, ease: "easeOut" }}
-            className="mt-4 text-base sm:text-lg" style={{ color: 'var(--slate-600)' }}
+            transition={{ duration: 0.5, delay: 0.3, ease: "easeOut" }}
+            className="hidden lg:flex flex-col justify-center py-2"
           >
-            Learn practical skills, build real projects, and take confident steps toward your career goals.
-          </motion.p>
+            <h3 className="font-display font-bold text-xl leading-tight text-[var(--blue-900)]">
+              Accelerated Productivity
+            </h3>
+            <p className="text-sm text-slate-400 mt-1">A Proven 4-Step Process</p>
+            <p className="text-sm text-slate-500 leading-relaxed mt-3">
+              Master the four phases of your career journey. From purposeful learning and hands-on projects, to industry skill development and career growth, we guide you every step of the way.
+            </p>
+            <ul className="mt-5 space-y-3.5">
+              <li className="flex items-start gap-3 text-sm text-slate-600">
+                <div className="mt-0.5 w-4 h-4 rounded-full bg-blue-50 flex items-center justify-center text-blue-600 shrink-0">
+                  <svg className="w-3 h-3" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={3} d="M5 13l4 4L19 7" /></svg>
+                </div>
+                <span className="leading-relaxed">Follow structured learning paths from foundational concepts to advanced techniques.</span>
+              </li>
+              <li className="flex items-start gap-3 text-sm text-slate-600">
+                <div className="mt-0.5 w-4 h-4 rounded-full bg-blue-50 flex items-center justify-center text-blue-600 shrink-0">
+                  <svg className="w-3 h-3" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={3} d="M5 13l4 4L19 7" /></svg>
+                </div>
+                <span className="leading-relaxed">Build practical projects that simulate real industry environments and challenges.</span>
+              </li>
+              <li className="flex items-start gap-3 text-sm text-slate-600">
+                <div className="mt-0.5 w-4 h-4 rounded-full bg-blue-50 flex items-center justify-center text-blue-600 shrink-0">
+                  <svg className="w-3 h-3" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={3} d="M5 13l4 4L19 7" /></svg>
+                </div>
+                <span className="leading-relaxed">Master the modern frameworks and technologies that top employers actively demand.</span>
+              </li>
+              <li className="flex items-start gap-3 text-sm text-slate-600">
+                <div className="mt-0.5 w-4 h-4 rounded-full bg-blue-50 flex items-center justify-center text-blue-600 shrink-0">
+                  <svg className="w-3 h-3" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={3} d="M5 13l4 4L19 7" /></svg>
+                </div>
+                <span className="leading-relaxed">Create a standout professional portfolio with impactful projects to showcase your expertise.</span>
+              </li>
+              <li className="flex items-start gap-3 text-sm text-slate-600">
+                <div className="mt-0.5 w-4 h-4 rounded-full bg-blue-50 flex items-center justify-center text-blue-600 shrink-0">
+                  <svg className="w-3 h-3" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={3} d="M5 13l4 4L19 7" /></svg>
+                </div>
+                <span className="leading-relaxed">Receive continuous career guidance, resume reviews, and targeted interview prep.</span>
+              </li>
+            </ul>
+
+            <div className="mt-8 flex flex-wrap items-center gap-6">
+              <button className="px-6 py-2.5 rounded-full bg-[var(--blue-900)] text-white text-sm font-semibold transition-all duration-300 hover:bg-blue-800 shadow-[0_4px_12px_rgba(30,58,138,0.2)] hover:shadow-[0_6px_16px_rgba(30,58,138,0.3)] hover:-translate-y-0.5">
+                Explore Curriculum
+              </button>
+            </div>
+          </motion.div>
         </div>
 
         {/* Journey Cards */}

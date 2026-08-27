@@ -111,24 +111,41 @@ export default function YouTube() {
   const targetOffset = slideOffsets[currentIndex] ?? (currentIndex * 444);
 
   return (
-    <section className="py-16 md:py-20 lg:py-24 bg-[var(--blue-50)] overflow-hidden select-none">
-      <div className="max-w-7xl mx-auto px-6 lg:px-10">
-        <div className="text-center max-w-xl mx-auto mb-10 md:mb-14">
-          <ScrollReveal type="badge" delay={0}>
-            <p className="eyebrow mb-3">Success Stories</p>
-          </ScrollReveal>
-          <ScrollReveal type="heading" delay={150}>
-            <h2 className="font-display font-bold text-3xl sm:text-4xl" style={{ color: 'var(--blue-900)' }}>From Learning to <span className="blue-text">Success</span></h2>
-          </ScrollReveal>
-          <ScrollReveal type="subtitle" delay={300}>
-            <p className="mt-4" style={{ color: 'var(--slate-600)' }}>Discover how our students are building incredible careers with the skills and confidence they gain from our program.</p>
+    <section className="py-16 md:py-20 lg:pt-24 lg:pb-4 bg-[var(--blue-50)] overflow-hidden select-none">
+      <div className="max-w-[95%] mx-auto px-6 lg:px-10">
+        <div className="flex flex-col lg:flex-row lg:items-center lg:justify-between gap-10 lg:gap-16 mb-10 md:mb-14">
+          <div className="text-left max-w-xl">
+            <ScrollReveal type="badge" delay={0}>
+              <p className="eyebrow mb-3">Success Stories</p>
+            </ScrollReveal>
+            <ScrollReveal type="heading" delay={150}>
+              <h2 className="font-display font-bold text-3xl sm:text-4xl" style={{ color: 'var(--blue-900)' }}>From Learning to <span className="blue-text">Success</span></h2>
+            </ScrollReveal>
+            <ScrollReveal type="subtitle" delay={300}>
+              <p className="mt-4" style={{ color: 'var(--slate-600)' }}>Discover how our students are building incredible careers with the skills and confidence they gain from our program.</p>
+            </ScrollReveal>
+          </div>
+
+          {/* Right side: a real count from the video carousel below, not a CTA — the
+              section already has its own "Subscribe Now" button, so this stays a
+              quick fact rather than a competing call to action. */}
+          <ScrollReveal type="subtitle" delay={450} className="hidden lg:block max-w-md shrink-0">
+            <div className="border-l-2 pl-6" style={{ borderColor: 'var(--blue-200)' }}>
+              <p className="font-display font-extrabold text-5xl leading-none mb-2" style={{ color: 'var(--blue-900)' }}>
+                {/* {fullYoutubeData.length} */} 500+
+              </p>
+              <p className="text-sm uppercase tracking-[0.15em] font-semibold" style={{ color: 'var(--slate-600)' }}>
+                SUCCESSFUL CAREER JOURNEYS
+              </p>
+              <p className="mt-3 text-sm" style={{ color: 'var(--slate-600)' }}>Empowering students with the knowledge, skills, and confidence to achieve their academic and professional goals.</p>
+            </div>
           </ScrollReveal>
         </div>
       </div>
 
       <ScrollReveal delay={150}>
         <div
-          className="relative w-full max-w-[1400px] mx-auto pb-14 px-6 lg:px-10"
+          className="relative w-full max-w-[95%] mx-auto pb-14 px-6 lg:px-10"
           onMouseEnter={() => setIsHovered(true)}
           onMouseLeave={() => setIsHovered(false)}
           onTouchStart={() => setIsHovered(true)}
@@ -159,7 +176,7 @@ export default function YouTube() {
                 >
                   <button
                     type="button"
-                    className="w-[85vw] sm:w-[420px] block rounded-lg overflow-hidden relative aspect-video group border border-[var(--line)] shadow-sm hover:shadow-lg transition-shadow text-left"
+                    className="w-[85vw] sm:w-[435px] block rounded-lg overflow-hidden relative aspect-video group border border-[var(--line)] shadow-sm hover:shadow-lg transition-shadow text-left"
                     onClick={(e) => {
                       e.preventDefault();
                       if (!hasDragged) setActiveVideo(video.videoId);
@@ -204,7 +221,7 @@ export default function YouTube() {
 
       <ScrollReveal delay={300}>
         <div className="text-center mt-6">
-          <a href="https://www.youtube.com/@catalysteducationindia" target="_blank" rel="noopener noreferrer" className="focus-ring inline-flex rounded-lg px-7 py-3.5 text-sm font-semibold text-white shadow-[0_8px_20px_rgba(20,40,160,0.25)] hover:shadow-[0_10px_25px_rgba(20,40,160,0.35)] hover:-translate-y-0.5 transition-all duration-300 bg-[var(--blue-700)] hover:bg-[var(--blue-900)]">Subscribe Now</a>
+          <a href="https://www.youtube.com/@catalysteducationindia" target="_blank" rel="noopener noreferrer" className="focus-ring inline-flex rounded-lg px-7 py-3.5 text-sm font-semibold text-white  hover:-translate-y-0.5 transition-all duration-300 bg-[var(--blue-700)] hover:bg-[var(--blue-900)]">Subscribe Now</a>
         </div>
       </ScrollReveal>
 

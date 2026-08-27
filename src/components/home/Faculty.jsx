@@ -158,25 +158,50 @@ export default function Faculty() {
       <div className="absolute top-0 right-0 -mr-32 -mt-32 w-96 h-96 rounded-full bg-[var(--blue-250,#dbeafe)] opacity-20 blur-3xl pointer-events-none"></div>
       <div className="absolute bottom-0 left-0 -ml-32 -mb-32 w-96 h-96 rounded-full bg-[var(--blue-300,#93c5fd)] opacity-20 blur-3xl pointer-events-none"></div>
 
-      <div className="max-w-7xl mx-auto px-6 lg:px-10 relative z-10">
-        <div className="text-center max-w-xl mx-auto mb-12 md:mb-16">
-          <ScrollReveal type="badge" delay={0}>
-            <p className="eyebrow mb-3">Faculty Members</p>
-          </ScrollReveal>
-          <ScrollReveal type="heading" delay={150}>
-            <h2 className="font-sans font-bold text-3xl sm:text-4xl leading-tight" style={{ color: 'var(--blue-900)' }}>
-              Meet our <span className="blue-text">expert faculty</span>
-            </h2>
-          </ScrollReveal>
-          <ScrollReveal type="subtitle" delay={300}>
-            <p className="mt-4 text-base" style={{ color: 'var(--slate-600)' }}>Our faculty is the academic strength behind the leading professional commerce institute in India.</p>
+      <div className="max-w-[95%] mx-auto px-6 lg:px-10 relative z-10">
+        <div className="flex flex-col lg:flex-row lg:items-center lg:justify-between gap-10 lg:gap-16 mb-12 md:mb-16">
+          <div className="text-left max-w-xl">
+            <ScrollReveal type="badge" delay={0}>
+              <p className="eyebrow mb-3">Faculty Members</p>
+            </ScrollReveal>
+            <ScrollReveal type="heading" delay={150}>
+              <h2 className="font-sans font-bold text-3xl sm:text-4xl leading-tight" style={{ color: 'var(--blue-900)' }}>
+                Meet our <span className="blue-text">expert faculty</span>
+              </h2>
+            </ScrollReveal>
+            <ScrollReveal type="subtitle" delay={300}>
+              <p className="mt-4 text-base" style={{ color: 'var(--slate-600)' }}>Learn from experienced educators and industry professionals who bring deep academic knowledge and real-world expertise to our students.</p>
+            </ScrollReveal>
+          </div>
+
+          {/* Right side: combined years of experience, summed straight from the four
+              mentor cards below (8+9+7+10), rather than a stat borrowed from elsewhere
+              on the page, plus a direct next step. */}
+          <ScrollReveal type="subtitle" delay={450} className="hidden lg:block max-w-md shrink-0">
+            <div className="border-l-2 pl-6" style={{ borderColor: 'var(--blue-200)' }}>
+              <p className="font-display font-extrabold text-5xl leading-none mb-2" style={{ color: 'var(--blue-900)' }}>
+                34+
+              </p>
+              <p className="text-sm uppercase tracking-[0.15em] font-semibold mb-5" style={{ color: 'var(--slate-600)' }}>
+                Years Combined Experience
+              </p>
+              <p className='text-sm mb-3'style={{ color: 'var(--slate-600)' }}>Learn from experienced educators and industry professionals with decades of knowledge.</p>
+              <a
+                href="#contact"
+                className="group inline-flex items-center gap-1.5 text-sm font-semibold transition-colors duration-300"
+                style={{ color: 'var(--blue-600)' }}
+              >
+                Have a question? Ask an expert
+                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round" className="transition-transform duration-300 group-hover:translate-x-1"><path d="M5 12h14" /><path d="m12 5 7 7-7 7" /></svg>
+              </a>
+            </div>
           </ScrollReveal>
         </div>
       </div>
 
       <ScrollReveal delay={300}>
         <div
-          className="relative w-full max-w-[1040px] overflow-hidden mx-auto pb-14 px-4 lg:px-0 lg:pt-3 z-10"
+          className="relative w-full max-w-[90%] overflow-hidden mx-auto pb-14 px-4 lg:px-0 lg:pt-3 z-10"
           onMouseEnter={() => setIsHovered(true)}
           onMouseLeave={() => setIsHovered(false)}
           onTouchStart={() => setIsHovered(true)}
@@ -192,7 +217,7 @@ export default function Faculty() {
           >
             <div
               ref={trackRef}
-              className="flex gap-6 w-max relative lg:pt-3"
+              className="flex gap-3 w-max relative lg:pt-3"
               style={{
                 transform: `translateX(calc(-${targetOffset}px + ${dragOffset}px))`,
                 transition: isDragging || !isTransitioning ? 'none' : 'transform 600ms ease-in-out'
@@ -292,7 +317,7 @@ export default function Faculty() {
                   }
                 }}
                 aria-label={`Go to mentor ${i + 1}`}
-                className={`h-2 rounded-full transition-all duration-300 cursor-pointer ${getRealIndex() === i ? 'w-8 bg-[var(--blue-600)] opacity-100' : 'w-2 bg-[var(--blue-250,#dbeafe)] opacity-40'}`}
+                className={`h-2 rounded-full transition-all duration-300 cursor-pointer ${getRealIndex() === i ? 'w-8 bg-[var(--blue-600)] opacity-100' : 'w-2 bg-[var(--blue-300,#dbeafe)] opacity-100'}`}
               ></button>
             ))}
           </div>

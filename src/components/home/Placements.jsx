@@ -2,7 +2,7 @@ import { useRef, useState, useEffect, useCallback } from 'react';
 import { useMotionValue, motion } from 'framer-motion';
 
 import ScrollReveal from '../ui/ScrollReveal';
-import { AnimatedCourseBackground } from './Courses';
+import { CourseBackground } from './Courses';
 
 import diyaImg from '../../assets/placement-img/placement-DIYA.webp';
 import althafImg from '../../assets/placement-img/placement ALTHAF ALI-01.webp';
@@ -193,14 +193,44 @@ export default function Placements() {
       onMouseMove={handleMouseMove}
       className="relative py-16 md:py-20 lg:py-18 overflow-hidden select-none"
     >
-      <AnimatedCourseBackground mouseX={mouseX} mouseY={mouseY} />
-      <div className="max-w-7xl mx-auto px-6 lg:px-10 relative z-10">
-        <div className="text-center max-w-xl mx-auto mb-12 md:mb-16">
-          <ScrollReveal type="heading" delay={0}>
-            <h2 className="font-display font-bold text-3xl sm:text-4xl text-white">Our successful <span className="text-[#00e5ff]">placements</span></h2>
-          </ScrollReveal>
-          <ScrollReveal type="subtitle" delay={150}>
-            <p className="mt-4 text-blue-100 opacity-90">As a commerce institute with 100% placement support, our students have secured roles in reputed MNCs and top companies.</p>
+      <CourseBackground />
+      <div className="max-w-[95%] mx-auto px-6 lg:px-10 relative z-10">
+        <div className="flex flex-col lg:flex-row lg:items-center lg:justify-between gap-10 lg:gap-16 mb-12 md:mb-16">
+          <div className="text-left max-w-xl">
+            <ScrollReveal type="badge" delay={0}>
+              <div className="inline-flex items-center gap-2 px-5 py-2 rounded-full bg-white/5 border border-white/10 backdrop-blur-md shadow-[0_0_15px_rgba(58,120,255,0.2)] mb-6 text-[11px] font-bold tracking-[0.25em] text-[#9ED5FF] uppercase relative group">
+                <span className="absolute inset-0 rounded-full border border-[#3A78FF]/30 animate-[pulse_3s_ease-in-out_infinite] pointer-events-none"></span>
+                <svg width={14} height={14} viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth={2} strokeLinecap="round" strokeLinejoin="round"><path d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5" /></svg>
+                Success Stories
+              </div>
+            </ScrollReveal>
+            <ScrollReveal type="heading" delay={150}>
+              <h2 className="font-display font-bold text-3xl sm:text-4xl text-white">Our successful <span className="text-[#00e5ff]">placements</span></h2>
+            </ScrollReveal>
+            <ScrollReveal type="subtitle" delay={300}>
+              <p className="mt-4 text-blue-100 opacity-90">As a commerce institute with 100% placement support, our students have secured roles in reputed MNCs and top companies.</p>
+            </ScrollReveal>
+          </div>
+
+          {/* Right side: a real count from the carousel below (not a stat borrowed from
+              elsewhere on the page), paired with a direct next step. */}
+          <ScrollReveal type="subtitle" delay={450} className="hidden lg:block max-w-md shrink-0">
+            <div className="border-l-2 border-[#00e5ff]/40 pl-6">
+              <p className="font-display font-extrabold text-5xl text-white leading-none mb-2">
+                {/* {placementData.length} */} 17
+              </p>
+              <p className="text-sm text-blue-100/80 uppercase tracking-[0.15em] font-semibold mb-5">
+                Recent Placements Featured
+              </p>
+              <p className='text-sm text-blue-100/80 mb-3'>Join the next generation of commerce professionals building successful careers.</p>
+              <a
+                href="#contact"
+                className="group inline-flex items-center gap-1.5 text-sm font-semibold text-[#00e5ff] hover:text-white transition-colors duration-300"
+              >
+                Want to be next? Talk to us
+                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round" className="transition-transform duration-300 group-hover:translate-x-1"><path d="M5 12h14" /><path d="m12 5 7 7-7 7" /></svg>
+              </a>
+            </div>
           </ScrollReveal>
         </div>
       </div>
@@ -280,6 +310,25 @@ export default function Placements() {
             ))}
           </div>
         </div>
+
+        {/* Prev / Next navigation — reuses the same glass nav-button style already used
+            for the Features carousel elsewhere on the page, for a consistent modern look. */}
+        <button
+          type="button"
+          onClick={prevSlide}
+          aria-label="Previous placement"
+          className="swiper-nav-btn absolute left-2 lg:-left-8 top-[38%] -translate-y-1/2 z-20 hidden md:flex"
+        >
+          <svg width={22} height={22} fill="none" stroke="currentColor" strokeWidth={2} strokeLinecap="round" strokeLinejoin="round" viewBox="0 0 24 24"><path d="M15 18l-6-6 6-6" /></svg>
+        </button>
+        <button
+          type="button"
+          onClick={nextSlide}
+          aria-label="Next placement"
+          className="swiper-nav-btn absolute right-2 lg:-right-8 top-[38%] -translate-y-1/2 z-20 hidden md:flex"
+        >
+          <svg width={22} height={22} fill="none" stroke="currentColor" strokeWidth={2} strokeLinecap="round" strokeLinejoin="round" viewBox="0 0 24 24"><path d="M9 18l6-6-6-6" /></svg>
+        </button>
 
         {/* Custom Progress Dots */}
         <div className="absolute bottom-0 left-1/2 -translate-x-1/2 flex items-center justify-center gap-2.5">

@@ -1,7 +1,7 @@
 import { useRef, useState, useEffect, useMemo } from 'react';
 import bannerImg from '../../assets/event/event.webp';
 import ScrollReveal from '../ui/ScrollReveal';
-import { AnimatedCourseBackground } from './Courses';
+import { CourseBackground } from './Courses';
 
 export const CtaStripBackground = () => {
   const [isHovering, setIsHovering] = useState(false);
@@ -171,9 +171,9 @@ export default function CtaStrip() {
       onMouseMove={handleMouseMove}
       className="relative flex flex-col justify-center min-h-[60vh] py-24 lg:py-32 overflow-hidden border-y border-[rgba(20,40,160,0.2)]"
     >
-      <AnimatedCourseBackground mouseX={mouseX} mouseY={mouseY} />
+      <CourseBackground />
 
-      <div className="max-w-7xl mx-auto px-6 lg:px-10 grid lg:grid-cols-2 gap-12 lg:gap-16 items-center relative z-10">
+      <div className="max-w-[95%] mx-auto px-6 lg:px-10 grid lg:grid-cols-2 gap-12 lg:gap-16 items-start relative z-10">
         <ScrollReveal delay={0}>
           <div className="max-w-xl">
             <h2 className="font-display font-bold text-4xl lg:text-5xl text-white leading-[1.15] tracking-tight">
