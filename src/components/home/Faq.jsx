@@ -84,7 +84,7 @@ export default function Faq() {
   const [openIndex, setOpenIndex] = useState(0);
 
   return (
-    <section className="py-16 md:py-20 lg:py-24 bg-[var(--blue-50)] relative overflow-hidden">
+    <section className="py-16 md:py-20 lg:pb-24 lg:pt-4 bg-[var(--blue-50)] relative overflow-hidden">
       {/* Background glow */}
       <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[300px] bg-[var(--blue-200)] rounded-full blur-[120px] opacity-30 pointer-events-none"></div>
 

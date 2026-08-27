@@ -54,7 +54,7 @@ const MiniAnimatedBackground = () => {
 
 export default function Contact() {
   return (
-    <section id="contact" className="py-16 md:py-20 lg:py-24 bg-[var(--blue-50)]">
+    <section id="contact" className="py-16 md:py-20 lg:pt-24 pb-0 bg-[var(--blue-50)]">
       <div className="max-w-[95%] mx-auto px-6 lg:px-10">
         <div className="flex flex-col lg:flex-row lg:items-center justify-between gap-10 lg:gap-16 mb-12 md:mb-16">
           <div className="max-w-xl">
