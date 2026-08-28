@@ -61,10 +61,10 @@ export default function Hero() {
                 </div>
                 <p className="text-xs text-[var(--slate-500)]">Global Management Accounting</p>
               </div>
-              <button className="group/btn flex items-center gap-1.5 px-3 py-1.5 rounded-full border border-[var(--blue-100)] bg-[var(--blue-50)] text-[#1428A0] opacity-0 translate-y-2 group-hover:opacity-100 group-hover:translate-y-0 transition-all duration-300 hover:bg-white hover:border-[#1428A0] hover:shadow-md cursor-pointer absolute bottom-3 right-4 z-20">
-                <a href="#courses"><span className="text-xs font-semibold pl-1">Explore</span></a>
-                <div className="w-5 h-5 rounded-full bg-[#1428A0] flex items-center justify-center text-white transition-transform duration-300 group-hover/btn:translate-x-1">
-                  <ChevronRight size={14} strokeWidth={2.5} />
+              <button className="group/btn flex items-center gap-1 px-2 py-0.5 rounded-full border border-[var(--blue-100)] bg-[var(--blue-50)] text-[#1428A0] opacity-0 translate-y-2 group-hover:opacity-100 group-hover:translate-y-0 transition-all duration-300 hover:bg-white hover:border-[#1428A0] hover:shadow-md cursor-pointer absolute bottom-3 right-4 z-20">
+                <a href="#courses"><span className="text-[10px] font-semibold pl-1">Explore</span></a>
+                <div className="w-3.5 h-3.5 rounded-full bg-[#1428A0] flex items-center justify-center text-white transition-transform duration-300 group-hover/btn:translate-x-1">
+                  <ChevronRight size={10} strokeWidth={2.5} />
                 </div>
               </button>
             </div>
@@ -82,10 +82,10 @@ export default function Hero() {
                 </div>
                 <p className="text-xs text-[var(--slate-500)]">Cost & Management Accounting</p>
               </div>
-              <button className="group/btn flex items-center gap-1.5 px-3 py-1.5 rounded-full border border-[var(--blue-100)] bg-[var(--blue-50)] text-[#1428A0] opacity-0 translate-y-2 group-hover:opacity-100 group-hover:translate-y-0 transition-all duration-300 hover:bg-white hover:border-[#1428A0] hover:shadow-md cursor-pointer absolute bottom-3 right-4 z-20">
-                <a href="#courses"><span className="text-xs font-semibold pl-1">Explore</span></a>
-                <div className="w-5 h-5 rounded-full bg-[#1428A0] flex items-center justify-center text-white transition-transform duration-300 group-hover/btn:translate-x-1">
-                  <ChevronRight size={14} strokeWidth={2.5} />
+              <button className="group/btn flex items-center gap-1 px-2 py-0.5 rounded-full border border-[var(--blue-100)] bg-[var(--blue-50)] text-[#1428A0] opacity-0 translate-y-2 group-hover:opacity-100 group-hover:translate-y-0 transition-all duration-300 hover:bg-white hover:border-[#1428A0] hover:shadow-md cursor-pointer absolute bottom-3 right-4 z-20">
+                <a href="#courses"><span className="text-[10px] font-semibold pl-1">Explore</span></a>
+                <div className="w-3.5 h-3.5 rounded-full bg-[#1428A0] flex items-center justify-center text-white transition-transform duration-300 group-hover/btn:translate-x-1">
+                  <ChevronRight size={10} strokeWidth={2.5} />
                 </div>
               </button>
             </div>
@@ -103,10 +103,10 @@ export default function Hero() {
                 </div>
                 <p className="text-xs text-[var(--slate-500)]">Global Accounting Qualification</p>
               </div>
-              <button className="group/btn flex items-center gap-1.5 px-3 py-1.5 rounded-full border border-[var(--blue-100)] bg-[var(--blue-50)] text-[#1428A0] opacity-0 translate-y-2 group-hover:opacity-100 group-hover:translate-y-0 transition-all duration-300 hover:bg-white hover:border-[#1428A0] hover:shadow-md cursor-pointer absolute bottom-3 right-4 z-20">
-                <a href="#courses"><span className="text-xs font-semibold pl-1">Explore</span></a>
-                <div className="w-5 h-5 rounded-full bg-[#1428A0] flex items-center justify-center text-white transition-transform duration-300 group-hover/btn:translate-x-1">
-                  <ChevronRight size={14} strokeWidth={2.5} />
+              <button className="group/btn flex items-center gap-1 px-2 py-0.5 rounded-full border border-[var(--blue-100)] bg-[var(--blue-50)] text-[#1428A0] opacity-0 translate-y-2 group-hover:opacity-100 group-hover:translate-y-0 transition-all duration-300 hover:bg-white hover:border-[#1428A0] hover:shadow-md cursor-pointer absolute bottom-3 right-4 z-20">
+                <a href="#courses"><span className="text-[10px] font-semibold pl-1">Explore</span></a>
+                <div className="w-3.5 h-3.5 rounded-full bg-[#1428A0] flex items-center justify-center text-white transition-transform duration-300 group-hover/btn:translate-x-1">
+                  <ChevronRight size={10} strokeWidth={2.5} />
                 </div>
               </button>
             </div>
@@ -124,10 +124,10 @@ export default function Hero() {
                 </div>
                 <p className="text-xs text-[var(--slate-500)]">Strong Foundation for Careers</p>
               </div>
-              <button className="group/btn flex items-center gap-1.5 px-3 py-1.5 rounded-full border border-[var(--blue-100)] bg-[var(--blue-50)] text-[#1428A0] opacity-0 translate-y-2 group-hover:opacity-100 group-hover:translate-y-0 transition-all duration-300 hover:bg-white hover:border-[#1428A0] hover:shadow-md cursor-pointer absolute bottom-3 right-4 z-20">
-                <a href="#courses"><span className="text-xs font-semibold pl-1">Explore</span></a>
-                <div className="w-5 h-5 rounded-full bg-[#1428A0] flex items-center justify-center text-white transition-transform duration-300 group-hover/btn:translate-x-1">
-                  <ChevronRight size={14} strokeWidth={2.5} />
+              <button className="group/btn flex items-center gap-1 px-2 py-0.5 rounded-full border border-[var(--blue-100)] bg-[var(--blue-50)] text-[#1428A0] opacity-0 translate-y-2 group-hover:opacity-100 group-hover:translate-y-0 transition-all duration-300 hover:bg-white hover:border-[#1428A0] hover:shadow-md cursor-pointer absolute bottom-3 right-4 z-20">
+                <a href="#courses"><span className="text-[10px] font-semibold pl-1">Explore</span></a>
+                <div className="w-3.5 h-3.5 rounded-full bg-[#1428A0] flex items-center justify-center text-white transition-transform duration-300 group-hover/btn:translate-x-1">
+                  <ChevronRight size={10} strokeWidth={2.5} />
                 </div>
               </button>
             </div>

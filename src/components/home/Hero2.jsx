@@ -1,6 +1,6 @@
-import { useCallback, useEffect, useRef, useState, memo } from 'react';
-import { motion, useReducedMotion } from 'framer-motion';
-import { Award } from 'lucide-react';
+import { useCallback, useEffect, useRef, useState, memo, cloneElement } from 'react';
+import { motion, AnimatePresence, useReducedMotion } from 'framer-motion';
+import { Quote, Award } from 'lucide-react';
 
 import abinavImg from '../../assets/banner-placed-img/abinav-NGkC8sgd.webp';
 import afeefImg from '../../assets/banner-placed-img/afeef-Cf91BKIL.webp';
@@ -206,33 +206,35 @@ const contentItemVariantsReduced = {
   visible: { opacity: 1, transition: { duration: 0.5, ease: 'easeOut' } },
 };
 
-const ratingStackVariants = {
+const panelContainerVariants = {
   hidden: {},
-  visible: { transition: { staggerChildren: 0.1, delayChildren: 0.65 } },
+  visible: { transition: { staggerChildren: 0.08, delayChildren: 0.5 } },
 };
 
-const ratingPillVariants = {
-  hidden: { opacity: 0, x: 24 },
-  visible: { opacity: 1, x: 0, transition: { duration: 0.6, ease: [0.16, 1, 0.3, 1] } },
+const panelItemVariants = {
+  hidden: { opacity: 0, y: 16 },
+  visible: { opacity: 1, y: 0, transition: { duration: 0.5, ease: [0.16, 1, 0.3, 1] } },
 };
 
-const ratingStackVariantsReduced = {
+const panelContainerVariantsReduced = {
   hidden: {},
-  visible: { transition: { staggerChildren: 0.08, delayChildren: 0.4 } },
+  visible: { transition: { staggerChildren: 0.05, delayChildren: 0.3 } },
 };
 
-const ratingPillVariantsReduced = {
+const panelItemVariantsReduced = {
   hidden: { opacity: 0 },
   visible: { opacity: 1, transition: { duration: 0.4, ease: 'easeOut' } },
 };
 
-const ratingSources = [
+// Review-platform ratings, each its own floating white card (CSS float
+// animation from index.css, same treatment as the award badge used to have).
+const reviewSources = [
   {
     name: 'Google',
     rating: '4.9',
     floatClass: 'animate-float-slow',
     icon: (
-      <svg width="18" height="18" viewBox="0 0 24 24">
+      <svg width="20" height="20" viewBox="0 0 24 24">
         <path fill="#4285F4" d="M22.56 12.25c0-.78-.07-1.53-.2-2.25H12v4.26h5.92c-.26 1.37-1.04 2.53-2.21 3.31v2.77h3.57c2.08-1.92 3.28-4.74 3.28-8.09z" />
         <path fill="#34A853" d="M12 23c2.97 0 5.46-.98 7.28-2.66l-3.57-2.77c-.98.66-2.23 1.06-3.71 1.06-2.86 0-5.29-1.93-6.16-4.53H2.18v2.84C3.99 20.53 7.7 23 12 23z" />
         <path fill="#FBBC05" d="M5.84 14.09c-.22-.66-.35-1.36-.35-2.09s.13-1.43.35-2.09V7.07H2.18C1.43 8.55 1 10.22 1 12s.43 3.45 1.18 4.93l2.85-2.22.81-.62z" />
@@ -244,7 +246,7 @@ const ratingSources = [
     name: 'Trustpilot',
     rating: '4.8',
     floatClass: 'animate-float-delayed',
-    icon: <svg width="18" height="18" viewBox="0 0 24 24" fill="#00b67a"><path d="M12 17.27l5.18 3.73-1.64-7.03L21 9.24l-7.19-.61L12 2 10.19 8.63 3 9.24l5.46 4.73-1.64 7.03z" /></svg>,
+    icon: <svg width="20" height="20" viewBox="0 0 24 24" fill="#00b67a"><path d="M12 17.27l5.18 3.73-1.64-7.03L21 9.24l-7.19-.61L12 2 10.19 8.63 3 9.24l5.46 4.73-1.64 7.03z" /></svg>,
   },
   {
     name: 'AmbitionBox',
@@ -252,20 +254,175 @@ const ratingSources = [
     floatClass: 'animate-float-slow',
     style: { animationDelay: '1.2s' },
     icon: (
-      <svg width="18" height="18" viewBox="0 0 24 24">
+      <svg width="20" height="20" viewBox="0 0 24 24">
         <rect x="2.5" y="2.5" width="19" height="19" rx="6" fill="#1967D2" />
         <path d="M12 6.5l5.2 3v5l-5.2 3-5.2-3v-5l5.2-3z" fill="#ffffff" fillOpacity="0.95" />
       </svg>
     ),
   },
+  // Placeholder — swap in the real Justdial rating before launch.
+  {
+    name: 'Justdial',
+    rating: '4.7',
+    floatClass: 'animate-float-delayed',
+    style: { animationDelay: '0.6s' },
+    icon: (
+      <svg width="20" height="20" viewBox="0 0 24 24">
+        <rect x="2.5" y="2.5" width="19" height="19" rx="6" fill="#E52527" />
+        <text x="12" y="16.5" textAnchor="middle" fontSize="12" fontWeight="700" fontFamily="sans-serif" fill="#ffffff">J</text>
+      </svg>
+    ),
+  },
 ];
+
+// Placeholder testimonials (no matching real quotes/consented photos exist
+// in the project yet) — swap in verified student quotes before launch.
+// Initials-only avatars are used deliberately so no real student photo gets
+// attached to text they didn't actually say.
+const testimonials = [
+  { quote: 'The training, mentorship, and placement support helped me kickstart my career in the right direction.', name: 'Amina Fathima', role: 'Software Engineer at TCS', initials: 'AF' },
+  { quote: 'The faculty go beyond the syllabus — real case studies made every concept click before exam day.', name: 'Rahul Menon', role: 'CMA Articleship Trainee', initials: 'RM' },
+  { quote: 'From classroom training to campus placement, the support never stopped until I had an offer in hand.', name: 'Fathima Zubair', role: 'Accounts Executive', initials: 'FZ' },
+];
+
+// Auto-advancing testimonial carousel with clickable dots. Autoplay is
+// skipped under prefers-reduced-motion; the dots stay fully usable either way.
+function TestimonialCarousel({ itemVariants }) {
+  const prefersReducedMotion = useReducedMotion();
+  const [index, setIndex] = useState(0);
+
+  useEffect(() => {
+    if (prefersReducedMotion) return undefined;
+    const timer = setInterval(() => {
+      setIndex((i) => (i + 1) % testimonials.length);
+    }, 5000);
+    return () => clearInterval(timer);
+  }, [prefersReducedMotion]);
+
+  const active = testimonials[index];
+
+  const slideTransition = { duration: 0.45, ease: [0.16, 1, 0.3, 1] };
+
+  return (
+    <motion.div variants={itemVariants} className="mt-6 rounded-2xl bg-white/10 border border-white/15 p-4 backdrop-blur-md overflow-hidden">
+      <Quote size={20} className="text-[#3A78FF]" fill="currentColor" fillOpacity={0.15} />
+
+      <div className="overflow-hidden">
+        <AnimatePresence mode="wait">
+          <motion.p
+            key={`quote-${index}`}
+            initial={prefersReducedMotion ? false : { opacity: 0, x: 40 }}
+            animate={{ opacity: 1, x: 0 }}
+            exit={prefersReducedMotion ? undefined : { opacity: 0, x: -40 }}
+            transition={slideTransition}
+            className="text-blue-50/90 text-[13px] leading-relaxed mt-2 min-h-[38px]"
+          >
+            {active.quote}
+          </motion.p>
+        </AnimatePresence>
+      </div>
+
+      <div className="flex items-center justify-between mt-4">
+        <div className="overflow-hidden">
+          <AnimatePresence mode="wait">
+            <motion.div
+              key={`author-${index}`}
+              initial={prefersReducedMotion ? false : { opacity: 0, x: 40 }}
+              animate={{ opacity: 1, x: 0 }}
+              exit={prefersReducedMotion ? undefined : { opacity: 0, x: -40 }}
+              transition={slideTransition}
+              className="flex items-center gap-2.5"
+            >
+              <div className="w-9 h-9 rounded-full bg-white/10 border border-white/20 flex items-center justify-center text-white text-xs font-bold shrink-0">
+                {active.initials}
+              </div>
+              <div>
+                <p className="text-white text-[12.5px] font-bold leading-none">{active.name}</p>
+                <p className="text-[#7FD1FF] text-[11px] mt-1">{active.role}</p>
+              </div>
+            </motion.div>
+          </AnimatePresence>
+        </div>
+
+        <div className="flex items-center gap-1.5 shrink-0" role="tablist" aria-label="Student testimonials">
+          {testimonials.map((t, i) => (
+            <button
+              key={t.name}
+              type="button"
+              role="tab"
+              aria-selected={i === index}
+              aria-label={`Show testimonial from ${t.name}`}
+              onClick={() => setIndex(i)}
+              className={`h-1.5 rounded-full transition-all duration-300 cursor-pointer ${i === index ? 'w-4 bg-white' : 'w-1.5 bg-white/30 hover:bg-white/50'}`}
+            />
+          ))}
+        </div>
+      </div>
+    </motion.div>
+  );
+}
+
+// "Where Talent Meets Opportunity" panel: a heading + 2x2 stat grid + a
+// testimonial card, all on one dark gradient panel that floats over the
+// portrait mosaic. Reuses the same blue gradient already used elsewhere in
+// this section (the award badge) rather than introducing a new color.
+function TalentOpportunityPanel({ itemVariants }) {
+  return (
+    <div
+      className="rounded-3xl shadow-[0_24px_60px_rgba(5,10,40,0.45)] p-6 lg:p-7 backdrop-blur-8xl"
+      style={{
+          background: 'linear-gradient(160deg, #0b144063 60%, #14286b61 70%, #1b40c46c 100%)',
+        }}
+    >
+     
+
+      <div className="grid grid-cols-2 gap-2.5 mt-6">
+        {reviewSources.map((source) => (
+          <motion.div
+            key={source.name}
+            variants={itemVariants}
+            style={source.style}
+            className={`flex items-center gap-2 rounded-xl bg-white pl-2 pr-3 py-2 shadow-[0_12px_30px_rgba(0,0,0,0.18)] ${source.floatClass}`}
+          >
+            <div className="w-7 h-7 flex items-center justify-center shrink-0">
+              {cloneElement(source.icon, { width: 14, height: 14 })}
+            </div>
+            <div className="min-w-0">
+              <p className="font-bold text-gray-900 text-[11px] leading-none truncate">{source.name}</p>
+              <div className="flex items-center gap-1 mt-1">
+                <span className="text-gray-500 text-[10px] font-semibold leading-none">{source.rating}</span>
+                <svg width="9" height="9" viewBox="0 0 24 24" fill="#FFC107"><path d="M12 17.27l5.18 3.73-1.64-7.03L21 9.24l-7.19-.61L12 2 10.19 8.63 3 9.24l5.46 4.73-1.64 7.03L12 17.27z" /></svg>
+              </div>
+            </div>
+          </motion.div>
+        ))}
+      </div>
+
+      {/* Award badge — blue gradient treatment, distinct from the white review cards above. */}
+      <motion.div
+        variants={itemVariants}
+        className="flex items-center gap-3 rounded-2xl pl-3 pr-5 py-3 mt-4 shadow-[0_12px_30px_rgba(0,0,0,0.25)]"
+        style={{ background: 'linear-gradient(135deg, #0A1A70 0%, #2547E0 100%)' }}
+      >
+        <div className="w-10 h-10 rounded-lg bg-white/15 flex items-center justify-center shrink-0">
+          <Award width={20} height={20} color="#FFC107" fill="#FFC107" strokeWidth={1.5} />
+        </div>
+        <p className="font-bold text-white text-[15px] leading-snug whitespace-nowrap">
+          Best ROCC Centre 2x times
+        </p>
+      </motion.div>
+
+      <TestimonialCarousel itemVariants={itemVariants} />
+    </div>
+  );
+}
 
 export default function Hero2() {
   const prefersReducedMotion = useReducedMotion();
   const avatarPool = [abinavImg, nidhaImg, jaseerImg];
   const itemVariants = prefersReducedMotion ? contentItemVariantsReduced : contentItemVariants;
-  const stackVariants = prefersReducedMotion ? ratingStackVariantsReduced : ratingStackVariants;
-  const pillVariants = prefersReducedMotion ? ratingPillVariantsReduced : ratingPillVariants;
+  const panelStagger = prefersReducedMotion ? panelContainerVariantsReduced : panelContainerVariants;
+  const panelItemVariant = prefersReducedMotion ? panelItemVariantsReduced : panelItemVariants;
 
   return (
     <section
@@ -309,9 +466,9 @@ export default function Hero2() {
 
       {/* Foreground content: animates in once as a staggered group, then stays fixed
           while the portrait mosaic behind it keeps flipping independently. */}
-      <div className="relative z-10 max-w-[95%] mx-auto px-6 lg:px-10 min-h-[560px] sm:min-h-[640px] md:min-h-[720px] lg:min-h-screen flex items-center py-24">
+      <div className="relative z-10 max-w-[95%]  mx-auto px-6 lg:px-10 min-h-[560px] sm:min-h-[640px] md:min-h-[720px] lg:min-h-screen flex flex-col lg:flex-row lg:items-center lg:justify-between py-16 lg:py-24">
         <motion.div
-          className="max-w-[60%]"
+          className="w-full lg:max-w-[55%]"
           initial="hidden"
           whileInView="visible"
           viewport={{ once: true, amount: 0.3 }}
@@ -377,49 +534,21 @@ export default function Hero2() {
               <span className="font-bold text-white">4.9★</span> rated by 10,000+ students
             </p>
           </motion.div>
+
         </motion.div>
 
-        {/* Review-platform rating pills, matching the floating pill treatment already
-            used around the hero photo in Hero.jsx (white pill, logo, name, star rating).
-            Desktop only — on smaller screens the mosaic + text column already fill the space. */}
+        {/* "Where Talent Meets Opportunity" panel — sits to the left of the
+            portrait mosaic's remaining visible area, stacked below the headline
+            on narrower screens and side-by-side with it from lg up. Normal flex
+            flow (not absolutely positioned) so it never overlaps the copy. */}
         <motion.div
           initial="hidden"
           whileInView="visible"
           viewport={{ once: true, amount: 0.3 }}
-          variants={stackVariants}
-          className="hidden lg:flex flex-col gap-4 absolute right-6 xl:right-14 top-1/2 -translate-y-1/2"
+          variants={panelStagger}
+          className="w-full lg:w-[380px] xl:w-[420px] lg:shrink-0 mt-10 lg:mt-0"
         >
-          {ratingSources.map((source) => (
-            <motion.div
-              key={source.name}
-              variants={pillVariants}
-              style={source.style}
-              className={`bg-white rounded-full pl-2.5 pr-4 py-4 shadow-[0_12px_30px_rgba(0,0,0,0.18)] border border-gray-50 flex items-center gap-2 ${source.floatClass}`}
-            >
-              <div className="w-7 h-7 flex items-center justify-center shrink-0">{source.icon}</div>
-              <div>
-                <p className="font-bold text-[13px] text-gray-900 leading-none">{source.name}</p>
-                <div className="flex items-center gap-1 mt-1">
-                  <span className="text-[11px] font-semibold text-gray-500 leading-none">{source.rating}</span>
-                  <svg width="10" height="10" viewBox="0 0 24 24" fill="#FFC107"><path d="M12 17.27l5.18 3.73-1.64-7.03L21 9.24l-7.19-.61L12 2 10.19 8.63 3 9.24l5.46 4.73-1.64 7.03L12 17.27z" /></svg>
-                </div>
-              </div>
-            </motion.div>
-          ))}
-
-          {/* Award badge — blue gradient treatment, distinct from the white rating pills above. */}
-          <motion.div
-            variants={pillVariants}
-            className="flex items-center gap-3 rounded-2xl pl-3 pr-5 py-3 shadow-[0_12px_30px_rgba(0,0,0,0.25)]"
-            style={{ background: 'linear-gradient(135deg, #0A1A70 0%, #2547E0 100%)' }}
-          >
-            <div className="w-10 h-10 rounded-lg bg-white/15 flex items-center justify-center shrink-0">
-              <Award width={20} height={20} color="#FFC107" fill="#FFC107" strokeWidth={1.5} />
-            </div>
-            <p className="font-bold text-white text-[15px] leading-snug whitespace-nowrap">
-              Best ROCC Centre 2x times
-            </p>
-          </motion.div>
+          <TalentOpportunityPanel itemVariants={panelItemVariant} />
         </motion.div>
       </div>
     </section>
